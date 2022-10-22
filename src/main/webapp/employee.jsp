@@ -14,6 +14,9 @@
         .container{
             margin-top: 150px;
         }
+        #error-box{
+            visibility: hidden;
+        }
     </style>
 </head>
 <body>
@@ -22,17 +25,17 @@
             <div class="col-md-4 offset-md-4">
                 <div class="card form-holder">
                     <div class="card-body">
-                        <div class="col col-12">
-                            <p class="alert alert-danger text-center">Invalid Login Credentials!</p>
+                        <div id="error-box" class="col col-12">
+                            <p id="error-text" class="alert alert-danger text-center">Invalid Login Credentials!</p>
                         </div>
-                        <form action="EmployeeLogin" method="POST">
+                        <form name="login-form" onsubmit="return validateForm();" action="EmployeeLogin" method="POST">
                             <div class="form-group">
                                 <label for="username">Username</label>
-                                <input type="text" name="username" class="form-control" placeholder="Enter username">
+                                <input class="form-control" type="text" name="username" id="username" placeholder="Enter username">
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" name="password" class="form-control" id="password" placeholder="Enter password">
+                                <input class="form-control" type="password" name="password" id="password" placeholder="Enter password">
                             </div>
                             <div class="row">
                                 <div class="col-12 text-left">
