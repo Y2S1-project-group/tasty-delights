@@ -44,18 +44,18 @@ create table delivery_order(
 );
 
 
-INSERT INTO cart VALUES ( cusid ) VALUES ( 1 );
-INSERT INTO cart VALUES ( cusid ) VALUES ( 2 );
-INSERT INTO cart VALUES ( cusid ) VALUES ( 3 );
-INSERT INTO cart VALUES ( cusid ) VALUES ( 4 );
-INSERT INTO cart VALUES ( cusid ) VALUES ( 5 );
+INSERT INTO cart ( cusid ) VALUES ( 1 );
+INSERT INTO cart ( cusid ) VALUES ( 2 );
+INSERT INTO cart ( cusid ) VALUES ( 3 );
+INSERT INTO cart ( cusid ) VALUES ( 4 );
+INSERT INTO cart ( cusid ) VALUES ( 5 );
 
 
-INSERT INTO cart_item VALUES ( cartid , iname , quantity ) VALUES ( 1 , 'Burger' , 2 );
-INSERT INTO cart_item VALUES ( cartid , iname , quantity ) VALUES ( 2 , 'Fries' , 3 );
-INSERT INTO cart_item VALUES ( cartid , iname , quantity ) VALUES ( 3 , 'Coke' , 5 );
-INSERT INTO cart_item VALUES ( cartid , iname , quantity ) VALUES ( 4 , 'Burger' , 6 );
-INSERT INTO cart_item VALUES ( cartid , iname , quantity ) VALUES ( 5 , 'Fries' , 7 );
+INSERT INTO cart_item ( cartid , iname , quantity ) VALUES ( 1 , 'Burger' , 2 );
+INSERT INTO cart_item ( cartid , iname , quantity ) VALUES ( 2 , 'Fries' , 3 );
+INSERT INTO cart_item ( cartid , iname , quantity ) VALUES ( 3 , 'Coke' , 5 );
+INSERT INTO cart_item ( cartid , iname , quantity ) VALUES ( 4 , 'Burger' , 6 );
+INSERT INTO cart_item ( cartid , iname , quantity ) VALUES ( 5 , 'Fries' , 7 );
 
 
 INSERT INTO customer (fname, lname, age, email, contact, address) VALUES('John', 'Doe', 25, 'test@gmail.com' , '0719999999' ,  'gampha');
