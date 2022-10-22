@@ -17,7 +17,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Dashboard</a>
+  <a class="navbar-brand" href="employee-dashboard.jsp">Tasty Delights</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -29,15 +29,8 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Manage User</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Manage Item
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Manage Fried Rice</a>
-          <a class="dropdown-item" href="#">Manage Kottu</a>
-          <a class="dropdown-item" href="#">Manage Pizza</a>
-        </div>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Manage Foods</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Manage Orders</a>
