@@ -23,7 +23,7 @@
                 <div class="card form-holder">
                     <div class="card-body">
                         <div class="col col-12">
-                            <p class="alert alert-danger text-center">Invalid Loggin Credentials!</p>
+                            <p class="alert alert-danger text-center">Invalid Login Credentials!</p>
                         </div>
                         <form action="EmployeeLogin" method="POST">
                             <div class="form-group">
