@@ -14,7 +14,8 @@
     <title>Employee- Manage Orders</title>
 </head>
 <body>
-    <h1>Manage orders</h1>
+    <%@include file="./employee-manage-orders-header.jsp" %>
+    <h2>Pending Orders</h2>
     <table border="1">
         <tr>
         <th>ID</th>
@@ -29,7 +30,8 @@
     <%
         ArrayList<Order> orders = (ArrayList<Order>) request.getAttribute("orders");
         for(int i = 0; i < orders.size(); i++) {
-            out.print("<tr>" +
+            if(orders.get(i).getStatus().equals("pending")){
+                out.print("<tr>" +
                     "<td>" + orders.get(i).getId() + "</td>" +
                     "<td>" + orders.get(i).getCusid() + "</td>" +
                     "<td>" + orders.get(i).getName() + "</td>" +
@@ -38,8 +40,96 @@
                     "<td>" + orders.get(i).getTprice() + "</td>" +
                     "<td>" + orders.get(i).getOrderedtime() + "</td>" +
                     "</tr>");
+            }
         }
     %>
+        </tr>
+    </table>
+    <h2>Preparing Orders</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Customer ID</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Status</th>
+            <th>Total Price</th>
+            <th>Ordered Time</th>
+        </tr>
+        <tr>
+            <%
+                for(int i = 0; i < orders.size(); i++) {
+                    if(orders.get(i).getStatus().equals("preparing")){
+                        out.print("<tr>" +
+                            "<td>" + orders.get(i).getId() + "</td>" +
+                            "<td>" + orders.get(i).getCusid() + "</td>" +
+                            "<td>" + orders.get(i).getName() + "</td>" +
+                            "<td>" + orders.get(i).getQuality() + "</td>" +
+                            "<td>" + orders.get(i).getStatus() + "</td>" +
+                            "<td>" + orders.get(i).getTprice() + "</td>" +
+                            "<td>" + orders.get(i).getOrderedtime() + "</td>" +
+                            "</tr>");
+                    }
+                }
+            %>
+        </tr>
+    </table>
+    <h2>Delivering Orders</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Customer ID</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Status</th>
+            <th>Total Price</th>
+            <th>Ordered Time</th>
+        </tr>
+        <tr>
+            <%
+                for(int i = 0; i < orders.size(); i++) {
+                    if(orders.get(i).getStatus().equals("delivering")){
+                        out.print("<tr>" +
+                            "<td>" + orders.get(i).getId() + "</td>" +
+                            "<td>" + orders.get(i).getCusid() + "</td>" +
+                            "<td>" + orders.get(i).getName() + "</td>" +
+                            "<td>" + orders.get(i).getQuality() + "</td>" +
+                            "<td>" + orders.get(i).getStatus() + "</td>" +
+                            "<td>" + orders.get(i).getTprice() + "</td>" +
+                            "<td>" + orders.get(i).getOrderedtime() + "</td>" +
+                            "</tr>");
+                    }
+                }
+            %>
+        </tr>
+    </table>
+    <h2>Completed Orders</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Customer ID</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Status</th>
+            <th>Total Price</th>
+            <th>Ordered Time</th>
+        </tr>
+        <tr>
+            <%
+                for(int i = 0; i < orders.size(); i++) {
+                    if(orders.get(i).getStatus().equals("completed")){
+                        out.print("<tr>" +
+                            "<td>" + orders.get(i).getId() + "</td>" +
+                            "<td>" + orders.get(i).getCusid() + "</td>" +
+                            "<td>" + orders.get(i).getName() + "</td>" +
+                            "<td>" + orders.get(i).getQuality() + "</td>" +
+                            "<td>" + orders.get(i).getStatus() + "</td>" +
+                            "<td>" + orders.get(i).getTprice() + "</td>" +
+                            "<td>" + orders.get(i).getOrderedtime() + "</td>" +
+                            "</tr>");
+                    }
+                }
+            %>
         </tr>
     </table>
 </body>

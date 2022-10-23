@@ -33,7 +33,7 @@
         <a class="nav-link" href="#">Manage Foods</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link"><form action="ManageOrders" method="get"><input type="submit" value="Manage Orders" class="remove-button text-secondary"></form></a>
+        <a class="nav-link" href="ManageOrders">Manage Orders</a>
       </li>
     </ul>
     <ul class="navbar-nav mr-right">
