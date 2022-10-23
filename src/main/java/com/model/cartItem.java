@@ -2,9 +2,16 @@ package com.model;
 
 public class cartItem {
     private int id;
-    private String cartid;
+    private int cartid;
     private String iname;
     private int quantity;
+
+    public cartItem(int id, int cartid, String iname, int quantity) {
+        this.id = id;
+        this.cartid = cartid;
+        this.iname = iname;
+        this.quantity = quantity;
+    }
 
     public int getId() {
         return id;
@@ -14,11 +21,11 @@ public class cartItem {
         this.id = id;
     }
 
-    public String getCartid() {
+    public int getCartid() {
         return cartid;
     }
 
-    public void setCartid(String cartid) {
+    public void setCartid(int cartid) {
         this.cartid = cartid;
     }
 
