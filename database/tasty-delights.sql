@@ -12,12 +12,50 @@ CREATE TABLE customer (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE cart (
-    id INT NOT NULL AUTO_INCREMENT,
-    cusid int NOT NULL,
-    PRIMARY KEY (id),
+INSERT INTO customer (fname, lname, age, email, contact, address) VALUES('John', 'Doe', 25, 'test@gmail.com' , '0719999999' ,  'gampaha');
+INSERT INTO customer (fname, lname, age, email, contact, address) VALUES('gihan', 'kgrk', 25, 'yths@gmail.com' , '0719959999' ,  'ragama');
+INSERT INTO customer (fname, lname, age, email, contact, address) VALUES('erick', 'Robert', 25, 'sddsd@gmail.com' , '0719999369' ,  'malabe');
+INSERT INTO customer (fname, lname, age, email, contact, address) VALUES('Michael', 'Daniel', 25, 'sddsd@gmail.com' , '0719999369' ,  'colombo');
+INSERT INTO customer (fname, lname, age, email, contact, address) VALUES('John', 'Thomas', 25, 'sddsd@gmail.com' , '0719944369' ,  'galle');
+
+create table orders(
+    id INT NOT NULL AUTO_INCREMENT primary key,
+    cusid INT NOT NULL,
+    name varchar(20),
+    quantity int,
+    status varchar(20),
+    price double,
+    orderedtime datetime default current_timestamp,
     FOREIGN KEY (cusid) REFERENCES customer(id)
 );
+
+insert into orders (cusid, name, quantity, status, price) values(1, 'burger', 2, 'pending', 200);
+insert into orders(cusid, name, quantity, status, price) values(1, 'pizza', 2, 'preparing', 200);
+insert into orders (cusid, name, quantity, status, price) values(2, 'burger', 2, 'delivering', 200);
+insert into orders (cusid, name, quantity, status, price) values(2, 'pizza', 2, 'completed', 200);
+insert into orders (cusid, name, quantity, status, price) values(3, 'burger', 2, 'pending', 200);
+insert into orders (cusid, name, quantity, status, price) values(3, 'pizza', 2, 'preparing', 200);
+insert into orders (cusid, name, quantity, status, price) values(4, 'burger', 2, 'completed', 200);
+insert into orders (cusid, name, quantity, status, price) values(4, 'pizza', 2, 'pending', 200);
+insert into orders (cusid, name, quantity, status, price) values(5, 'burger', 2, 'preparing', 200);
+insert into orders (cusid, name, quantity, status, price) values(5, 'pizza', 2, 'delivering', 200);
+insert into orders (cusid, name, quantity, status, price) values(5, 'burger', 2, 'completed', 200);
+insert into orders (cusid, name, quantity, status, price) values(5, 'pizza', 2, 'pending', 200);
+insert into orders (cusid, name, quantity, status, price) values(5, 'burger', 2, 'pending', 200);
+
+CREATE TABLE cart (
+    id INT NOT NULL,
+    cusid int NOT NULL,
+    PRIMARY KEY (id, cusid),
+    FOREIGN KEY (cusid) REFERENCES customer(id),
+    FOREIGN KEY (id) REFERENCES orders(id)
+);
+
+insert into cart (id, cusid) values(1, 1);
+insert into cart (id, cusid) values(2, 1);
+insert into cart (id, cusid) values(3, 2);
+insert into cart (id, cusid) values(4, 2);
+insert into cart (id, cusid) values(5, 3);
 
 CREATE TABLE cart_item (
     id INT NOT NULL AUTO_INCREMENT,
@@ -28,20 +66,13 @@ CREATE TABLE cart_item (
     FOREIGN KEY (cartid) REFERENCES cart(id)
 );
 
-create table delivery_person(
-    id int auto_increment primary key,
-    name varchar(20),
-    age int,
-    email varchar(30),
-    contact varchar(20),
-    password varchar(300)
-);
-
-create table delivery_order(
-    id int auto_increment primary key,
-    order_id int,
-    status varchar(30)
-);
+insert into cart_item (cartid, iname, quantity) values(1, 'burger', 2);
+insert into cart_item (cartid, iname, quantity) values(1, 'pizza', 2);
+insert into cart_item (cartid, iname, quantity) values(2, 'burger', 2);
+insert into cart_item (cartid, iname, quantity) values(2, 'pizza', 2);
+insert into cart_item (cartid, iname, quantity) values(3, 'burger', 2);
+insert into cart_item (cartid, iname, quantity) values(3, 'pizza', 2);
+insert into cart_item (cartid, iname, quantity) values(4, 'burger', 2);
 
 create table item(
     id int primary key,
@@ -51,15 +82,20 @@ create table item(
     category varchar(20)
 );
 
+insert into item values (1, 'Tomato Soup','butter bun with seasame',670,'starter' );
+insert into item values (8 , 'Spicy Chicken Burger','with deep fried nuggets',490,'Burgher' );
+insert into item values (5 , 'Coke','500ml',300,'Beverages' );
+insert into item values (11, 'Potato chips','small portion',280,'Fries' );
+insert into item values (19 , 'Crispy veg burger','Extra garlic gravy and onion rings',450,'Burger');
 
-
-
-
-INSERT INTO customer (fname, lname, age, email, contact, address) VALUES('John', 'Doe', 25, 'test@gmail.com' , '0719999999' ,  'gampaha');
-INSERT INTO customer (fname, lname, age, email, contact, address) VALUES('gihan', 'kgrk', 25, 'yths@gmail.com' , '0719959999' ,  'ragama');
-INSERT INTO customer (fname, lname, age, email, contact, address) VALUES('erick', 'Robert', 25, 'sddsd@gmail.com' , '0719999369' ,  'malabe');
-INSERT INTO customer (fname, lname, age, email, contact, address) VALUES('Michael', 'Daniel', 25, 'sddsd@gmail.com' , '0719999369' ,  'colombo');
-INSERT INTO customer (fname, lname, age, email, contact, address) VALUES('John', 'Thomas', 25, 'sddsd@gmail.com' , '0719944369' ,  'galle');
+create table delivery_person(
+    id int auto_increment primary key,
+    name varchar(20),
+    age int,
+    email varchar(30),
+    contact varchar(20),
+    password varchar(300)
+);
 
 insert into delivery_person(name, age, email, contact) values('John', 25, 'john@gmail.com', 'john123');
 insert into delivery_person(name, age, email, contact) values('Smith', 30, 'smith@gmail.com', 'smith123');
@@ -67,6 +103,11 @@ insert into delivery_person(name, age, email, contact) values('Peter', 28, 'pete
 insert into delivery_person(name, age, email, contact) values('Rahul', 35, 'rahul@gmail.com', 'rahul123');
 insert into delivery_person(name, age, email, contact) values('Raj', 40, 'raj@gmail.com', 'raj123');
 
+create table delivery_order(
+    id int auto_increment primary key,
+    order_id int,
+    status varchar(30)
+);
 
 insert into delivery_order(order_id, status) values(1, 'delivering');
 insert into delivery_order(order_id, status) values(2, 'completed');
@@ -74,21 +115,10 @@ insert into delivery_order(order_id, status) values(3, 'delivering');
 insert into delivery_order(order_id, status) values(4, 'completed');
 insert into delivery_order(order_id, status) values(4, 'completed');
 
+create table admin(
+    id int auto_increment primary key,
+    username varchar(20),
+    password varchar(300)
+);
 
-insert into item values (1, 'Tomato Soup','butter bun with seasame',670,'starter' );
-insert into item values (8 , 'Spicy Chicken Burger','with deep fried nuggets',490,'Burgher' );
-insert into item values (5 , 'Coke','500ml',300,'Beverages' );
-insert into item values (11, 'Potato chips','small portion',280,'Fries' );
-insert into item values (19 , 'Crispy veg burger','Extra garlic gravy and onion rings',450,'Burger');
-
-INSERT INTO cart ( cusid ) VALUES ( 1 );
-INSERT INTO cart ( cusid ) VALUES ( 2 );
-INSERT INTO cart ( cusid ) VALUES ( 3 );
-INSERT INTO cart ( cusid ) VALUES ( 4 );
-INSERT INTO cart ( cusid ) VALUES ( 5 );
-
-INSERT INTO cart_item ( cartid , iname , quantity ) VALUES ( 1 , 'Burger' , 2 );
-INSERT INTO cart_item ( cartid , iname , quantity ) VALUES ( 2 , 'Fries' , 3 );
-INSERT INTO cart_item ( cartid , iname , quantity ) VALUES ( 3 , 'Coke' , 5 );
-INSERT INTO cart_item ( cartid , iname , quantity ) VALUES ( 4 , 'Burger' , 6 );
-INSERT INTO cart_item ( cartid , iname , quantity ) VALUES ( 5 , 'Fries' , 7 );
+insert into Admin(username, password) values('admin', 'admin123');

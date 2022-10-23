@@ -17,7 +17,7 @@ public class DatabaseConnection{
         this.dbDriver = "com.mysql.cj.jdbc.Driver";
         this.url = "jdbc:mysql://127.0.0.1:3306/";
         this.database = "tasty_delights";
-        this.username = "user";
+        this.username = "root";
         this.password = "user";
 
         Class.forName(this.dbDriver);
