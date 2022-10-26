@@ -39,7 +39,7 @@
                         "<td>" + orders.get(i).getTprice() + "</td>" +
                         "<td>" + orders.get(i).getOrderedtime() + "</td>" +
                         "<td>" +
-                            "<a href='#?id=" + orders.get(i).getId() + "'>Assign Delivery Person</a>" +
+                            "<a href='ManageOrderAssignDeliveryPerson?id=" + orders.get(i).getId() + "'>Assign Delivery Person</a>" +
                         "</td>" +
                         "</tr>");
             }
