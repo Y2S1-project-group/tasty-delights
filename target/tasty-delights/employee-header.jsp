@@ -33,12 +33,12 @@
         <a class="nav-link" href="#">Manage Foods</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Manage Orders</a>
+        <a class="nav-link" href="ManageOrders">Manage Orders</a>
       </li>
     </ul>
     <ul class="navbar-nav mr-right">
       <li class="nav-item">
-        <a class="nav-link"><form action="EmployeeLogout" method="post"><input type="submit" value="logout" class="remove-button text-danger"></form></a>
+        <a class="nav-link"><form action="EmployeeLogout" method="post"><input type="submit" value="Logout" class="remove-button text-danger"></form></a>
       </li>
     </ul>
   </div>

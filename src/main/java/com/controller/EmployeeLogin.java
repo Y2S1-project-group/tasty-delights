@@ -28,7 +28,6 @@ public class EmployeeLogin extends HttpServlet {
             }else{
                 response.sendRedirect("./employee.jsp");
             }
-
         }catch(Exception e) {
             e.printStackTrace();
         }
