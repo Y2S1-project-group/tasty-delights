@@ -11,9 +11,13 @@ import java.io.IOException;
 @WebServlet(name = "EmployeeLogout", value = "/EmployeeLogout")
 public class EmployeeLogout extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        session.removeAttribute("username");
-        session.invalidate();
-        response.sendRedirect("employee.jsp");
+        try{
+            HttpSession session = request.getSession();
+            session.removeAttribute("username");
+            session.invalidate();
+            response.sendRedirect("employee.jsp");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

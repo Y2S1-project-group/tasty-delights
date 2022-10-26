@@ -11,11 +11,15 @@ import java.io.IOException;
 public class ManageOrderPrepare extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        try{
+            int id = Integer.parseInt(request.getParameter("id"));
 
-        OrderDatabaseUtil orderStatus = new OrderDatabaseUtil();
-        orderStatus.updateOrderStatus(id, "preparing");
+            OrderDatabaseUtil orderStatus = new OrderDatabaseUtil();
+            orderStatus.updateOrderStatus(id, "preparing");
 
-        response.sendRedirect("ManageOrdersPending");
+            response.sendRedirect("ManageOrdersPending");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

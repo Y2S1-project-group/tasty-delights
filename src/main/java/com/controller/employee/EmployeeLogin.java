@@ -14,10 +14,10 @@ import java.io.IOException;
 @WebServlet(name = "EmployeeLogin", value = "/EmployeeLogin")
 public class EmployeeLogin extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-
         try {
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+
             EmployeeDatabase empDB = new EmployeeDatabaseUtil();
             boolean flag = empDB.checkLogin(username, password);
 
