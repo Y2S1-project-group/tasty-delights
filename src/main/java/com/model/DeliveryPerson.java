@@ -8,6 +8,14 @@ public class DeliveryPerson {
     String email;
     String password;
 
+    public DeliveryPerson(int id, String name, int age, String contact, String email) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.contact = contact;
+        this.email = email;
+    }
+
     public DeliveryPerson(int id, String name, int age, String contact, String email, String password) {
         this.id = id;
         this.name = name;
