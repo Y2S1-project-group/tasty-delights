@@ -14,11 +14,15 @@ import java.util.ArrayList;
 public class ManageOrderAssignDeliveryPerson extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        DeliveryPersonDatabaseUtil deliveryProcess = new DeliveryPersonDatabaseUtil();
-        ArrayList<DeliveryPerson> deliveryPersons = deliveryProcess.getDeliveryPersons();
-        request.setAttribute("deliveryPersons", deliveryPersons);
+        try{
+            DeliveryPersonDatabaseUtil deliveryProcess = new DeliveryPersonDatabaseUtil();
+            ArrayList<DeliveryPerson> deliveryPersons = deliveryProcess.getDeliveryPersons();
+            request.setAttribute("deliveryPersons", deliveryPersons);
 
-        RequestDispatcher dis = request.getRequestDispatcher("./employee-manage-orders-preparing-assign.jsp");
-        dis.forward(request, response);
+            RequestDispatcher dis = request.getRequestDispatcher("./employee-manage-orders-preparing-assign.jsp");
+            dis.forward(request, response);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

@@ -13,11 +13,15 @@ import java.util.ArrayList;
 public class ManageOrdersPreparing extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        OrderDatabaseUtil orderProcess = new OrderDatabaseUtil();
-        ArrayList<Order> orders = orderProcess.getPreparingOrders();
-        request.setAttribute("orders", orders);
+        try{
+            OrderDatabaseUtil orderProcess = new OrderDatabaseUtil();
+            ArrayList<Order> orders = orderProcess.getPreparingOrders();
+            request.setAttribute("orders", orders);
 
-        RequestDispatcher dis = request.getRequestDispatcher("./employee-manage-orders-preparing.jsp");
-        dis.forward(request, response);
+            RequestDispatcher dis = request.getRequestDispatcher("./employee-manage-orders-preparing.jsp");
+            dis.forward(request, response);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
