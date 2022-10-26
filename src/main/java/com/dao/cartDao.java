@@ -1,7 +1,7 @@
 package com.dao;
 import java.sql.*;
 import java.util.ArrayList;
-import com.connection.DatabaseConnection;
+import com.controller.DatabaseConnection;
 import com.interfaces.cart;
 import com.model.cartItem;
 
@@ -55,7 +55,8 @@ public class cartDao implements cart {
 
     public boolean deleteCartItem(int id , int cartId){
 
-        String query =  String.format("SELECT * FROM cart_item where cartid = %d" , cid);
+        String query =  String.format("SELECT * FROM cart_item where cartid = %d" , cartId);
+        return false;
     }
 
 
