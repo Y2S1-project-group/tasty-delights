@@ -9,14 +9,15 @@ CREATE TABLE customer (
     email VARCHAR(50) NOT NULL,
     contact VARCHAR(10),
     address VARCHAR(100),
+    password varchar(300),
     PRIMARY KEY (id)
 );
 
-INSERT INTO customer (fname, lname, age, email, contact, address) VALUES('John', 'Doe', 25, 'test@gmail.com' , '0719999999' ,  'gampaha');
-INSERT INTO customer (fname, lname, age, email, contact, address) VALUES('gihan', 'kgrk', 25, 'yths@gmail.com' , '0719959999' ,  'ragama');
-INSERT INTO customer (fname, lname, age, email, contact, address) VALUES('erick', 'Robert', 25, 'sddsd@gmail.com' , '0719999369' ,  'malabe');
-INSERT INTO customer (fname, lname, age, email, contact, address) VALUES('Michael', 'Daniel', 25, 'sddsd@gmail.com' , '0719999369' ,  'colombo');
-INSERT INTO customer (fname, lname, age, email, contact, address) VALUES('John', 'Thomas', 25, 'sddsd@gmail.com' , '0719944369' ,  'galle');
+INSERT INTO customer (fname, lname, age, email, contact, address, password) VALUES('John', 'Doe', 25, 'test@gmail.com' , '0719999999' ,  'gampaha', 'john123');
+INSERT INTO customer (fname, lname, age, email, contact, address, password) VALUES('gihan', 'kgrk', 25, 'yths@gmail.com' , '0719959999' ,  'ragama', 'gihan123');
+INSERT INTO customer (fname, lname, age, email, contact, address, password) VALUES('erick', 'Robert', 25, 'sddsd@gmail.com' , '0719999369' ,  'malabe', 'robert123');
+INSERT INTO customer (fname, lname, age, email, contact, address, password) VALUES('Michael', 'Daniel', 25, 'sddsd@gmail.com' , '0719999369' ,  'colombo', 'daniel123');
+INSERT INTO customer (fname, lname, age, email, contact, address, password) VALUES('John', 'Thomas', 25, 'sddsd@gmail.com' , '0719944369' ,  'galle', 'john123');
 
 create table orders(
     id INT NOT NULL AUTO_INCREMENT primary key,
