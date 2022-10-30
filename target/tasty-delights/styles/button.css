@@ -1,0 +1,11 @@
+/*convert button into link*/
+.remove-button{
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    cursor: pointer;
+}
+
+.mBtn{
+    margin: 0.2rem;
+}

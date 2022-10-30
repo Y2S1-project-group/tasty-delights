@@ -12,7 +12,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./styles/employee.css">
+  <link rel="stylesheet" href="./styles/button.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
@@ -33,7 +33,10 @@
         <a class="nav-link" href="#">Manage Foods</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="ManageOrders">Manage Orders</a>
+        <a class="nav-link" href="ManageOrdersGet">Manage Orders</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="">Manage Delivery Persons</a>
       </li>
     </ul>
     <ul class="navbar-nav mr-right">
