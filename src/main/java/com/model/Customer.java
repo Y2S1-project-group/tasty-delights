@@ -1,6 +1,6 @@
 package com.model;
 
-public class User {
+public class Customer {
     private int id;
     private String fname;
     private String lname;
@@ -9,7 +9,7 @@ public class User {
     private String contact;
     private String address;
 
-    public User(int id, String fname, String lname, String password, String email, String contact, String address) {
+    public Customer(int id, String fname, String lname, String password, String email, String contact, String address) {
         this.id = id;
         this.fname = fname;
         this.lname = lname;
