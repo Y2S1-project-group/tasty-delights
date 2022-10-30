@@ -178,7 +178,7 @@ public class OrderDatabaseUtil implements OrderDatabase {
         return order;
     }
 
-    public void updateAnOrder(int id, String name, int quantity, double price) {
+    public boolean updateAnOrder(int id, String name, int quantity, double price) {
         try{
             DatabaseConnection object = DatabaseConnection.getInstance();
             Connection conn = object.getConnection();
@@ -189,32 +189,44 @@ public class OrderDatabaseUtil implements OrderDatabase {
                     "quantity='" + quantity + "'" +
                     "where id='" + id + "'");
             int count = st.executeUpdate(query);
+            if(count == 1){
+                return true;
+            }
         }catch (Exception e){
             e.printStackTrace();
         }
+        return false;
     }
 
-    public void deleteAnOrder(int id) {
+    public boolean deleteAnOrder(int id) {
         try{
             DatabaseConnection object = DatabaseConnection.getInstance();
             Connection conn = object.getConnection();
             Statement st = conn.createStatement();
             String query = String.format("delete from orders where id='"+ id + "'");
             int count = st.executeUpdate(query);
+            if(count == 1){
+                return true;
+            }
         }catch (Exception e){
             e.printStackTrace();
         }
+        return false;
     }
 
-    public void updateOrderStatus(int id, String status) {
+    public boolean updateOrderStatus(int id, String status) {
         try{
             DatabaseConnection object = DatabaseConnection.getInstance();
             Connection conn = object.getConnection();
             Statement st = conn.createStatement();
             String query = String.format("update orders set status='" + status + "' where id='" + id + "'");
             int count = st.executeUpdate(query);
+            if(count == 1){
+                return true;
+            }
         }catch (Exception e){
             e.printStackTrace();
         }
+        return false;
     }
 }

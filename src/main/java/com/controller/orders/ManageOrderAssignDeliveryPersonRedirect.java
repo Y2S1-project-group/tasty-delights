@@ -1,5 +1,7 @@
 package com.controller.orders;
 
+import com.model.Order;
+import com.sun.org.apache.xpath.internal.operations.Or;
 import com.util.DeliveryOrderDatabaseUtil;
 import com.util.OrderDatabaseUtil;
 
@@ -17,12 +19,20 @@ public class ManageOrderAssignDeliveryPersonRedirect extends HttpServlet {
             int orderId = Integer.parseInt(request.getParameter("orderId"));
 
             DeliveryOrderDatabaseUtil deliveryOrder = new DeliveryOrderDatabaseUtil();
-            deliveryOrder.addOrderToDelivery(orderId);
-
             OrderDatabaseUtil orderUpdate = new OrderDatabaseUtil();
-            orderUpdate.updateOrderStatus(orderId, "delivering");
 
-            response.sendRedirect("ManageOrdersPreparing");
+            if(deliveryOrder.addOrderToDelivery(did, orderId)){
+                if(orderUpdate.updateOrderStatus(orderId, "delivering")){
+                    request.setAttribute("assignStatus", "success");
+                }else{
+                    request.setAttribute("assignStatus", "fail");
+                }
+            }else{
+                request.setAttribute("assignStatus", "fail");
+            }
+
+            RequestDispatcher req = request.getRequestDispatcher("ManageOrdersPreparing");
+            req.forward(request, response);
         }catch (Exception e){
             e.printStackTrace();
         }

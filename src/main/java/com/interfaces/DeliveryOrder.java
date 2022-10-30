@@ -1,5 +1,5 @@
 package com.interfaces;
 
 public interface DeliveryOrder {
-    void addOrderToDelivery(int orderId);
+    public boolean addOrderToDelivery(int did, int orderId);
 }

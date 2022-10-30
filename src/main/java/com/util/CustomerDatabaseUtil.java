@@ -19,7 +19,6 @@ public class CustomerDatabaseUtil implements CustomerDatabase {
             ResultSet rs = st.executeQuery(query);
             rs.next();
             int count = rs.getRow();
-            rs.close();
 
             if(count == 1){
                 return true;
