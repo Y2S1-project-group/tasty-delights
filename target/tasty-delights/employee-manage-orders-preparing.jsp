@@ -67,5 +67,36 @@
         </div>
     <%}%>
 </div>
+<%
+    try {
+        String status = (String) request.getAttribute("assignStatus");
+        if(!status.equals(null)){
+            if(status.equalsIgnoreCase("success")){
+%>
+<script>
+    swal({
+        title: "Order is assigned!",
+        icon: "success",
+        button: "Ok",
+    });
+</script>
+<%
+}else{
+%>
+<script>
+    swal({
+        title: "Order is not assigned!",
+        icon: "error",
+        button: "Ok",
+    });
+</script>
+<%
+            }
+        }
+        request.removeAttribute("assignStatus");
+    }catch (Exception e){
+        e.printStackTrace();
+    }
+%>
 </body>
 </html>

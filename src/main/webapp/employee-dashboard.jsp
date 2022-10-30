@@ -8,6 +8,9 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="./employee-header.jsp" %>
+<%
+    request.removeAttribute("loginError");
+%>
 <html>
 <head>
     <title>Employee- Dashboard</title>

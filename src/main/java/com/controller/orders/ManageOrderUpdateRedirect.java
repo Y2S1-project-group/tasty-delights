@@ -3,6 +3,7 @@ package com.controller.orders;
 import com.model.Order;
 import com.util.OrderDatabaseUtil;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,9 +23,13 @@ public class ManageOrderUpdateRedirect extends HttpServlet {
             double price = Double.parseDouble(request.getParameter("price"));
 
             OrderDatabaseUtil orderUpdate = new OrderDatabaseUtil();
-            orderUpdate.updateAnOrder(id, name, quantity, price);
-
-            response.sendRedirect("ManageOrdersPending");
+            if(orderUpdate.updateAnOrder(id, name, quantity, price)){
+                request.setAttribute("updateStatus", "success");
+            }else{
+                request.setAttribute("updateStatus", "fail");
+            }
+            RequestDispatcher req = request.getRequestDispatcher("ManageOrdersPending");
+            req.forward(request, response);
         }catch(Exception e){
             e.printStackTrace();
         }

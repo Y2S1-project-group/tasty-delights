@@ -15,9 +15,13 @@ public class ManageOrderPrepare extends HttpServlet {
             int id = Integer.parseInt(request.getParameter("id"));
 
             OrderDatabaseUtil orderStatus = new OrderDatabaseUtil();
-            orderStatus.updateOrderStatus(id, "preparing");
-
-            response.sendRedirect("ManageOrdersPending");
+            if(orderStatus.updateOrderStatus(id, "preparing")){
+                request.setAttribute("prepareStatus", "success");
+            }else{
+                request.setAttribute("prepareStatus", "fail");
+            }
+            RequestDispatcher req = request.getRequestDispatcher("ManageOrdersPending");
+            req.forward(request, response);
         }catch (Exception e){
             e.printStackTrace();
         }

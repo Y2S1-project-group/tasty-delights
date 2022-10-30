@@ -1,5 +1,5 @@
 <%--
-  Created by IntelliJ IDEA.
+  Created by IntelliJ IDEA
   User: Sapumal Wijekoon
   Date: 10/22/2022
   Time: 11:02 AM
@@ -14,8 +14,8 @@
         .container{
             margin-top: 150px;
         }
-        #error-box{
-            visibility: hidden;
+        #error-text{
+            color: red;
         }
     </style>
 </head>
@@ -26,7 +26,19 @@
                 <div class="card form-holder">
                     <div class="card-body">
                         <div id="error-box" class="col col-12">
-                            <p id="error-text" class="alert alert-danger text-center">Invalid Login Credentials!</p>
+                            <%
+                                String status;
+                                try{
+                                    status = (String) request.getAttribute("loginError");
+                                    if(!status.equals(null)){
+                                        out.print("<p id='error-text' class='alert alert-danger text-center'>Invalid Login Credentials!</p>");
+                                    }else{
+                                        out.print("<p id='error-text' class='alert alert-danger text-center'></p>");
+                                    }
+                                }catch (Exception e){
+                                    status = null;
+                                }
+                            %>
                         </div>
                         <form name="login-form" onsubmit="return validateForm();" action="EmployeeLogin" method="POST">
                             <div class="form-group">

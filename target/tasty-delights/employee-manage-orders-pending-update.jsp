@@ -7,6 +7,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="./employee-header.jsp" %>
+<%@include file="./employee-manage-orders-header.jsp" %>
 <html>
 <head>
     <title>Title</title>
@@ -23,19 +25,31 @@
         response.sendRedirect("./employee.jsp");
     }
 %>
+<div class="container-sm">
     <form action="ManageOrderUpdateRedirect" method="get">
-
 <%
     ArrayList<Order> order = (ArrayList<Order>) request.getAttribute("orders");
     out.print(
-            "<input name='id' type='text' value='"+ order.get(0).getId() +"' hidden><br>" +
-            "Name: <input name='itemname' type='text' value='"+ order.get(0).getName() +"'><br>" +
-                    "Quantity: <input name='quantity' type='text' value='"+ order.get(0).getQuality() +"'><br>" +
-                    "Price: <input name='price' type='text' value='"+ order.get(0).getTprice() + "'><br>" +
-            "<input  type='submit' value='Update'>"
+            "<div class='form-group'>" +
+                    "<input class='form-control' name='id' type='text' value='" + order.get(0).getId() + "' hidden>" +
+                    "Name <input class='form-control' name='itemname' type='text' value='" + order.get(0).getName() + "'>" +
+                    "</div>" +
+                    "<div class='form-group'>" +
+                        "Quantity <input class='form-control' name='quantity' type='text' value='"+ order.get(0).getQuality() + "'>" +
+                    "</div>" +
+                    "<div class='form-group'>" +
+                        "Price <input class='form-control' name='price' type='text' value='" + order.get(0).getTprice() + "'>" +
+                    "</div>" +
+                        "<input type='submit' class='btn btn-primary' value='Update'></form> " +
+            "</div>"
     );
 %>
     </form>
-    <a href="ManageOrdersPending">Cancel</a>
+    <div class="container">
+        <a class="text-center" href="ManageOrdersPending">Cancel</a>
+    </div>
+</div>
 </body>
 </html>
+
+

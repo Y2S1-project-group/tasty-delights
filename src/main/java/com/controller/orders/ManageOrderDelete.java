@@ -15,9 +15,13 @@ public class ManageOrderDelete extends HttpServlet {
             int id = Integer.parseInt(request.getParameter("id"));
 
             OrderDatabaseUtil orderUpdate = new OrderDatabaseUtil();
-            orderUpdate.deleteAnOrder(id);
-
-            response.sendRedirect("ManageOrdersPending");
+            if(orderUpdate.deleteAnOrder(id)){
+                request.setAttribute("deleteStatus", "success");
+            }else{
+                request.setAttribute("deleteStatus", "fail");
+            }
+            RequestDispatcher req = request.getRequestDispatcher("ManageOrdersPending");
+            req.forward(request, response);
         }catch (Exception e){
             e.printStackTrace();
         }

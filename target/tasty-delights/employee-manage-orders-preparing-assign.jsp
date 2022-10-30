@@ -7,6 +7,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="./employee-header.jsp" %>
+<%@include file="./employee-manage-orders-header.jsp" %>
 <html>
 <head>
     <title>Employee- Assign Delivery Person</title>
@@ -24,20 +26,24 @@
     }
 %>
 <%
+    ArrayList<DeliveryPerson> persons = (ArrayList<DeliveryPerson>) request.getAttribute("deliveryPersons");
     String orderId = request.getParameter("id");
 %>
-<form action="ManageOrderAssignDeliveryPersonRedirect" method="get">
-    <input type="text" value="<%out.print(orderId);%>" name="orderId" hidden>
-    <select name="did">
-        <option selected disabled>Select Delivery Person</option>
-<%
-  ArrayList<DeliveryPerson> persons = (ArrayList<DeliveryPerson>) request.getAttribute("deliveryPersons");
-  for(int i = 0; i < persons.size(); i++) {
-      out.print("<option value='"+ persons.get(i).getId() +"'>" + persons.get(i).getName() + "</option>");
-  }
-%>
-    </select>
-    <input type="submit" value="Assign">
-</form>
+<div class="container">
+    <form action="ManageOrderAssignDeliveryPersonRedirect" method="get" class="form-control">
+        <div class="mb-3">
+            <input type="text" value="<%out.print(orderId);%>" name="orderId" hidden>
+            <select class="form-select" name="did" required>
+                <option selected disabled>Select Delivery Person</option>
+                <%
+                    for(int i = 0; i < persons.size(); i++) {
+                        out.print("<option value='"+ persons.get(i).getId() +"'>" + persons.get(i).getName() + "</option>");
+                    }
+                %>
+            </select>
+        </div>
+        <input class="btn btn-success" type="submit" value="Assign">
+    </form>
+</div>
 </body>
 </html>
