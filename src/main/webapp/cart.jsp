@@ -29,7 +29,7 @@
         <%
             ArrayList<cartItem> disCart = (ArrayList<cartItem>) request.getAttribute("cart");
             for(int i = 0; i < disCart.size(); i++) {
-                out.println("<form method='post' action='deleteCartItem'>");
+                out.println("<form method='post' action='DeleteCartItem'>");
                     out.print("<tr>" +
                         "<td>" + "<input type ='hidden' name='id' value='"+disCart.get(i).getId()+ "'/>" + "</td>" +
                         "<td>" + "<input type ='hidden' name='cartid' value='"+disCart.get(i).getCartid()+ "'/>" + "</td>" +
@@ -39,6 +39,22 @@
                         "<td>" + disCart.get(i).getQuantity() + "</td>" +
                         "<td>" + "<input type='submit' value='delete'/>" + "</td>" +
                         "</tr>");
+                out.println("</form>");
+
+                out.println("<form method='post' action='PlusCartItemQuantity'>");
+                        out.print("<tr>" +
+                        "<td>" + "<input type ='hidden' name='id' value='"+disCart.get(i).getId()+ "'/>" + "</td>" +
+                        "<td>" + "<input type ='hidden' name='cartid' value='"+disCart.get(i).getCartid()+ "'/>" + "</td>" +
+                        "<td>"+ "<input type='submit' value='plus'/>" + "</td>" +
+                        "</tr>");
+                out.println("</form>");
+
+                out.println("<form method='post' action='MinusCartItemQuantity'>");
+                    out.print("<tr>" +
+                        "<td>" + "<input type ='hidden' name='id' value='"+disCart.get(i).getId()+ "'/>" + "</td>" +
+                        "<td>" + "<input type ='hidden' name='cartid' value='"+disCart.get(i).getCartid()+ "'/>" + "</td>" +
+                    "<td>"+ "<input type='submit' value='min'/>" + "</td>" +
+                    "</tr>");
                 out.println("</form>");
             }
         %>
