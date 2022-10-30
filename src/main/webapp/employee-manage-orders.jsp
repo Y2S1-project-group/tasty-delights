@@ -14,6 +14,17 @@
     <title>Employee- Manage Orders</title>
 </head>
 <body>
+    <%
+        // HTTP 1.1
+        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+        // HTTP 1.0
+        response.setHeader("Pragma", "no-cache");
+        // Proxies
+        response.setHeader("Expires", "0");
+        if (session.getAttribute("username") == null) {
+            response.sendRedirect("./employee.jsp");
+        }
+    %>
     <%@include file="./employee-manage-orders-header.jsp" %>
     <h2 class="display-3 text-center">Pending Orders</h2>
     <%
