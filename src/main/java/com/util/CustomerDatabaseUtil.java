@@ -53,4 +53,49 @@ public class CustomerDatabaseUtil implements CustomerDatabase {
         }
         return false;
     }
+    public String getCustomerFirstName(String email) {
+        String firstname = null;
+        try {
+            DatabaseConnection object = DatabaseConnection.getInstance();
+            Connection conn = object.getConnection();
+            Statement st = conn.createStatement();
+            String query = String.format("select fname from Customer where email = '%s'", email);
+            ResultSet rs = st.executeQuery(query);
+            rs.next();
+            firstname = rs.getString(1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return firstname;
+    }
+    public String getCustomerLastName(String email) {
+        String lastname = null;
+        try {
+            DatabaseConnection object = DatabaseConnection.getInstance();
+            Connection conn = object.getConnection();
+            Statement st = conn.createStatement();
+            String query = String.format("select lname from Customer where email = '%s'", email);
+            ResultSet rs = st.executeQuery(query);
+            rs.next();
+            lastname = rs.getString(1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return lastname;
+    }
+    public String getCustomerID(String email) {
+        String cid = null;
+        try {
+            DatabaseConnection object = DatabaseConnection.getInstance();
+            Connection conn = object.getConnection();
+            Statement st = conn.createStatement();
+            String query = String.format("select id from Customer where email = '%s'", email);
+            ResultSet rs = st.executeQuery(query);
+            rs.next();
+            cid = rs.getString(1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return cid;
+    }
 }
