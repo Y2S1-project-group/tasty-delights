@@ -11,24 +11,31 @@
 <html>
 <head>
     <title>Orders- Pending Orders</title>
+    <link rel="stylesheet" href="styles/button.css">
 </head>
 <body>
 <%@include file="./employee-manage-orders-header.jsp" %>
-<h2>Pending Orders</h2>
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Customer ID</th>
-        <th>Name</th>
-        <th>Quantity</th>
-        <th>Status</th>
-        <th>Total Price</th>
-        <th>Ordered Time</th>
-        <th>Process</th>
-    </tr>
-    <tr>
+<h2 class="display-3 text-center">Pending Orders</h2>
+<%
+    ArrayList<Order> orders = (ArrayList<Order>) request.getAttribute("orders");
+    if(orders.size() > 0){
+%>
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Customer ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Status</th>
+            <th scope="col">Total Price</th>
+            <th scope="col">Ordered Time</th>
+            <th scope="col">Process</th>
+        </tr>
+        </thead>
+        <tbody>
         <%
-            ArrayList<Order> orders = (ArrayList<Order>) request.getAttribute("orders");
             for(int i = 0; i < orders.size(); i++) {
                 if(orders.get(i).getStatus().equals("pending")){
                     out.print("<tr>" +
@@ -40,15 +47,19 @@
                             "<td>" + orders.get(i).getTprice() + "</td>" +
                             "<td>" + orders.get(i).getOrderedtime() + "</td>" +
                             "<td>" +
-                                "<a href='ManageOrderPrepare?id=" + orders.get(i).getId() + "'>Prepare</a>" +
-                                "<a href='ManageOrderUpdate?id=" + orders.get(i).getId() + "'>Update</a>" +
-                                "<a href='ManageOrderDelete?id=" + orders.get(i).getId() + "'>Delete</a>" +
+                                "<a class='mBtn btn btn-success' href='ManageOrderPrepare?id=" + orders.get(i).getId() + "'>Prepare</a>" +
+                                "<a class='mBtn btn btn-warning' href='ManageOrderUpdate?id=" + orders.get(i).getId() + "'>Update</a>" +
+                                "<a class='mBtn btn btn-danger'href='ManageOrderDelete?id=" + orders.get(i).getId() + "'>Delete</a>" +
                             "</td>" +
                             "</tr>");
                 }
             }
-        %>
-    </tr>
-</table>
+            out.print("</tbody></table>");
+    }else{ %>
+        <div class="container alert alert-primary" role="alert">
+            <p class="text-center">No more pending orders!</p>
+        </div>
+    <% } %>
+    </div>
 </body>
 </html>

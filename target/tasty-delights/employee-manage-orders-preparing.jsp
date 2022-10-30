@@ -14,21 +14,27 @@
 </head>
 <body>
 <%@include file="./employee-manage-orders-header.jsp" %>
-<h2>Preparing Orders</h2>
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Customer ID</th>
-        <th>Name</th>
-        <th>Quantity</th>
-        <th>Status</th>
-        <th>Total Price</th>
-        <th>Ordered Time</th>
-        <th>Process</th>
-    </tr>
-    <tr>
+<h2 class="display-3 text-center">Preparing Orders</h2>
+<%
+    ArrayList<Order> orders = (ArrayList<Order>) request.getAttribute("orders");
+    if(orders.size() > 0){
+%>
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Customer ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Status</th>
+            <th scope="col">Total Price</th>
+            <th scope="col">Ordered Time</th>
+            <th scope="col">Process</th>
+        </tr>
+        </thead>
+        <tbody>
         <%
-            ArrayList<Order> orders = (ArrayList<Order>) request.getAttribute("orders");
             for(int i = 0; i < orders.size(); i++) {
                 out.print("<tr>" +
                         "<td>" + orders.get(i).getId() + "</td>" +
@@ -39,12 +45,16 @@
                         "<td>" + orders.get(i).getTprice() + "</td>" +
                         "<td>" + orders.get(i).getOrderedtime() + "</td>" +
                         "<td>" +
-                            "<a href='ManageOrderAssignDeliveryPerson?id=" + orders.get(i).getId() + "'>Assign Delivery Person</a>" +
+                            "<a class='btn btn-success' href='ManageOrderAssignDeliveryPerson?id=" + orders.get(i).getId() + "'>Assign Delivery Person</a>" +
                         "</td>" +
                         "</tr>");
             }
-        %>
-    </tr>
-</table>
+        out.print("</tbody></table>");
+    }else{%>
+        <div class="container alert alert-primary" role="alert">
+            <p class="text-center">No more preparing orders!</p>
+        </div>
+    <%}%>
+</div>
 </body>
 </html>

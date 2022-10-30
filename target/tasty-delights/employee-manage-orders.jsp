@@ -15,122 +15,160 @@
 </head>
 <body>
     <%@include file="./employee-manage-orders-header.jsp" %>
-    <h2>Pending Orders</h2>
-    <table border="1">
-        <tr>
-        <th>ID</th>
-        <th>Customer ID</th>
-        <th>Name</th>
-        <th>Quantity</th>
-        <th>Status</th>
-        <th>Total Price</th>
-        <th>Ordered Time</th>
-        </tr>
-        <tr>
+    <h2 class="display-3 text-center">Pending Orders</h2>
     <%
-        ArrayList<Order> orders = (ArrayList<Order>) request.getAttribute("orders");
-        for(int i = 0; i < orders.size(); i++) {
-            if(orders.get(i).getStatus().equals("pending")){
-                out.print("<tr>" +
-                    "<td>" + orders.get(i).getId() + "</td>" +
-                    "<td>" + orders.get(i).getCusid() + "</td>" +
-                    "<td>" + orders.get(i).getName() + "</td>" +
-                    "<td>" + orders.get(i).getQuality() + "</td>" +
-                    "<td>" + orders.get(i).getStatus() + "</td>" +
-                    "<td>" + orders.get(i).getTprice() + "</td>" +
-                    "<td>" + orders.get(i).getOrderedtime() + "</td>" +
-                    "</tr>");
-            }
-        }
+        ArrayList<Order> pendingOrders = (ArrayList<Order>) request.getAttribute("pending");
+        if(pendingOrders.size() > 0){
     %>
-        </tr>
-    </table>
-    <h2>Preparing Orders</h2>
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Customer ID</th>
-            <th>Name</th>
-            <th>Quantity</th>
-            <th>Status</th>
-            <th>Total Price</th>
-            <th>Ordered Time</th>
-        </tr>
-        <tr>
-            <%
-                for(int i = 0; i < orders.size(); i++) {
-                    if(orders.get(i).getStatus().equals("preparing")){
-                        out.print("<tr>" +
-                            "<td>" + orders.get(i).getId() + "</td>" +
-                            "<td>" + orders.get(i).getCusid() + "</td>" +
-                            "<td>" + orders.get(i).getName() + "</td>" +
-                            "<td>" + orders.get(i).getQuality() + "</td>" +
-                            "<td>" + orders.get(i).getStatus() + "</td>" +
-                            "<td>" + orders.get(i).getTprice() + "</td>" +
-                            "<td>" + orders.get(i).getOrderedtime() + "</td>" +
-                            "</tr>");
-                    }
-                }
-            %>
-        </tr>
-    </table>
-    <h2>Delivering Orders</h2>
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Customer ID</th>
-            <th>Name</th>
-            <th>Quantity</th>
-            <th>Status</th>
-            <th>Total Price</th>
-            <th>Ordered Time</th>
-        </tr>
-        <tr>
-            <%
-                for(int i = 0; i < orders.size(); i++) {
-                    if(orders.get(i).getStatus().equals("delivering")){
-                        out.print("<tr>" +
-                            "<td>" + orders.get(i).getId() + "</td>" +
-                            "<td>" + orders.get(i).getCusid() + "</td>" +
-                            "<td>" + orders.get(i).getName() + "</td>" +
-                            "<td>" + orders.get(i).getQuality() + "</td>" +
-                            "<td>" + orders.get(i).getStatus() + "</td>" +
-                            "<td>" + orders.get(i).getTprice() + "</td>" +
-                            "<td>" + orders.get(i).getOrderedtime() + "</td>" +
-                            "</tr>");
-                    }
-                }
-            %>
-        </tr>
-    </table>
-    <h2>Completed Orders</h2>
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Customer ID</th>
-            <th>Name</th>
-            <th>Quantity</th>
-            <th>Status</th>
-            <th>Total Price</th>
-            <th>Ordered Time</th>
-        </tr>
-        <tr>
-            <%
-                for(int i = 0; i < orders.size(); i++) {
-                    if(orders.get(i).getStatus().equals("completed")){
-                        out.print("<tr>" +
-                            "<td>" + orders.get(i).getId() + "</td>" +
-                            "<td>" + orders.get(i).getCusid() + "</td>" +
-                            "<td>" + orders.get(i).getName() + "</td>" +
-                            "<td>" + orders.get(i).getQuality() + "</td>" +
-                            "<td>" + orders.get(i).getStatus() + "</td>" +
-                            "<td>" + orders.get(i).getTprice() + "</td>" +
-                            "<td>" + orders.get(i).getOrderedtime() + "</td>" +
-                            "</tr>");
-                    }
-                }
-            %>
-        </tr>
-    </table>
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Customer ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Status</th>
+                <th scope="col">Total Price</th>
+                <th scope="col">Ordered Time</th>
+            </tr>
+            </thead>
+            <tbody>
+    <%
+        for(int i = 0; i < pendingOrders.size(); i++) {
+                out.print("<tr>" +
+                    "<td>" + pendingOrders.get(i).getId() + "</td>" +
+                    "<td>" + pendingOrders.get(i).getCusid() + "</td>" +
+                    "<td>" + pendingOrders.get(i).getName() + "</td>" +
+                    "<td>" + pendingOrders.get(i).getQuality() + "</td>" +
+                    "<td>" + pendingOrders.get(i).getStatus() + "</td>" +
+                    "<td>" + pendingOrders.get(i).getTprice() + "</td>" +
+                    "<td>" + pendingOrders.get(i).getOrderedtime() + "</td>" +
+                    "</tr>");
+        }
+        out.print("</tbody></table>");
+    }else{%>
+            <div class="container alert alert-primary" role="alert">
+                <p class="text-center">No more pending orders!</p>
+            </div>
+                <%}%>
+    </div>
+
+    <h2 class="display-3 text-center">Preparing Orders</h2>
+    <%
+        ArrayList<Order> preparingOrders = (ArrayList<Order>) request.getAttribute("preparing");
+        if(preparingOrders.size() > 0){
+    %>
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Customer ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Status</th>
+                <th scope="col">Total Price</th>
+                <th scope="col">Ordered Time</th>
+            </tr>
+            </thead>
+            <tbody>
+                <%
+        for(int i = 0; i < preparingOrders.size(); i++) {
+                out.print("<tr>" +
+                    "<td>" + preparingOrders.get(i).getId() + "</td>" +
+                    "<td>" + preparingOrders.get(i).getCusid() + "</td>" +
+                    "<td>" + preparingOrders.get(i).getName() + "</td>" +
+                    "<td>" + preparingOrders.get(i).getQuality() + "</td>" +
+                    "<td>" + preparingOrders.get(i).getStatus() + "</td>" +
+                    "<td>" + preparingOrders.get(i).getTprice() + "</td>" +
+                    "<td>" + preparingOrders.get(i).getOrderedtime() + "</td>" +
+                    "</tr>");
+        }
+        out.print("</tbody></table>");
+    }else{%>
+            <div class="container alert alert-primary" role="alert">
+                <p class="text-center">No more preparing orders!</p>
+            </div>
+                <%}%>
+    </div>
+
+    <h2 class="display-3 text-center">Delivering Orders</h2>
+    <%
+        ArrayList<Order> deliveringOrders = (ArrayList<Order>) request.getAttribute("delivering");
+        if(deliveringOrders.size() > 0){
+    %>
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Customer ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Status</th>
+                <th scope="col">Total Price</th>
+                <th scope="col">Ordered Time</th>
+            </tr>
+            </thead>
+            <tbody>
+                <%
+        for(int i = 0; i < deliveringOrders.size(); i++) {
+                out.print("<tr>" +
+                    "<td>" + deliveringOrders.get(i).getId() + "</td>" +
+                    "<td>" + deliveringOrders.get(i).getCusid() + "</td>" +
+                    "<td>" + deliveringOrders.get(i).getName() + "</td>" +
+                    "<td>" + deliveringOrders.get(i).getQuality() + "</td>" +
+                    "<td>" + deliveringOrders.get(i).getStatus() + "</td>" +
+                    "<td>" + deliveringOrders.get(i).getTprice() + "</td>" +
+                    "<td>" + deliveringOrders.get(i).getOrderedtime() + "</td>" +
+                    "</tr>");
+        }
+        out.print("</tbody></table>");
+    }else{%>
+            <div class="container alert alert-primary" role="alert">
+                <p class="text-center">No more delivering orders!</p>
+            </div>
+                <%}%>
+    </div>
+
+    <h2 class="display-3 text-center">Completed Orders</h2>
+    <%
+        ArrayList<Order> completedOrders = (ArrayList<Order>) request.getAttribute("completed");
+        if(completedOrders.size() > 0){
+    %>
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Customer ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Status</th>
+                <th scope="col">Total Price</th>
+                <th scope="col">Ordered Time</th>
+            </tr>
+            </thead>
+            <tbody>
+                <%
+        for(int i = 0; i < completedOrders.size(); i++) {
+                out.print("<tr>" +
+                    "<td>" + completedOrders.get(i).getId() + "</td>" +
+                    "<td>" + completedOrders.get(i).getCusid() + "</td>" +
+                    "<td>" + completedOrders.get(i).getName() + "</td>" +
+                    "<td>" + completedOrders.get(i).getQuality() + "</td>" +
+                    "<td>" + completedOrders.get(i).getStatus() + "</td>" +
+                    "<td>" + completedOrders.get(i).getTprice() + "</td>" +
+                    "<td>" + completedOrders.get(i).getOrderedtime() + "</td>" +
+                    "</tr>");
+        }
+        out.print("</tbody></table>");
+    }else{%>
+            <div class="container alert alert-primary" role="alert">
+                <p class="text-center">No more completed orders!</p>
+            </div>
+                <%}%>
+    </div>
 </body>
 </html>
