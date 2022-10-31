@@ -97,11 +97,11 @@ create table delivery_person(
                                 password varchar(300)
 );
 
-insert into delivery_person(name, age, email, contact) values('John', 25, 'john@gmail.com', 'john123');
-insert into delivery_person(name, age, email, contact) values('Smith', 30, 'smith@gmail.com', 'smith123');
-insert into delivery_person(name, age, email, contact) values('Peter', 28, 'peter@gmail.com', 'peter123');
-insert into delivery_person(name, age, email, contact) values('Rahul', 35, 'rahul@gmail.com', 'rahul123');
-insert into delivery_person(name, age, email, contact) values('Raj', 40, 'raj@gmail.com', 'raj123');
+insert into delivery_person(name, age, email, contact, password) values('John', 25, 'john@gmail.com', '0776545321', 'john123');
+insert into delivery_person(name, age, email, contact, password) values('Smith', 30, 'smith@gmail.com', '0776545321', 'smith123');
+insert into delivery_person(name, age, email, contact, password) values('Peter', 28, 'peter@gmail.com', '0776545321', 'peter123');
+insert into delivery_person(name, age, email, contact, password) values('Rahul', 35, 'rahul@gmail.com', '0776545321', 'rahul123');
+insert into delivery_person(name, age, email, contact, password) values('Raj', 40, 'raj@gmail.com', '0776545321', 'raj123');
 
 create table delivery_order(
                                id int primary key auto_increment,
