@@ -26,19 +26,22 @@
     }
 %>
 <div class="container-sm">
-    <form action="ManageOrderUpdateRedirect" method="get">
+    <form name="update-name" action="ManageOrderUpdateRedirect" method="get" onsubmit="return validateForm();">
 <%
     ArrayList<Order> order = (ArrayList<Order>) request.getAttribute("orders");
     out.print(
             "<div class='form-group'>" +
                     "<input class='form-control' name='id' type='text' value='" + order.get(0).getId() + "' hidden>" +
-                    "Name <input class='form-control' name='itemname' type='text' value='" + order.get(0).getName() + "'>" +
+                    "<p id='error-name'></p>" +
+                    "Name <input id='update-name' class='form-control' name='item-name' type='text' value='" + order.get(0).getName() + "'>" +
                     "</div>" +
                     "<div class='form-group'>" +
-                        "Quantity <input class='form-control' name='quantity' type='text' value='"+ order.get(0).getQuality() + "'>" +
+                        "<p id='error-quantity'></p>" +
+                        "Quantity <input id='update-quantity' class='form-control' name='quantity' type='text' value='"+ order.get(0).getQuality() + "'>" +
                     "</div>" +
                     "<div class='form-group'>" +
-                        "Price <input class='form-control' name='price' type='text' value='" + order.get(0).getTprice() + "'>" +
+                        "<p id='error-price'></p>" +
+                        "Price <input id='update-price' class='form-control' name='price' type='text' value='" + order.get(0).getTprice() + "'>" +
                     "</div>" +
                         "<input type='submit' class='btn btn-primary' value='Update'></form> " +
             "</div>"
@@ -49,6 +52,7 @@
         <a class="text-center" href="ManageOrdersPending">Cancel</a>
     </div>
 </div>
+<script src="scripts/employee-order-update.js"></script>
 </body>
 </html>
 

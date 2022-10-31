@@ -1,14 +1,13 @@
 package com.model;
 
-public class DeliveryPerson {
-    int id;
-    String name;
-    int age;
-    String contact;
-    String email;
-    String password;
+public class DeliveryPerson extends Person{
+    private String name;
+    private int age;
+    private String contact;
+    private String email;
 
     public DeliveryPerson(int id, String name, int age, String contact, String email) {
+        super(id);
         this.id = id;
         this.name = name;
         this.age = age;
@@ -17,20 +16,11 @@ public class DeliveryPerson {
     }
 
     public DeliveryPerson(int id, String name, int age, String contact, String email, String password) {
-        this.id = id;
+        super(id, password);
         this.name = name;
         this.age = age;
         this.contact = contact;
         this.email = email;
-        this.password = password;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -63,13 +53,5 @@ public class DeliveryPerson {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 }
