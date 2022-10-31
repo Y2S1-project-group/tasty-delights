@@ -1,12 +1,10 @@
 package com.model;
 
 public class DeliveryPerson extends Person{
-    private int id;
     private String name;
     private int age;
     private String contact;
     private String email;
-    private String password;
 
     public DeliveryPerson(int id, String name, int age, String contact, String email) {
         super(id);
