@@ -30,11 +30,12 @@
     String orderId = request.getParameter("id");
 %>
 <div class="container">
-    <form action="ManageOrderAssignDeliveryPersonRedirect" method="get" class="form-control">
+    <form name="assign-form" action="ManageOrderAssignDeliveryPersonRedirect" method="get" class="form-control" onsubmit="return validateForm();">
         <div class="mb-3">
             <input type="text" value="<%out.print(orderId);%>" name="orderId" hidden>
+            <p id='error-select'></p>
             <select class="form-select" name="did" required>
-                <option selected disabled>Select Delivery Person</option>
+                <option value="default" selected disabled>Select Delivery Person</option>
                 <%
                     for(int i = 0; i < persons.size(); i++) {
                         out.print("<option value='"+ persons.get(i).getId() +"'>" + persons.get(i).getName() + "</option>");
@@ -45,5 +46,6 @@
         <input class="btn btn-success" type="submit" value="Assign">
     </form>
 </div>
+<script src="scripts/employee-order-assign.js"></script>
 </body>
 </html>
