@@ -1,4 +1,4 @@
-adminuse tasty_delights;
+use tasty_delights;
 
 CREATE TABLE customer (
                           id INT NOT NULL AUTO_INCREMENT,
