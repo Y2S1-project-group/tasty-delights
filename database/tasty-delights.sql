@@ -23,8 +23,8 @@ create table orders(
     cusid INT NOT NULL,
     name varchar(20),
     quantity int,
-    status varchar(20),
-    price double,
+    status varchar(20) default pending,
+    price double, 
     orderedtime datetime default current_timestamp,
     FOREIGN KEY (cusid) REFERENCES customer(id)
 );

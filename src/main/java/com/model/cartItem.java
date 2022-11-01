@@ -5,12 +5,22 @@ public class cartItem {
     private int cartid;
     private String iname;
     private int quantity;
+    private float price;
 
-    public cartItem(int id, int cartid, String iname, int quantity) {
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public cartItem(int id, int cartid, String iname, int quantity ,float price) {
         this.id = id;
         this.cartid = cartid;
         this.iname = iname;
         this.quantity = quantity;
+        this.price = price;
     }
 
     public int getId() {

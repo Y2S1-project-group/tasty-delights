@@ -18,7 +18,7 @@ public class Cart extends HttpServlet {
         cartDao cart = new cartDao();
         int cartid = 0;
         try {
-            cartid = cart.getCartId(3); // sessions
+            cartid = cart.getCartId(1); // sessions
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

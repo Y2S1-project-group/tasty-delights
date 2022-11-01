@@ -14,8 +14,20 @@
     <title>Employee- Manage Orders</title>
 </head>
 <body>
-<c:set var="id"
+
 <h1>Manage orders</h1>
+
+<%
+    // HTTP 1.1
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+    // HTTP 1.0
+    response.setHeader("Pragma", "no-cache");
+    // Proxies
+    response.setHeader("Expires", "0");
+//    if (session.getAttribute("username") == null) {
+//        response.sendRedirect("./employee.jsp");
+//    }
+%>
 <table border="1">
     <tr>
         <th>x</th>
@@ -37,6 +49,7 @@
                         "<td>" + disCart.get(i).getCartid() + "</td>" +
                         "<td>" + disCart.get(i).getIname() + "</td>" +
                         "<td>" + disCart.get(i).getQuantity() + "</td>" +
+                        "<td>" + disCart.get(i).getPrice() + "</td>" +
                         "<td>" + "<input type='submit' value='delete'/>" + "</td>" +
                         "</tr>");
                 out.println("</form>");
@@ -58,7 +71,18 @@
                 out.println("</form>");
             }
         %>
+
+
+
     </tr>
 </table>
+<a href="index.jsp">
+    <input type="button" name="back" value="back">
+</a>
+<a href="checkout.jsp">
+    <input type="button" name="back" value="checkout">
+</a>
+
+
 </body>
 </html>

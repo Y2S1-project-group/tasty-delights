@@ -1,4 +1,4 @@
-package com.controller.Cart;
+package com.controller.cart;
 
 import com.dao.cartDao;
 import com.model.cartItem;

@@ -1,4 +1,4 @@
-package com.controller.Cart;
+package com.controller.cart;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

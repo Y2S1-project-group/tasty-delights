@@ -34,7 +34,6 @@ public class cartDao implements cart {
     public ArrayList<cartItem> displayCart(int cid) {
         ArrayList<cartItem> disCart = new ArrayList<cartItem>();
         try{
-            System.out.println("sssssssss");
             DatabaseConnection object = DatabaseConnection.getInstance();
             Connection conn = object.getConnection();
             Statement st = conn.createStatement();
@@ -46,7 +45,8 @@ public class cartDao implements cart {
                 int cartid = rs.getInt("cartid");
                 String iname = rs.getString("iname");
                 int quantity = rs.getInt("quantity");
-                cartItem temp = new cartItem(id , cartid , iname , quantity);
+                float price = rs.getFloat("price");
+                cartItem temp = new cartItem(id , cartid , iname , quantity ,price);
                 disCart.add(temp);
             }
 
