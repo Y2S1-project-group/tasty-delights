@@ -1,7 +1,7 @@
 package com.util;
 
 import com.controller.DatabaseConnection;
-import com.interfaces.OrderDatabase;
+import com.model.Item;
 import com.model.Order;
 
 import java.sql.Connection;
@@ -9,184 +9,70 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class ItemDatabaseUtil implements OrderDatabase {
-    public ArrayList<Order> getOrders() {
-        ArrayList<Order> orders = new ArrayList<Order>();
+public class ItemDatabaseUtil{
+    public ArrayList<Item> getItems() {
+        ArrayList<Item> items = new ArrayList<Item>();
+        //create database connection
         try {
             DatabaseConnection object = DatabaseConnection.getInstance();
             Connection conn = object.getConnection();
             Statement st = conn.createStatement();
-            String query = String.format("select * from orders");
+            String query = "select * from item";
             ResultSet rs = st.executeQuery(query);
-            while(rs.next()) {
-                int id = rs.getInt("id");
-                int cusid = rs.getInt("cusid");
-                String name = rs.getString("name");
-                int quantity = rs.getInt("quantity");
-                String status = rs.getString("status");
-                double tprice = rs.getDouble("price");
-                String orderedtime = rs.getString("orderedtime");
 
-                Order temp;
-                temp = new Order(id, cusid, name, quantity, status, tprice, orderedtime);
-                orders.add(temp);
+            while(rs.next()) {
+                int id = rs.getInt(1);
+                String name = rs.getString(2);
+                int qty = rs.getInt(3);
+                int price = rs.getInt(4);
+                String image = rs.getString(5);
+
+                Item temp = new Item(id, name, qty, price,image);
+                items.add(temp);
             }
             rs.close();
         }catch (Exception e){
             e.printStackTrace();
         }
-        return orders;
+
+        return items;
     }
 
-    public ArrayList<Order> getPendingOrders() {
-        ArrayList<Order> orders = new ArrayList<Order>();
+    public ArrayList<Item> getAnItem(int itemID) {
+        ArrayList<Item> item = new ArrayList<Item>();
         try {
             DatabaseConnection object = DatabaseConnection.getInstance();
             Connection conn = object.getConnection();
             Statement st = conn.createStatement();
-            String query = String.format("select * from orders where status = 'pending'");
+            String query = String.format("select * from item where id = '" + itemID + "'");
             ResultSet rs = st.executeQuery(query);
             while(rs.next()) {
                 int id = rs.getInt("id");
-                int cusid = rs.getInt("cusid");
                 String name = rs.getString("name");
-                int quantity = rs.getInt("quantity");
-                String status = rs.getString("status");
-                double tprice = rs.getDouble("price");
-                String orderedtime = rs.getString("orderedtime");
+                int quantity = rs.getInt("qty");
+                int  price = rs.getInt("price");
+                String image = rs.getString("image");
 
-                Order temp;
-                temp = new Order(id, cusid, name, quantity, status, tprice, orderedtime);
-                orders.add(temp);
+                Item temp;
+                temp = new Item(id, name, quantity,price, image);
+                item.add(temp);
             }
             rs.close();
         }catch (Exception e){
             e.printStackTrace();
         }
-        return orders;
+        return item;
     }
 
-    public ArrayList<Order> getPreparingOrders() {
-        ArrayList<Order> orders = new ArrayList<Order>();
-        try {
-            DatabaseConnection object = DatabaseConnection.getInstance();
-            Connection conn = object.getConnection();
-            Statement st = conn.createStatement();
-            String query = String.format("select * from orders where status = 'preparing'");
-            ResultSet rs = st.executeQuery(query);
-            while(rs.next()) {
-                int id = rs.getInt("id");
-                int cusid = rs.getInt("cusid");
-                String name = rs.getString("name");
-                int quantity = rs.getInt("quantity");
-                String status = rs.getString("status");
-                double tprice = rs.getDouble("price");
-                String orderedtime = rs.getString("orderedtime");
-
-                Order temp;
-                temp = new Order(id, cusid, name, quantity, status, tprice, orderedtime);
-                orders.add(temp);
-            }
-            rs.close();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return orders;
-    }
-
-    public ArrayList<Order> getDeliveringOrders() {
-        ArrayList<Order> orders = new ArrayList<Order>();
-        try {
-            DatabaseConnection object = DatabaseConnection.getInstance();
-            Connection conn = object.getConnection();
-            Statement st = conn.createStatement();
-            String query = String.format("select * from orders where status = 'delivering'");
-            ResultSet rs = st.executeQuery(query);
-            while(rs.next()) {
-                int id = rs.getInt("id");
-                int cusid = rs.getInt("cusid");
-                String name = rs.getString("name");
-                int quantity = rs.getInt("quantity");
-                String status = rs.getString("status");
-                double tprice = rs.getDouble("price");
-                String orderedtime = rs.getString("orderedtime");
-
-                Order temp;
-                temp = new Order(id, cusid, name, quantity, status, tprice, orderedtime);
-                orders.add(temp);
-            }
-            rs.close();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return orders;
-    }
-
-    public ArrayList<Order> getCompletedOrders() {
-        ArrayList<Order> orders = new ArrayList<Order>();
-        try {
-            DatabaseConnection object = DatabaseConnection.getInstance();
-            Connection conn = object.getConnection();
-            Statement st = conn.createStatement();
-            String query = String.format("select * from orders where status = 'completed'");
-            ResultSet rs = st.executeQuery(query);
-            while(rs.next()) {
-                int id = rs.getInt("id");
-                int cusid = rs.getInt("cusid");
-                String name = rs.getString("name");
-                int quantity = rs.getInt("quantity");
-                String status = rs.getString("status");
-                double tprice = rs.getDouble("price");
-                String orderedtime = rs.getString("orderedtime");
-
-                Order temp;
-                temp = new Order(id, cusid, name, quantity, status, tprice, orderedtime);
-                orders.add(temp);
-            }
-            rs.close();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return orders;
-    }
-
-    public ArrayList<Order> getAnOrder(int orderID) {
-        ArrayList<Order> order = new ArrayList<Order>();
-        try {
-            DatabaseConnection object = DatabaseConnection.getInstance();
-            Connection conn = object.getConnection();
-            Statement st = conn.createStatement();
-            String query = String.format("select * from orders where id = '" + orderID + "'");
-            ResultSet rs = st.executeQuery(query);
-            while(rs.next()) {
-                int id = rs.getInt("id");
-                int cusid = rs.getInt("cusid");
-                String name = rs.getString("name");
-                int quantity = rs.getInt("quantity");
-                String status = rs.getString("status");
-                double tprice = rs.getDouble("price");
-                String orderedtime = rs.getString("orderedtime");
-
-                Order temp;
-                temp = new Order(id, cusid, name, quantity, status, tprice, orderedtime);
-                order.add(temp);
-            }
-            rs.close();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return order;
-    }
-
-    public boolean updateAnOrder(int id, String name, int quantity, double price) {
+    public boolean updateAnItem (int id, String name, int quantity, int price) {
         try{
             DatabaseConnection object = DatabaseConnection.getInstance();
             Connection conn = object.getConnection();
             Statement st = conn.createStatement();
-            String query = String.format("update orders " +
+            String query = String.format("update item " +
                     "set name='" + name + "', " +
                     "price='" + price + "', " +
-                    "quantity='" + quantity + "'" +
+                    "qty='" + quantity + "'" +
                     "where id='" + id + "'");
             int count = st.executeUpdate(query);
             if(count == 1){
@@ -198,12 +84,12 @@ public class ItemDatabaseUtil implements OrderDatabase {
         return false;
     }
 
-    public boolean deleteAnOrder(int id) {
+    public boolean deleteAnItem(int id) {
         try{
             DatabaseConnection object = DatabaseConnection.getInstance();
             Connection conn = object.getConnection();
             Statement st = conn.createStatement();
-            String query = String.format("delete from orders where id='"+ id + "'");
+            String query = String.format("delete from item where id='"+ id + "'");
             int count = st.executeUpdate(query);
             if(count == 1){
                 return true;
@@ -214,19 +100,5 @@ public class ItemDatabaseUtil implements OrderDatabase {
         return false;
     }
 
-    public boolean updateOrderStatus(int id, String status) {
-        try{
-            DatabaseConnection object = DatabaseConnection.getInstance();
-            Connection conn = object.getConnection();
-            Statement st = conn.createStatement();
-            String query = String.format("update orders set status='" + status + "' where id='" + id + "'");
-            int count = st.executeUpdate(query);
-            if(count == 1){
-                return true;
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return false;
-    }
 }
+

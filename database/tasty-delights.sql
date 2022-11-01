@@ -1,5 +1,3 @@
-adminuse tasty_delights;
-
 CREATE TABLE customer (
                           id INT NOT NULL AUTO_INCREMENT,
                           fname VARCHAR(50) NOT NULL,
@@ -74,20 +72,6 @@ insert into cart_item (cartid, iname, quantity) values(3, 'burger', 2);
 insert into cart_item (cartid, iname, quantity) values(3, 'pizza', 2);
 insert into cart_item (cartid, iname, quantity) values(4, 'burger', 2);
 
-create table item(
-                     id int primary key,
-                     name varchar(50),
-                     des varchar(100),
-                     price int,
-                     category varchar(20)
-);
-
-insert into item values (1, 'Tomato Soup','butter bun with seasame',670,'starter' );
-insert into item values (8 , 'Spicy Chicken Burger','with deep fried nuggets',490,'Burgher' );
-insert into item values (5 , 'Coke','500ml',300,'Beverages' );
-insert into item values (11, 'Potato chips','small portion',280,'Fries' );
-insert into item values (19 , 'Crispy veg burger','Extra garlic gravy and onion rings',450,'Burger');
-
 create table delivery_person(
                                 id int auto_increment primary key,
                                 name varchar(20),
@@ -109,14 +93,14 @@ create table delivery_order(
                                order_id int,
                                status varchar(30),
                                FOREIGN KEY (did) REFERENCES delivery_person(id),
-                               FOREIGN KEY (order_id) REFERENCES orders(order_id)
+                               FOREIGN KEY (order_id) REFERENCES orders(id)
 );
 
-insert into delivery_order(did, order_id, status) values(1, 'delivering');
-insert into delivery_order(did, order_id, status) values(2, 'completed');
-insert into delivery_order(did, order_id, status) values(3, 'delivering');
-insert into delivery_order(did, order_id, status) values(4, 'completed');
-insert into delivery_order(did, order_id, status) values(4, 'completed');
+insert into delivery_order(did, order_id, status) values(1,1,'delivering');
+insert into delivery_order(did, order_id, status) values(2,1, 'completed');
+insert into delivery_order(did, order_id, status) values(3,1, 'delivering');
+insert into delivery_order(did, order_id, status) values(4,1, 'completed');
+insert into delivery_order(did, order_id, status) values(4,1, 'completed');
 
 create table admin(
                       id int auto_increment primary key,
@@ -125,3 +109,37 @@ create table admin(
 );
 
 insert into Admin(username, password) values('admin', 'admin123');
+
+CREATE TABLE `tasty_delights`.`item` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL,
+  `qty` INT NULL,
+  `price` INT NULL,
+  `image` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`));
+  
+INSERT INTO item (name, qty, price, image) VALUES ('Taco', 25 , 100, '../../../../webapp/assets/taco.jpg');
+INSERT INTO item (name, qty, price, image) VALUES ('Taco', 25 , 100, '../../../../webapp/assets/taco.jpg');
+INSERT INTO item (name, qty, price, image) VALUES ('Taco', 25 , 100, '../../../../webapp/assets/taco.jpg');
+INSERT INTO item (name, qty, price, image) VALUES ('Taco', 25 , 100, '../../../../webapp/assets/taco.jpg');
+INSERT INTO item (name, qty, price, image) VALUES ('Taco', 25 , 100, '../../../../webapp/assets/taco.jpg');
+
+
+/*
+create table item(
+                     id int primary key,
+                     name varchar(50),
+                     des varchar(100),
+                     price int,
+                     category varchar(20)
+);
+
+insert into item values (1, 'Tomato Soup','butter bun with seasame',670,'starter' );
+insert into item values (8 , 'Spicy Chicken Burger','with deep fried nuggets',490,'Burgher' );
+insert into item values (5 , 'Coke','500ml',300,'Beverages' );
+insert into item values (11, 'Potato chips','small portion',280,'Fries' );
+insert into item values (19 , 'Crispy veg burger','Extra garlic gravy and onion rings',450,'Burger');
+ */ 
+  
+  
+  

@@ -26,144 +26,107 @@
     }
 %>
 <%@include file="./employee-manage-orders-header.jsp" %>
+
 <h2 class="display-3 text-center">Food Items</h2>
+
 <%
-    ArrayList<Item> orders = (ArrayList<Item>) request.getAttribute("orders");
-    if(orders.size() > 0){
+    ArrayList<Item> items = (ArrayList<Item>) request.getAttribute("items");
+    if(items.size() > 0){
 %>
 <div class="container">
     <table class="table">
         <thead>
         <tr>
             <th scope="col">ID</th>
-            <th scope="col">Customer ID</th>
             <th scope="col">Name</th>
             <th scope="col">Quantity</th>
-            <th scope="col">Status</th>
-            <th scope="col">Total Price</th>
-            <th scope="col">Ordered Time</th>
-            <th scope="col">Process</th>
+            <th scope="col">Price</th>
+            <th scope="col">Image</th>
         </tr>
         </thead>
         <tbody>
-        <%
-            for(int i = 0; i < orders.size(); i++) {
-                if(orders.get(i).getStatus().equals("pending")){
+            <%
+            for(int i = 0; i < items.size(); i++) {
                     out.print("<tr>" +
-                            "<td>" + orders.get(i).getId() + "</td>" +
-                            "<td>" + orders.get(i).getCusid() + "</td>" +
-                            "<td>" + orders.get(i).getName() + "</td>" +
-                            "<td>" + orders.get(i).getQuality() + "</td>" +
-                            "<td>" + orders.get(i).getStatus() + "</td>" +
-                            "<td>" + orders.get(i).getTprice() + "</td>" +
-                            "<td>" + orders.get(i).getOrderedtime() + "</td>" +
+                            "<td>" + items.get(i).getId() + "</td>" +
+                            "<td>" + items.get(i).getName() + "</td>" +
+                            "<td>" + items.get(i).getQty() + "</td>" +
+                            "<td>" + items.get(i).getPrice() + "</td>" +
+                            "<td>" + items.get(i).getImage() + "</td>" +
                             "<td>" +
-                                "<a class='mBtn btn btn-success' href='ManageOrderPrepare?id=" + orders.get(i).getId() + "'>Prepare</a>" +
-                                "<a class='mBtn btn btn-warning' href='ManageOrderUpdate?id=" + orders.get(i).getId() + "'>Update</a>" +
-                                "<a class='mBtn btn btn-danger'href='ManageOrderDelete?id=" + orders.get(i).getId() + "'>Delete</a>" +
+                                "<a class='mBtn btn btn-warning' href='ItemsUpdate?id=" + items.get(i).getId() + "'>Update</a>" +
+                                "<a class='mBtn btn btn-danger'href='ItemsDelete?id=" + items.get(i).getId() + "'>Delete</a>" +
                             "</td>" +
                             "</tr>");
-                }
             }
             out.print("</tbody></table>");
     }else{ %>
         <div class="container alert alert-primary" role="alert">
-            <p class="text-center">No more pending orders!</p>
+            <p class="text-center">No Items!</p>
         </div>
-    <% } %>
-    </div>
-    <%
-        try {
-            String status = (String) request.getAttribute("prepareStatus");
-            if(!status.equals(null)){
-                if(status.equalsIgnoreCase("success")){
-    %>
-                        <script>
-                            swal({
-                                title: "Order is preparing!",
-                                icon: "success",
-                                button: "Ok",
-                            });
-                        </script>
-    <%
-                }else{
-    %>
-                        <script>
-                            swal({
-                                title: "Order is not preparing!",
-                                icon: "error",
-                                button: "Ok",
-                            });
-                        </script>
-    <%
-                }
+            <% } %>
+</div>
+<%
+    try {
+        String status = (String) request.getAttribute("updateStatus");
+        if(!status.equals(null)){
+            if(status.equalsIgnoreCase("success")){
+%>
+<script>
+    swal({
+        title: "Order is updated!",
+        icon: "success",
+        button: "Ok",
+    });
+</script>
+<%
+}else{
+%>
+<script>
+    swal({
+        title: "Order is not updated!",
+        icon: "error",
+        button: "Ok",
+    });
+</script>
+<%
             }
-            request.removeAttribute("prepareStatus");
-        }catch (Exception e){
-            e.printStackTrace();
         }
-    %>
-    <%
-        try {
-            String status = (String) request.getAttribute("updateStatus");
-            if(!status.equals(null)){
-                if(status.equalsIgnoreCase("success")){
-    %>
-    <script>
-        swal({
-            title: "Order is updated!",
-            icon: "success",
-            button: "Ok",
-        });
-    </script>
-    <%
-    }else{
-    %>
-    <script>
-        swal({
-            title: "Order is not updated!",
-            icon: "error",
-            button: "Ok",
-        });
-    </script>
-    <%
-                }
+        request.removeAttribute("updateStatus");
+    }catch (Exception e){
+        e.printStackTrace();
+    }
+%>
+<%
+    try {
+        String status = (String) request.getAttribute("deleteStatus");
+        if(!status.equals(null)){
+            if(status.equalsIgnoreCase("success")){
+%>
+<script>
+    swal({
+        title: "Order is deleted!",
+        icon: "success",
+        button: "Ok",
+    });
+</script>
+<%
+}else{
+%>
+<script>
+    swal({
+        title: "Order is not deleted!",
+        icon: "error",
+        button: "Ok",
+    });
+</script>
+<%
             }
-            request.removeAttribute("updateStatus");
-        }catch (Exception e){
-            e.printStackTrace();
         }
-    %>
-    <%
-        try {
-            String status = (String) request.getAttribute("deleteStatus");
-            if(!status.equals(null)){
-                if(status.equalsIgnoreCase("success")){
-    %>
-    <script>
-        swal({
-            title: "Order is deleted!",
-            icon: "success",
-            button: "Ok",
-        });
-    </script>
-    <%
-    }else{
-    %>
-    <script>
-        swal({
-            title: "Order is not deleted!",
-            icon: "error",
-            button: "Ok",
-        });
-    </script>
-    <%
-                }
-            }
-            request.removeAttribute("deleteStatus");
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    %>
+        request.removeAttribute("deleteStatus");
+    }catch (Exception e){
+        e.printStackTrace();
+    }
+%>
 </body>
 </html>

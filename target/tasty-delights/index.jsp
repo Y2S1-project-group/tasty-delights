@@ -5,4 +5,5 @@
 <a href="<%= request.getContextPath() %>/cart">cart</a>
 </body>
     <a href="employee.jsp">Employee Login</a>
+    <a href="ItemsGet">Admin Items</a>
 </html>
