@@ -28,7 +28,7 @@
 <%@include file="./employee-manage-orders-header.jsp" %>
 
 <h2 class="display-3 text-center">Food Items</h2>
-
+<a href = "admin-manage-items-create.jsp" >Create +</a>
 <%
     ArrayList<Item> items = (ArrayList<Item>) request.getAttribute("items");
     if(items.size() > 0){

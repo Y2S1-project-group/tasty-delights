@@ -99,6 +99,21 @@ public class ItemDatabaseUtil{
         }
         return false;
     }
+    public boolean createItems(String name, int quantity, int price, String image) {
+        try{
+            DatabaseConnection object = DatabaseConnection.getInstance();
+            Connection conn = object.getConnection();
+            Statement st = conn.createStatement();
+            String query = String.format("insert into item (name, qty, price, image) values ('" + name + "', '" + quantity + "', '" + price + "', '" + image + "')");
+            int count = st.executeUpdate(query);
+            if(count == 1){
+                return true;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
 
 }
 
