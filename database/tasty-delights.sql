@@ -19,14 +19,14 @@ INSERT INTO customer (fname, lname, age, email, contact, address, password) VALU
 INSERT INTO customer (fname, lname, age, email, contact, address, password) VALUES('John', 'Thomas', 25, 'sddsd@gmail.com' , '0719944369' ,  'galle', 'john123');
 
 create table orders(
-                       id INT NOT NULL AUTO_INCREMENT primary key,
-                       cusid INT NOT NULL,
-                       name varchar(20),
-                       quantity int,
-                       status varchar(20),
-                       price double,
-                       orderedtime datetime default current_timestamp,
-                       FOREIGN KEY (cusid) REFERENCES customer(id)
+    id INT NOT NULL AUTO_INCREMENT primary key,
+    cusid INT NOT NULL,
+    name varchar(20),
+    quantity int,
+    status varchar(20) default pending,
+    price double, 
+    orderedtime datetime default current_timestamp,
+    FOREIGN KEY (cusid) REFERENCES customer(id)
 );
 
 insert into orders (cusid, name, quantity, status, price) values(1, 'burger', 2, 'pending', 200);
@@ -75,11 +75,12 @@ insert into cart_item (cartid, iname, quantity) values(3, 'pizza', 2);
 insert into cart_item (cartid, iname, quantity) values(4, 'burger', 2);
 
 create table item(
-                     id int primary key,
-                     name varchar(50),
-                     des varchar(100),
-                     price int,
-                     category varchar(20)
+    id int primary key,
+    name VARCHAR(50),
+    des VARCHAR(100),
+    price int,
+    category VARCHAR(20),
+    image VARCHAR(40)
 );
 
 insert into item values (1, 'Tomato Soup','butter bun with seasame',670,'starter' );
