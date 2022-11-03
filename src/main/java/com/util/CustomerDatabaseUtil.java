@@ -15,7 +15,7 @@ public class CustomerDatabaseUtil implements CustomerDatabase {
             DatabaseConnection object = DatabaseConnection.getInstance();
             Connection conn = object.getConnection();
             Statement st = conn.createStatement();
-            String query = String.format("select * from Customer where email = '%s' and password = '%s'", email, passwordUtil.encryptString(password));
+            String query = String.format("select * from Customer where email = '"+ email + "' and password = '"+ passwordUtil.encryptString(password)+"'");
             ResultSet rs = st.executeQuery(query);
             rs.next();
             int count = rs.getRow();
