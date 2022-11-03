@@ -2,13 +2,13 @@ package com.dao;
 import java.sql.*;
 import java.util.ArrayList;
 import com.controller.DatabaseConnection;
-import com.interfaces.cart;
-import com.model.cartItem;
+import com.interfaces.Cart;
+import com.model.CartItem;
 
 import java.sql.Connection;
 import java.util.Arrays;
 
-public class cartDao implements cart {
+public class cartDao implements Cart {
 
     public int getCartId(int id) throws Exception {
 
@@ -29,8 +29,8 @@ public class cartDao implements cart {
         return rs.getInt("id");
     }
 
-    public ArrayList<cartItem> displayCart(int cid) {
-        ArrayList<cartItem> disCart = new ArrayList<cartItem>();
+    public ArrayList<CartItem> displayCart(int cid) {
+        ArrayList<CartItem> disCart = new ArrayList<CartItem>();
         try{
             DatabaseConnection object = DatabaseConnection.getInstance();
             Connection conn = object.getConnection();
@@ -43,7 +43,8 @@ public class cartDao implements cart {
                 int cartid = rs.getInt("cartid");
                 String iname = rs.getString("iname");
                 int quantity = rs.getInt("quantity");
-                cartItem temp = new cartItem(id , cartid , iname , quantity);
+                float price = rs.getFloat("price");
+                CartItem temp = new CartItem(id , cartid , iname , quantity , price);
                 disCart.add(temp);
             }
 
