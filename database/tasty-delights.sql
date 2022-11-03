@@ -76,10 +76,11 @@ insert into cart_item (cartid, iname, quantity) values(4, 'burger', 2);
 
 create table item(
     id int primary key,
-    name varchar(50),
-    des varchar(100),
+    name VARCHAR(50),
+    des VARCHAR(100),
     price int,
-    category varchar(20)
+    category VARCHAR(20),
+    image VARCHAR(40)
 );
 
 insert into item values (1, 'Tomato Soup','butter bun with seasame',670,'starter' );

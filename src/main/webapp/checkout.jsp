@@ -1,8 +1,8 @@
 <%@ page import="com.sun.org.apache.xpath.internal.operations.Or" %>
-<%@ page import="com.model.cartItem" %>
+<%@ page import="com.model.CartItem" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.dao.cartDao" %>
+<%@ page import="com.util.CartDaoDatabaseUtil" %>
 <%--
   Created by IntelliJ IDEA.
   User: GIHAA
@@ -33,10 +33,10 @@
 <table border="1">
   <tr>
     <%
-      cartDao cart = new cartDao();
+      CartDaoDatabaseUtil cart = new CartDaoDatabaseUtil();
       int total = 0;
 
-      ArrayList<cartItem> disCart =  cart.displayCart(cart.getCartId(1)); // session
+      ArrayList<CartItem> disCart =  cart.displayCart(cart.getCartId(1)); // session
       for(int i = 0; i < disCart.size(); i++) {
         total += (disCart.get(i).getPrice() * disCart.get(i).getQuantity());
       }

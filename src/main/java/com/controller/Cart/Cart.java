@@ -6,8 +6,8 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import com.dao.cartDao;
-import com.model.cartItem;
+import com.util.CartDaoDatabaseUtil;
+import com.model.CartItem;
 
 @WebServlet(name = "cart", value = "/cart")
 public class Cart extends HttpServlet {
@@ -15,7 +15,7 @@ public class Cart extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         //display cart
-        cartDao cart = new cartDao();
+        CartDaoDatabaseUtil cart = new CartDaoDatabaseUtil();
         int cartid = 0;
         try {
             cartid = cart.getCartId(1); // sessions
@@ -23,7 +23,7 @@ public class Cart extends HttpServlet {
             throw new RuntimeException(e);
         }
 
-        ArrayList<cartItem> disCart =  cart.displayCart(cartid);
+        ArrayList<CartItem> disCart =  cart.displayCart(cartid);
         request.setAttribute("cart", disCart);
 
         RequestDispatcher dis = request.getRequestDispatcher("./cart.jsp");

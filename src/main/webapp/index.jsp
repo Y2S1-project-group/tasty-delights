@@ -1,3 +1,6 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.model.Item" %>
+<%@ page import="com.util.ItemDatabaseUtil" %>
 <!DOCTYPE html>
 <html>
 
@@ -20,6 +23,9 @@
                 <li class="nav-item"><a class="nav-link" href="#portfolio">Product</a></li>
                 <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="cart">Cart</a></li>
+                <li class="nav-item"><a class="nav-link" href="cart.jsp">login</a></li>
+            <%--session login / register / logout--%>
             </ul>
         </div>
     </div>
@@ -66,67 +72,26 @@
         </div>
         <div class="row">
 
-            <div class="col-sm-6 col-md-4 portfolio-item"><a class="portfolio-link" href="#portfolioModal1" data-bs-toggle="modal">
-                <div class="portfolio-hover">
-                    <div class="portfolio-hover-content"><i class="fa fa-plus fa-3x"></i></div>
-                </div><img class="img-fluid" src="assets/img/item/temp.jpg">
-            </a>
-                <div class="portfolio-caption">
-                    <h4>food</h4>
-                    <p class="text-muted">RS 1000</p>
-                </div>
-            </div>
+        <%
+            ItemDatabaseUtil homepage = new ItemDatabaseUtil();
 
-            <div class="col-sm-6 col-md-4 portfolio-item"><a class="portfolio-link" href="#portfolioModal2" data-bs-toggle="modal">
-                <div class="portfolio-hover">
-                    <div class="portfolio-hover-content"><i class="fa fa-plus fa-3x"></i></div>
-                </div><img class="img-fluid" src="assets/img/item/temp.jpg">
-            </a>
-                <div class="portfolio-caption">
-                    <h4>food</h4>
-                    <p class="text-muted">RS 1000</p>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 portfolio-item"><a class="portfolio-link" href="#portfolioModal3" data-bs-toggle="modal">
-                <div class="portfolio-hover">
-                    <div class="portfolio-hover-content"><i class="fa fa-plus fa-3x"></i></div>
-                </div><img class="img-fluid" src="assets/img/item/temp.jpg">
-            </a>
-                <div class="portfolio-caption">
-                    <h4>food</h4>
-                    <p class="text-muted">RS 1000</p>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 portfolio-item"><a class="portfolio-link" href="#portfolioModal4" data-bs-toggle="modal">
-                <div class="portfolio-hover">
-                    <div class="portfolio-hover-content"><i class="fa fa-plus fa-3x"></i></div>
-                </div><img class="img-fluid" src="assets/img/item/temp.jpg">
-            </a>
-                <div class="portfolio-caption">
-                    <h4>food</h4>
-                    <p class="text-muted">RS 1000</p>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 portfolio-item"><a class="portfolio-link" href="#portfolioModal5" data-bs-toggle="modal">
-                <div class="portfolio-hover">
-                    <div class="portfolio-hover-content"><i class="fa fa-plus fa-3x"></i></div>
-                </div><img class="img-fluid" src="assets/img/item/temp.jpg">
-            </a>
-                <div class="portfolio-caption">
-                    <h4>food</h4>
-                    <p class="text-muted">RS 1000</p>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 portfolio-item"><a class="portfolio-link" href="#portfolioModal6" data-bs-toggle="modal">
-                <div class="portfolio-hover">
-                    <div class="portfolio-hover-content"><i class="fa fa-plus fa-3x"></i></div>
-                </div><img class="img-fluid" src="assets/img/item/temp.jpg">
-            </a>
-                <div class="portfolio-caption">
-                    <h4>food</h4>
-                    <p class="text-muted">RS 1000</p>
-                </div>
-            </div>
+            ArrayList<Item> homepageitems  = homepage.getHomeItems();
+            int size = homepageitems.size();
+
+            for(int i = 0; i < size; i++) {
+            out.println("<div class='col-sm-6 col-md-4 portfolio-item' ><a class='portfolio-link' href = '#portfolioModal1'" +
+                    "data-bs-toggle = 'modal' >" +
+                    "<div class='portfolio-hover' >" +
+                        "<div class='portfolio-hover-content' ><i class='fa fa-plus fa-3x' ></i ></div >" +
+                    "</div ><img class='img-fluid' src = '"+ homepageitems.get(i).getImage()+"' >" +
+                    "</a >" +
+                        "<div class='portfolio-caption' >" +
+                            "<h4 >" + homepageitems.get(i).getName() + "</h4 >" +
+                         "<p class='text-muted' >" + homepageitems.get(i).getPrice()+ "</p >" +
+                        "</div > " +
+                    "</div>");
+            }
+        %>
         </div>
     </div>
 </section>
@@ -225,117 +190,6 @@
         </div>
     </div>
 </footer>
-<div class="modal fade text-center portfolio-modal" role="dialog" tabindex="-1" id="portfolioModal1">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <h2 class="text-uppercase">Food name</h2>
-                            <p class="text-muted item-intro">Lorem ipsum dolor sit amet consectetur.</p><img class="img-fluid d-block mx-auto" src="assets/img/item/temp.jpg">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                            <button class="btn btn-primary" type="button" data-bs-dismiss="modal"><i class="fa fa-times"></i><span>&nbsp;Close</span></button>
-                            <button class="btn btn-primary" type="button" data-bs-dismiss="modal"><span>&nbsp;Add To Cart</span></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade text-center portfolio-modal" role="dialog" tabindex="-1" id="portfolioModal2">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="text-muted item-intro">Lorem ipsum dolor sit amet consectetur.</p><img class="img-fluid d-block mx-auto" src="assets/img/portfolio/2-full.jpg">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                            <button class="btn btn-primary" type="button" data-bs-dismiss="modal"><i class="fa fa-times"></i><span>&nbsp;Close Project</span></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade text-center portfolio-modal" role="dialog" tabindex="-1" id="portfolioModal3">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="text-muted item-intro">Lorem ipsum dolor sit amet consectetur.</p><img class="img-fluid d-block mx-auto" src="assets/img/portfolio/3-full.jpg">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                            <button class="btn btn-primary" type="button" data-bs-dismiss="modal"><i class="fa fa-times"></i><span>&nbsp;Close Project</span></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade text-center portfolio-modal" role="dialog" tabindex="-1" id="portfolioModal4">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="text-muted item-intro">Lorem ipsum dolor sit amet consectetur.</p><img class="img-fluid d-block mx-auto" src="assets/img/portfolio/4-full.jpg">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                            <button class="btn btn-primary" type="button" data-bs-dismiss="modal"><i class="fa fa-times"></i><span>&nbsp;Close Project</span></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade text-center portfolio-modal" role="dialog" tabindex="-1" id="portfolioModal5">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="text-muted item-intro">Lorem ipsum dolor sit amet consectetur.</p><img class="img-fluid d-block mx-auto" src="assets/img/portfolio/5-full.jpg">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                            <button class="btn btn-primary" type="button" data-bs-dismiss="modal"><i class="fa fa-times"></i><span>&nbsp;Close Project</span></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade text-center portfolio-modal" role="dialog" tabindex="-1" id="portfolioModal6">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="text-muted item-intro">Lorem ipsum dolor sit amet consectetur.</p><img class="img-fluid d-block mx-auto" src="assets/img/portfolio/6-full.jpg">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                            <button class="btn btn-primary" type="button" data-bs-dismiss="modal"><i class="fa fa-times"></i><span>&nbsp;Close Project</span></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets/js/agency.js"></script>
 <a href="<%= request.getContextPath() %>/employee.jsp">Employee</a>
 <a href="<%= request.getContextPath() %>/cart">cart</a>
 <a href="employee.jsp">Employee Login</a>

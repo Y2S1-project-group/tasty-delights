@@ -5,7 +5,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-import com.dao.*;
+import com.util.CartDaoDatabaseUtil;
 
 @WebServlet(name = "deleteCartItem", value = "/deleteCartItem")
 public class DeleteCartItem extends HttpServlet {
@@ -14,7 +14,7 @@ public class DeleteCartItem extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         int cartid = Integer.parseInt(request.getParameter("cartid"));
-        cartDao cart = new cartDao();
+        CartDaoDatabaseUtil cart = new CartDaoDatabaseUtil();
         cart.deleteCartItem( id,cartid);
     }
 }

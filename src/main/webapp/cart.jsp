@@ -1,5 +1,5 @@
 <%@ page import="com.sun.org.apache.xpath.internal.operations.Or" %>
-<%@ page import="com.model.cartItem" %>
+<%@ page import="com.model.CartItem" %>
 <%@ page import="java.util.ArrayList" %>
 <%--
   Created by IntelliJ IDEA.
@@ -39,7 +39,7 @@
     </tr>
     <tr>
         <%
-            ArrayList<cartItem> disCart = (ArrayList<cartItem>) request.getAttribute("cart");
+            ArrayList<CartItem> disCart = (ArrayList<CartItem>) request.getAttribute("cart");
             for(int i = 0; i < disCart.size(); i++) {
                 out.println("<form method='post' action='DeleteCartItem'>");
                     out.print("<tr>" +

@@ -1,7 +1,7 @@
-package com.controller.cart;
+package com.controller.Cart;
 
-import com.dao.cartDao;
-import com.model.cartItem;
+import com.util.CartDaoDatabaseUtil;
+import com.model.CartItem;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -23,7 +23,7 @@ public class MinusCartItemQuantity extends HttpServlet {
         System.out.println("rrrrrrrr");
         int id = Integer.parseInt(request.getParameter("id"));
         int cartid = Integer.parseInt(request.getParameter("cartid"));
-        cartDao cart = new cartDao();
+        CartDaoDatabaseUtil cart = new CartDaoDatabaseUtil();
         int res = cart.minItem(id , cartid);
 
         if(res > 0){
@@ -35,7 +35,7 @@ public class MinusCartItemQuantity extends HttpServlet {
             //request.setAttribute("result", "fail");
         }
         //sessions pass cid
-        ArrayList<cartItem> disCart =  cart.displayCart(cartid);
+        ArrayList<CartItem> disCart =  cart.displayCart(cartid);
         request.setAttribute("cart", disCart);
 
         RequestDispatcher dis = request.getRequestDispatcher("./cart.jsp");
