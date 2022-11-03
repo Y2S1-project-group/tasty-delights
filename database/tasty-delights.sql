@@ -1,22 +1,22 @@
-create database tasty_delights;
 use tasty_delights;
 
 CREATE TABLE customer (
-    id INT NOT NULL AUTO_INCREMENT,
-    fname VARCHAR(50) NOT NULL,
-    lname VARCHAR(50),
-    age int,
-    email VARCHAR(50) NOT NULL,
-    contact VARCHAR(10),
-    address VARCHAR(100),
-    PRIMARY KEY (id)
+                          id INT NOT NULL AUTO_INCREMENT,
+                          fname VARCHAR(50) NOT NULL,
+                          lname VARCHAR(50),
+                          age int,
+                          email VARCHAR(50) NOT NULL,
+                          contact VARCHAR(10),
+                          address VARCHAR(100),
+                          password varchar(300),
+                          PRIMARY KEY (id)
 );
 
-INSERT INTO customer (fname, lname, age, email, contact, address) VALUES('John', 'Doe', 25, 'test@gmail.com' , '0719999999' ,  'gampaha');
-INSERT INTO customer (fname, lname, age, email, contact, address) VALUES('gihan', 'kgrk', 25, 'yths@gmail.com' , '0719959999' ,  'ragama');
-INSERT INTO customer (fname, lname, age, email, contact, address) VALUES('erick', 'Robert', 25, 'sddsd@gmail.com' , '0719999369' ,  'malabe');
-INSERT INTO customer (fname, lname, age, email, contact, address) VALUES('Michael', 'Daniel', 25, 'sddsd@gmail.com' , '0719999369' ,  'colombo');
-INSERT INTO customer (fname, lname, age, email, contact, address) VALUES('John', 'Thomas', 25, 'sddsd@gmail.com' , '0719944369' ,  'galle');
+INSERT INTO customer (fname, lname, age, email, contact, address, password) VALUES('John', 'Doe', 25, 'test@gmail.com' , '0719999999' ,  'gampaha', 'john123');
+INSERT INTO customer (fname, lname, age, email, contact, address, password) VALUES('gihan', 'kgrk', 25, 'yths@gmail.com' , '0719959999' ,  'ragama', 'gihan123');
+INSERT INTO customer (fname, lname, age, email, contact, address, password) VALUES('erick', 'Robert', 25, 'sddsd@gmail.com' , '0719999369' ,  'malabe', 'robert123');
+INSERT INTO customer (fname, lname, age, email, contact, address, password) VALUES('Michael', 'Daniel', 25, 'sddsd@gmail.com' , '0719999369' ,  'colombo', 'daniel123');
+INSERT INTO customer (fname, lname, age, email, contact, address, password) VALUES('John', 'Thomas', 25, 'sddsd@gmail.com' , '0719944369' ,  'galle', 'john123');
 
 create table orders(
     id INT NOT NULL AUTO_INCREMENT primary key,
@@ -44,11 +44,11 @@ insert into orders (cusid, name, quantity, status, price) values(5, 'pizza', 2, 
 insert into orders (cusid, name, quantity, status, price) values(5, 'burger', 2, 'pending', 200);
 
 CREATE TABLE cart (
-    id INT NOT NULL,
-    cusid int NOT NULL,
-    PRIMARY KEY (id, cusid),
-    FOREIGN KEY (cusid) REFERENCES customer(id),
-    FOREIGN KEY (id) REFERENCES orders(id)
+                      id INT NOT NULL,
+                      cusid int NOT NULL,
+                      PRIMARY KEY (id, cusid),
+                      FOREIGN KEY (cusid) REFERENCES customer(id),
+                      FOREIGN KEY (id) REFERENCES orders(id)
 );
 
 insert into cart (id, cusid) values(1, 1);
@@ -58,12 +58,12 @@ insert into cart (id, cusid) values(4, 2);
 insert into cart (id, cusid) values(5, 3);
 
 CREATE TABLE cart_item (
-    id INT NOT NULL AUTO_INCREMENT,
-    cartid int NOT NULL,
-    iname VARCHAR(50) NOT NULL,
-    quantity INT NOT NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY (cartid) REFERENCES cart(id)
+                           id INT NOT NULL AUTO_INCREMENT,
+                           cartid int NOT NULL,
+                           iname VARCHAR(50) NOT NULL,
+                           quantity INT NOT NULL,
+                           PRIMARY KEY (id),
+                           FOREIGN KEY (cartid) REFERENCES cart(id)
 );
 
 insert into cart_item (cartid, iname, quantity) values(1, 'burger', 2);
@@ -90,36 +90,39 @@ insert into item values (11, 'Potato chips','small portion',280,'Fries' );
 insert into item values (19 , 'Crispy veg burger','Extra garlic gravy and onion rings',450,'Burger');
 
 create table delivery_person(
-    id int auto_increment primary key,
-    name varchar(20),
-    age int,
-    email varchar(30),
-    contact varchar(20),
-    password varchar(300)
+                                id int auto_increment primary key,
+                                name varchar(20),
+                                age int,
+                                email varchar(30),
+                                contact varchar(20),
+                                password varchar(300)
 );
 
-insert into delivery_person(name, age, email, contact) values('John', 25, 'john@gmail.com', 'john123');
-insert into delivery_person(name, age, email, contact) values('Smith', 30, 'smith@gmail.com', 'smith123');
-insert into delivery_person(name, age, email, contact) values('Peter', 28, 'peter@gmail.com', 'peter123');
-insert into delivery_person(name, age, email, contact) values('Rahul', 35, 'rahul@gmail.com', 'rahul123');
-insert into delivery_person(name, age, email, contact) values('Raj', 40, 'raj@gmail.com', 'raj123');
+insert into delivery_person(name, age, email, contact, password) values('John', 25, 'john@gmail.com', '0776545321', 'john123');
+insert into delivery_person(name, age, email, contact, password) values('Smith', 30, 'smith@gmail.com', '0776545321', 'smith123');
+insert into delivery_person(name, age, email, contact, password) values('Peter', 28, 'peter@gmail.com', '0776545321', 'peter123');
+insert into delivery_person(name, age, email, contact, password) values('Rahul', 35, 'rahul@gmail.com', '0776545321', 'rahul123');
+insert into delivery_person(name, age, email, contact, password) values('Raj', 40, 'raj@gmail.com', '0776545321', 'raj123');
 
 create table delivery_order(
-    id int auto_increment primary key,
-    order_id int,
-    status varchar(30)
+                               id int primary key auto_increment,
+                               did int,
+                               order_id int,
+                               status varchar(30),
+                               FOREIGN KEY (did) REFERENCES delivery_person(id),
+                               FOREIGN KEY (order_id) REFERENCES orders(order_id)
 );
 
-insert into delivery_order(order_id, status) values(1, 'delivering');
-insert into delivery_order(order_id, status) values(2, 'completed');
-insert into delivery_order(order_id, status) values(3, 'delivering');
-insert into delivery_order(order_id, status) values(4, 'completed');
-insert into delivery_order(order_id, status) values(4, 'completed');
+insert into delivery_order(did, order_id, status) values(1, 'delivering');
+insert into delivery_order(did, order_id, status) values(2, 'completed');
+insert into delivery_order(did, order_id, status) values(3, 'delivering');
+insert into delivery_order(did, order_id, status) values(4, 'completed');
+insert into delivery_order(did, order_id, status) values(4, 'completed');
 
 create table admin(
-    id int auto_increment primary key,
-    username varchar(20),
-    password varchar(300)
+                      id int auto_increment primary key,
+                      username varchar(20),
+                      password varchar(300)
 );
 
 insert into Admin(username, password) values('admin', 'admin123');

@@ -1,70 +1,22 @@
 package com.model;
 
 public class Order {
-    int id;
-    int cusid;
-    String name;
-    String quantity;
-    String status;
-    float price;
-    String orderedtime;
+    private int id;
+    private int cusid;
+    private String name;
+    private int quantity;
+    private String status;
+    private double tprice;
+    private String orderedtime;
 
-    public Order(int id, int cusid, String name, String quantity, String status, float price, String orderedtime) {
+    public Order(int id, int cusid, String name, int quantity, String status, double tprice, String orderedtime) {
         this.id = id;
         this.cusid = cusid;
         this.name = name;
         this.quantity = quantity;
         this.status = status;
-        this.price = price;
+        this.tprice = tprice;
         this.orderedtime = orderedtime;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getCusid() {
-        return cusid;
-    }
-
-    public void setCusid(int cusid) {
-        this.cusid = cusid;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(String quantity) {
-        this.quantity = quantity;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public float getPrice() {
-        return price;
-    }
-
-    public void setPrice(float price) {
-        this.price = price;
     }
 
     public String getOrderedtime() {
@@ -75,5 +27,51 @@ public class Order {
         this.orderedtime = orderedtime;
     }
 
+    public double getTprice() {
+        return tprice;
+    }
 
+    public void setTprice(double tprice) {
+        this.tprice = tprice;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public int getQuality() {
+        return quantity;
+    }
+
+    public void setQuality(int quality) {
+        this.quantity = quality;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getCusid() {
+        return cusid;
+    }
+
+    public void setCusid(int cusid) {
+        this.cusid = cusid;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

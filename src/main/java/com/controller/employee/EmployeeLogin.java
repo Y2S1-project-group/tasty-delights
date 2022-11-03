@@ -1,8 +1,9 @@
-package com.controller;
+package com.controller.employee;
 
 import com.util.EmployeeDatabaseUtil;
 import com.interfaces.EmployeeDatabase;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,10 +15,10 @@ import java.io.IOException;
 @WebServlet(name = "EmployeeLogin", value = "/EmployeeLogin")
 public class EmployeeLogin extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-
         try {
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+
             EmployeeDatabase empDB = new EmployeeDatabaseUtil();
             boolean flag = empDB.checkLogin(username, password);
 
@@ -26,9 +27,10 @@ public class EmployeeLogin extends HttpServlet {
                 session.setAttribute("username", username);
                 response.sendRedirect("./employee-dashboard.jsp");
             }else{
-                response.sendRedirect("./employee.jsp");
+                request.setAttribute("loginError", "loginError");
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("./employee.jsp");
+                requestDispatcher.forward(request, response);
             }
-
         }catch(Exception e) {
             e.printStackTrace();
         }
