@@ -24,7 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 <li class="nav-item"><a class="nav-link" href="cart">Cart</a></li>
-                <li class="nav-item"><a class="nav-link" href="cart.jsp">login</a></li>
+                <li class="nav-item"><a class="nav-link" href="customer-login.jsp">login</a></li>
             <%--session login / register / logout--%>
             </ul>
         </div>
