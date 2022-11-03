@@ -2,11 +2,13 @@ package com.util;
 
 import com.controller.DatabaseConnection;
 import com.interfaces.CustomerDatabase;
+import com.model.Customer;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class CustomerDatabaseUtil implements CustomerDatabase {
     public boolean checkLogin(String email, String password) {
@@ -15,7 +17,7 @@ public class CustomerDatabaseUtil implements CustomerDatabase {
             DatabaseConnection object = DatabaseConnection.getInstance();
             Connection conn = object.getConnection();
             Statement st = conn.createStatement();
-            String query = String.format("select * from Customer where email = '%s' and password = '%s'", email, passwordUtil.encryptString(password));
+            String query = String.format("select * from Customer where email = '"+ email + "' and password = '"+ passwordUtil.encryptString(password)+"'");
             ResultSet rs = st.executeQuery(query);
             rs.next();
             int count = rs.getRow();
@@ -96,5 +98,31 @@ public class CustomerDatabaseUtil implements CustomerDatabase {
             e.printStackTrace();
         }
         return cid;
+    }
+    public ArrayList<Customer>  getCustomers(){
+        ArrayList<Customer> customers = new ArrayList<Customer>();
+        try {
+            DatabaseConnection object = DatabaseConnection.getInstance();
+            Connection conn = object.getConnection();
+            Statement st = conn.createStatement();
+            String query = String.format("select * from customer");
+            ResultSet rs = st.executeQuery(query);
+            while(rs.next()) {
+                int id = rs.getInt("id");
+                String fname = rs.getString("fname");
+                String lname = rs.getString("lname");
+                String email = rs.getString("email");
+                String contact = rs.getString("contact");
+                String address = rs.getString("address");
+
+                Customer temp;
+                temp = new Customer(id, fname, lname, email, contact, address);
+                customers.add(temp);
+            }
+            rs.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return customers;
     }
 }
