@@ -18,7 +18,7 @@ public class DatabaseConnection{
         this.url = "jdbc:mysql://127.0.0.1:3306/";
         this.database = "tasty_delights";
         this.username = "root";
-        this.password = "1002";
+        this.password = "root";
 
         Class.forName(this.dbDriver);
         this.con = DriverManager.getConnection(this.url + this.database, this.username, this.password);
