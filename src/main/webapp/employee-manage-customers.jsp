@@ -37,6 +37,7 @@
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
             <th scope="col">Email</th>
+            <th scope="col">Contact</th>
             <th scope="col">Address</th>
         </tr>
         </thead>
@@ -46,7 +47,9 @@
                     out.print("<tr>" +
                         "<td>" + customers.get(i).getId() + "</td>" +
                         "<td>" + customers.get(i).getFname() + "</td>" +
+                        "<td>" + customers.get(i).getEmail() + "</td>" +
                         "<td>" + customers.get(i).getLname() + "</td>" +
+                        "<td>" + customers.get(i).getContact() + "</td>" +
                         "<td>" + customers.get(i).getAddress() + "</td>" +
                         "</tr>");
                 }

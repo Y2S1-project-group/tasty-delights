@@ -1,7 +1,4 @@
 package com.controller.orders;
-
-import com.model.Order;
-import com.sun.org.apache.xpath.internal.operations.Or;
 import com.util.DeliveryOrderDatabaseUtil;
 import com.util.OrderDatabaseUtil;
 

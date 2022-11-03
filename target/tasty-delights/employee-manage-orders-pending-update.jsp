@@ -33,7 +33,7 @@
             "<div class='form-group'>" +
                     "<input class='form-control' name='id' type='text' value='" + order.get(0).getId() + "' hidden>" +
                     "<p id='error-name'></p>" +
-                    "Name <input id='update-name' class='form-control' name='item-name' type='text' value='" + order.get(0).getName() + "'>" +
+                    "Name <input id='update-name' class='form-control' name='itemname' type='text' value='" + order.get(0).getName() + "'>" +
                     "</div>" +
                     "<div class='form-group'>" +
                         "<p id='error-quantity'></p>" +
