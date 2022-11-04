@@ -24,52 +24,52 @@
                             <h2 class="fw-bold mb-2 text-uppercase">Sign Up</h2>
 
 
-    <form action="CustomerCreateAccount" method="post" name="create-account-form" onsubmit="return validateForm()">
-        <div class="form-outline mb-4">
-            <input class="form-control form-control-lg" type="text" name="fname" id="fname" placeholder="Enter first name"><br>
-            <p class = "error-message" id="error-fname"></p>
-        </div>
+                            <form action="CustomerCreateAccount" method="post" name="create-account-form" onsubmit="return validateForm()">
+                                <div class="form-outline mb-4">
+                                    <input class="form-control form-control-lg" type="text" name="fname" id="fname" placeholder="Enter first name"><br>
+                                    <p class = "error-message" id="error-fname"></p>
+                                </div>
 
-        <div class="form-outline mb-4">
-            <input class="form-control form-control-lg" type="text" name="lname" id="lname" placeholder="Enter last name"><br>
-            <p class = "error-message" id="error-lname"></p>
-        </div>
+                                <div class="form-outline mb-4">
+                                    <input class="form-control form-control-lg" type="text" name="lname" id="lname" placeholder="Enter last name"><br>
+                                    <p class = "error-message" id="error-lname"></p>
+                                </div>
 
-        <div class="form-outline mb-4">
-            <input class="form-control form-control-lg" type="text"  name="age" id="age" placeholder="Enter age"><br>
-            <p class = "error-message" id="error-age"></p>
-        </div>
+                                <div class="form-outline mb-4">
+                                    <input class="form-control form-control-lg" type="text"  name="age" id="age" placeholder="Enter age"><br>
+                                    <p class = "error-message" id="error-age"></p>
+                                </div>
 
-        <div class="form-outline mb-4">
-            <input class="form-control form-control-lg" type="text"  name="email" id="email" placeholder="Enter email"><br>
-            <p class = "error-message" id="error-email"></p>
-        </div>
+                                <div class="form-outline mb-4">
+                                    <input class="form-control form-control-lg" type="text"  name="email" id="email" placeholder="Enter email"><br>
+                                    <p class = "error-message" id="error-email"></p>
+                                </div>
 
-        <div class="form-outline mb-4">
-            <input class="form-control form-control-lg" type="text" name="contact" id="contact" placeholder="Enter contact number"><br>
-            <p class = "error-message" id="error-contact"></p>
-        </div>
+                                <div class="form-outline mb-4">
+                                    <input class="form-control form-control-lg" type="text" name="contact" id="contact" placeholder="Enter contact number"><br>
+                                    <p class = "error-message" id="error-contact"></p>
+                                </div>
 
-        <div class="form-outline mb-4">
-            <input class="form-control form-control-lg" type="text" name="address" id="address" placeholder="Enter address"><br>
-            <p class = "error-message" id="error-address"></p>
-        </div>
+                                <div class="form-outline mb-4">
+                                    <input class="form-control form-control-lg" type="text" name="address" id="address" placeholder="Enter address"><br>
+                                    <p class = "error-message" id="error-address"></p>
+                                </div>
 
-        <div class="form-outline mb-4">
-            <input class="form-control form-control-lg" type="password" name="password" id="password" placeholder="Enter password"><br>
-            <p class = "error-message" id="error-password"></p>
-        </div>
+                                <div class="form-outline mb-4">
+                                    <input class="form-control form-control-lg" type="password" name="password" id="password" placeholder="Enter password"><br>
+                                    <p class = "error-message" id="error-password"></p>
+                                </div>
 
-        <div class="form-outline mb-4">
-            <input class="form-control form-control-lg" type="password" name="confirm-password" id="confirm-password" placeholder="Re enter password"><br>
-            <p class = "error-message" id="error-confirm-password"></p>
-            <p class = "error-message" id="error-pass-mismatch"></p>
-        </div>
+                                <div class="form-outline mb-4">
+                                    <input class="form-control form-control-lg" type="password" name="confirm-password" id="confirm-password" placeholder="Re enter password"><br>
+                                    <p class = "error-message" id="error-confirm-password"></p>
+                                    <p class = "error-message" id="error-pass-mismatch"></p>
+                                </div>
 
-        <div>
-            <input class="btn btn-primary btn-lg px-5" type="submit" value="Register">
-        </div>
-    </form>
+                                <div>
+                                    <input class="btn btn-primary btn-lg px-5" type="submit" value="Register">
+                                </div>
+                            </form>
                             <p ><a class="" href="./customer-reset-password.jsp">Forgot password?</a></p>
                             <a href="./customer-login.jsp" class="fw-bold">Go back to login</a>
                         </div>
