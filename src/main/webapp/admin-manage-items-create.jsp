@@ -8,7 +8,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="./employee-header.jsp" %>
-<%@include file="./employee-manage-orders-header.jsp" %>
 <html>
 <head>
     <title>Create Item</title>

@@ -8,7 +8,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="./employee-header.jsp" %>
-<%@include file="./employee-manage-orders-header.jsp" %>
+
 <html>
 <head>
     <title>Update Item</title>
@@ -26,22 +26,34 @@
     }
 %>
 <div class="container-sm">
-    <form name="update-name" action="ItemsUpdateRedirect" method="get" onsubmit="return validateForm();">
+    <form name="update-name" action="ItemsUpdateRedirect" method="get">
 <%
-    ArrayList<Item> item = (ArrayList<Item>) request.getAttribute("items");
+    Item item =  (Item) request.getAttribute("items");
     out.print(
             "<div class='form-group'>" +
-                    "<input class='form-control' name='id' type='text' value='" + item.get(0).getId() + "' hidden>" +
-                    "<p id='error-name'></p>" +
-                    "Name <input id='update-name' class='form-control' name='item-name' type='text' value='" + item.get(0).getName() + "'>" +
+                    "<input class='form-control' name='id' type='text' value='" + item.getId() + "' hidden>" +
+                        "<p id='error-name'></p>" +
+                        "Name <input id='update-name' class='form-control' name='item-name' type='text' value='" + item.getName() + "'>" +
                     "</div>" +
                     "<div class='form-group'>" +
                         "<p id='error-quantity'></p>" +
-                        "Quantity <input id='update-quantity' class='form-control' name='quantity' type='text' value='"+ item.get(0).getQty() + "'>" +
+                        "Quantity <input id='update-quantity' class='form-control' name='quantity' type='text' value='"+ item.getQty() + "'>" +
                     "</div>" +
                     "<div class='form-group'>" +
                         "<p id='error-price'></p>" +
-                        "Price <input id='update-price' class='form-control' name='price' type='text' value='" + item.get(0).getPrice() + "'>" +
+                        "Price <input id='update-price' class='form-control' name='price' type='text' value='" + item.getPrice() + "'>" +
+                    "</div>" +
+                    "<div class='form-group'>" +
+                        "<p id='error-price'></p>" +
+                        "Description <input id='update-description' class='form-control' name='description' type='text' value='" + item.getDescription() + "'>" +
+                    "</div>" +
+                    "<div class='form-group'>" +
+                        "<p id='error-price'></p>" +
+                        "Category <input id='update-category' class='form-control' name='category' type='text' value='" + item.getCategory() + "'>" +
+                    "</div>" +
+                    "<div class='form-group'>" +
+                        "<p id='error-image'></p>" +
+                        "Image Path <input id='update-image' class='form-control' name='image' type='text' value='" + item.getImage() + "'>" +
                     "</div>" +
                         "<input type='submit' class='btn btn-primary' value='Update'></form> " +
             "</div>"

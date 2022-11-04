@@ -13,10 +13,15 @@ import java.util.ArrayList;
 public class ItemsGet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        ArrayList<Item> items;
         try{
             ItemDatabaseUtil itemProcess = new ItemDatabaseUtil();
-            ArrayList<Item> items = itemProcess.getItems();
-
+            if(request.getAttribute("searchQuery") != null){
+                String searchQuery = request.getParameter("searchQuery");
+                items = itemProcess.searchItems(searchQuery);
+            }else{
+                items = itemProcess.getItems();
+            }
 
             request.setAttribute("items", items);
 
