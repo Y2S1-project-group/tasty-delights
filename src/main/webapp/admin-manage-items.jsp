@@ -12,6 +12,7 @@
 <head>
     <title>Food Items</title>
     <link rel="stylesheet" href="styles/button.css">
+    <link rel="stylesheet" href="styles/item.css">
 </head>
 <body>
 <%
@@ -24,35 +25,49 @@
     if (session.getAttribute("username") == null) {
         response.sendRedirect("./employee.jsp");
     }
+    System.out.println("I am in update item");
 %>
-<%@include file="./employee-manage-orders-header.jsp" %>
+<div class="top-bar">
+    <h6 class="item-title">Food Items</h6>
 
-<h2 class="display-3 text-center">Food Items</h2>
-<a href = "admin-manage-items-create.jsp" >Create +</a>
+    <form action="ItemsSearch" method="get">
+        <input type="text" name="searchQuery" placeholder="Taco..." class="search-form">
+        <input type="submit" value="Search" class="item-button">
+    </form>
+
+    <div>
+        <a href = "admin-manage-items-create.jsp" class="add-new-link">Add New Food Item</a>
+        <div class="circle">
+            +
+        </div>
+    </div>
+</div>
 <%
     ArrayList<Item> items = (ArrayList<Item>) request.getAttribute("items");
     if(items.size() > 0){
+
 %>
-<div class="container">
+
+
+<div class="container h-center">
     <table class="table">
         <thead>
         <tr>
-            <th scope="col">ID</th>
+            <th scope="col">📷</th>
             <th scope="col">Name</th>
             <th scope="col">Quantity</th>
             <th scope="col">Price</th>
-            <th scope="col">Image</th>
+            <th scope="col">📝</th>
         </tr>
         </thead>
         <tbody>
             <%
             for(int i = 0; i < items.size(); i++) {
                     out.print("<tr>" +
-                            "<td>" + items.get(i).getId() + "</td>" +
+                            "<td>" + "<img src = 'assets/"+ items.get(i).getImage()+"'width='50' height='50'>" + "</td>" +
                             "<td>" + items.get(i).getName() + "</td>" +
                             "<td>" + items.get(i).getQty() + "</td>" +
                             "<td>" + items.get(i).getPrice() + "</td>" +
-                            "<td>" + items.get(i).getImage() + "</td>" +
                             "<td>" +
                                 "<a class='mBtn btn btn-warning' href='ItemsUpdate?id=" + items.get(i).getId() + "'>Update</a>" +
                                 "<a class='mBtn btn btn-danger'href='ItemsDelete?id=" + items.get(i).getId() + "'>Delete</a>" +
@@ -66,6 +81,8 @@
         </div>
             <% } %>
 </div>
+
+
 <%
     try {
         String status = (String) request.getAttribute("updateStatus");

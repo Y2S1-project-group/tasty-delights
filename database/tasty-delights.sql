@@ -114,32 +114,20 @@ CREATE TABLE `tasty_delights`.`item` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
   `qty` INT NULL,
-  `price` INT NULL,
+  `category` VARCHAR(45) NULL,
+  `description` VARCHAR(100) NULL,
+  `price` DECIMAL(10,2) NULL,
   `image` VARCHAR(45) NULL,
   PRIMARY KEY (`id`));
   
-INSERT INTO item (name, qty, price, image) VALUES ('Taco', 25 , 100, '../../../../webapp/assets/taco.jpg');
-INSERT INTO item (name, qty, price, image) VALUES ('Taco', 25 , 100, '../../../../webapp/assets/taco.jpg');
-INSERT INTO item (name, qty, price, image) VALUES ('Taco', 25 , 100, '../../../../webapp/assets/taco.jpg');
-INSERT INTO item (name, qty, price, image) VALUES ('Taco', 25 , 100, '../../../../webapp/assets/taco.jpg');
-INSERT INTO item (name, qty, price, image) VALUES ('Taco', 25 , 100, '../../../../webapp/assets/taco.jpg');
+INSERT INTO item (name, qty, price, category, `description` , image) VALUES ('Taco', 25 , 100.00, 'Mexican', 'Spicy and Tasty', 'taco.png');
+INSERT INTO item (name, qty, price, category, `description` , image) VALUES ('Pizza', 25 , 200.99, 'Main', '', 'pizza.png');
+INSERT INTO item (name, qty, price, category, `description` , image) VALUES ('Burger', 25 , 300.88, 'Fast Food', 'Tallest Ever', 'burger.jpg');
+INSERT INTO item (name, qty, price, category, `description` , image) VALUES ('Hotdog', 25 , 400.77, 'Fast Food', 'Hot and Dog', 'hotdog.jpg');
+INSERT INTO item (name, qty, price, category, `description` , image) VALUES ('Fries', 25 , 500.12, 'Fast Food', 'Crispy and Flling', 'fries.jpg');
 
 
-/*
-create table item(
-                     id int primary key,
-                     name varchar(50),
-                     des varchar(100),
-                     price int,
-                     category varchar(20)
-);
 
-insert into item values (1, 'Tomato Soup','butter bun with seasame',670,'starter' );
-insert into item values (8 , 'Spicy Chicken Burger','with deep fried nuggets',490,'Burgher' );
-insert into item values (5 , 'Coke','500ml',300,'Beverages' );
-insert into item values (11, 'Potato chips','small portion',280,'Fries' );
-insert into item values (19 , 'Crispy veg burger','Extra garlic gravy and onion rings',450,'Burger');
- */ 
   
   
   

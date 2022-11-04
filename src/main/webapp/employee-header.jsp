@@ -27,7 +27,7 @@
         <a class="nav-link" href="#">Manage User</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Manage Foods</a>
+        <a class="nav-link" href="ItemsGet">Manage Foods</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="ManageOrdersGet">Manage Orders</a>

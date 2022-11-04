@@ -3,16 +3,36 @@ package com.model;
 public class Item {
     private int id;
     private String name;
+    private String category;
+    private String description;
     private int qty;
     private double price;
     private String image;
 
-    public Item(int id, String name, int qty, double price, String image) {
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Item(int id, String name, int qty, String description, String category, double price, String image) {
         this.id = id;
         this.name = name;
         this.qty = qty;
         this.price = price;
         this.image = image;
+        this.description = description;
+        this.category = category;
     }
 
     public int getId() {
