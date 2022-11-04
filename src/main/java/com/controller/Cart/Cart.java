@@ -6,16 +6,16 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import com.util.CartDaoDatabaseUtil;
+import com.util.CartDatabaseUtil;
 import com.model.CartItem;
 
-@WebServlet(name = "cart", value = "/cart")
+@WebServlet(name = "cart", value = "/carttemp")
 public class Cart extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         //display cart
-        CartDaoDatabaseUtil cart = new CartDaoDatabaseUtil();
+        CartDatabaseUtil cart = new CartDatabaseUtil();
         int cartid = 0;
         try {
             cartid = cart.getCartId(1); // sessions

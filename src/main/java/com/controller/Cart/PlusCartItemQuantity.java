@@ -7,36 +7,28 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import com.util.CartDaoDatabaseUtil;
+import com.util.CartDatabaseUtil;
 import com.model.CartItem;
 
 @WebServlet(name = "PlusCartItemQuantity", value = "/PlusCartItemQuantity")
 public class PlusCartItemQuantity extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        int cartid = Integer.parseInt(request.getParameter("cartid"));
-        CartDaoDatabaseUtil cart = new CartDaoDatabaseUtil();
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        int cartid = Integer.parseInt(req.getParameter("cartid"));
+        CartDatabaseUtil cart = new CartDatabaseUtil();
         int res = cart.plusItem(id,cartid);
 
-        if(res > 0){
-            System.out.println( "nice " + res + " rows deleted" );
-            request.setAttribute("result", "pass");
-        }
-        else{
-            System.out.println( "works" );
-            request.setAttribute("result", "fail");
-        }
+        if(res > 0)
+            req.setAttribute("result", "pass");
 
-        ArrayList<CartItem> disCart =  cart.displayCart(cartid);
-        request.setAttribute("cart", disCart);
+        else
+            req.setAttribute("result", "fail");
 
-        RequestDispatcher dis = request.getRequestDispatcher("./cart.jsp");
-        dis.forward(request, response);
+
+        RequestDispatcher dis = req.getRequestDispatcher("./cart.jsp");
+        dis.forward(req, resp);
+
     }
+
 }

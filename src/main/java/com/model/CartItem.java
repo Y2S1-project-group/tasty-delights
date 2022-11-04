@@ -14,7 +14,7 @@ public class CartItem {
     public void setPrice(float price) {
         this.price = price;
     }
-
+    public CartItem(){}
     public CartItem(int id, int cartid, String iname, int quantity , float price) {
         this.id = id;
         this.cartid = cartid;

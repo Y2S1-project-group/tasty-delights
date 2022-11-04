@@ -23,7 +23,7 @@
                 <li class="nav-item"><a class="nav-link" href="#portfolio">Product</a></li>
                 <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="cart">Cart</a></li>
+                <li class="nav-item"><a class="nav-link" href="cart.jsp">Cart</a></li>
                 <li class="nav-item"><a class="nav-link" href="customer-login.jsp">login</a></li>
             <%--session login / register / logout--%>
             </ul>
@@ -76,9 +76,8 @@
             ItemDatabaseUtil homepage = new ItemDatabaseUtil();
 
             ArrayList<Item> homepageitems  = homepage.getHomeItems();
-            int size = homepageitems.size();
 
-            for(int i = 0; i < size; i++) {
+            for(int i = 0; i < homepageitems.size(); i++) {
             out.println("<div class='col-sm-6 col-md-4 portfolio-item' ><a class='portfolio-link' href = '#portfolioModal1'" +
                     "data-bs-toggle = 'modal' >" +
                     "<div class='portfolio-hover' >" +
@@ -191,6 +190,6 @@
     </div>
 </footer>
 <a href="<%= request.getContextPath() %>/employee.jsp">Employee</a>
-<a href="<%= request.getContextPath() %>/cart">cart</a>
+<a href="<%= request.getContextPath() %>/cart.jsp">cart</a>
 <a href="employee.jsp">Employee Login</a>
 </body>

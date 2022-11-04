@@ -2,7 +2,7 @@
 <%@ page import="com.model.CartItem" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.util.CartDaoDatabaseUtil" %>
+<%@ page import="com.util.CartDatabaseUtil" %>
 <%--
   Created by IntelliJ IDEA.
   User: GIHAA
@@ -33,7 +33,7 @@
 <table border="1">
   <tr>
     <%
-      CartDaoDatabaseUtil cart = new CartDaoDatabaseUtil();
+      CartDatabaseUtil cart = new CartDatabaseUtil();
       int total = 0;
 
       ArrayList<CartItem> disCart =  cart.displayCart(cart.getCartId(1)); // session

@@ -1,6 +1,6 @@
 package com.controller.Cart;
 
-import com.util.CartDaoDatabaseUtil;
+import com.util.CartDatabaseUtil;
 import com.model.CartItem;
 
 import javax.servlet.*;
@@ -13,33 +13,23 @@ import java.util.ArrayList;
 @WebServlet(name = "MinusCartItemQuantity", value = "/MinusCartItemQuantity")
 public class MinusCartItemQuantity extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        System.out.println("rrrrrrrr");
-        int id = Integer.parseInt(request.getParameter("id"));
-        int cartid = Integer.parseInt(request.getParameter("cartid"));
-        CartDaoDatabaseUtil cart = new CartDaoDatabaseUtil();
+        int id = Integer.parseInt(req.getParameter("id"));
+        int cartid = Integer.parseInt(req.getParameter("cartid"));
+        CartDatabaseUtil cart = new CartDatabaseUtil();
         int res = cart.minItem(id , cartid);
 
-        if(res > 0){
-            System.out.println( "nice " + res + " rows deleted" );
-            //request.setAttribute("result", "pass");
-        }
-        else{
-            System.out.println( "works" );
-            //request.setAttribute("result", "fail");
-        }
-        //sessions pass cid
-        ArrayList<CartItem> disCart =  cart.displayCart(cartid);
-        request.setAttribute("cart", disCart);
+        if(res > 0)
+            req.setAttribute("result", "pass");
 
-        RequestDispatcher dis = request.getRequestDispatcher("./cart.jsp");
-        dis.forward(request, response);
+        else
+            req.setAttribute("result", "fail");
+
+        RequestDispatcher dis = req.getRequestDispatcher("./cart.jsp");
+        dis.forward(req, resp);
 
     }
+
+
 }
