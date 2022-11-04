@@ -17,6 +17,6 @@
     Email <input type="text"><br>
     <input type="submit" name="forgot" value="Reset Password">
   </form>
-  <a href="./index.jsp" class="fw-bold">Go back</a>
+  <a href="./customer-login.jsp" class="fw-bold">Go back</a>
 </body>
 </html>

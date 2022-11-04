@@ -20,7 +20,7 @@ function isNumeric(n) {
 }
 
 function validateForm(){
-    // get values from input fields
+    return false; // get values from input fields
     let firstName = document.forms["create-account-form"]["fname"].value;
     let lastName = document.forms["create-account-form"]["lname"].value;
     let age = document.forms["create-account-form"]["age"].value;
