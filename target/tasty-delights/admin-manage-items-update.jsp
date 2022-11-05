@@ -36,10 +36,6 @@
                         "Name <input id='update-name' class='form-control' name='item-name' type='text' value='" + item.getName() + "'>" +
                     "</div>" +
                     "<div class='form-group'>" +
-                        "<p id='error-quantity'></p>" +
-                        "Quantity <input id='update-quantity' class='form-control' name='quantity' type='text' value='"+ item.getQty() + "'>" +
-                    "</div>" +
-                    "<div class='form-group'>" +
                         "<p id='error-price'></p>" +
                         "Price <input id='update-price' class='form-control' name='price' type='text' value='" + item.getPrice() + "'>" +
                     "</div>" +
