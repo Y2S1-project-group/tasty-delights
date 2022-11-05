@@ -43,8 +43,6 @@ public class CustomerDatabaseUtil implements CustomerDatabase {
             st.setString(6, address);
             st.setString(7, password);
             int count = st.executeUpdate();
-            st.close();
-            conn.close();
 
             if(count == 1){
                 return true;
@@ -124,5 +122,29 @@ public class CustomerDatabaseUtil implements CustomerDatabase {
             e.printStackTrace();
         }
         return customers;
+    }
+
+    public boolean changePassword(String email, String password){
+        try{
+            DatabaseConnection object = DatabaseConnection.getInstance();
+            PasswordUtil passwordUtil = new PasswordUtil();
+
+            Connection conn = object.getConnection();
+            Statement st = conn.createStatement();
+
+            String hashPassword = passwordUtil.encryptString(password);
+            PreparedStatement stmt = conn.prepareStatement("UPDATE customer SET password = ? WHERE email= ?;");
+            stmt.setString(1, hashPassword);
+            stmt.setString(2, email);
+            int count = stmt.executeUpdate();
+
+            if(count == 1){
+                return true;
+            }
+            return false;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
     }
 }

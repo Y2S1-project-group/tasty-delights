@@ -11,4 +11,5 @@ public interface CustomerDatabase {
     public String getCustomerLastName(String email);
     public String getCustomerID(String email);
     public ArrayList<Customer> getCustomers();
+    public boolean changePassword(String email, String password);
 }
