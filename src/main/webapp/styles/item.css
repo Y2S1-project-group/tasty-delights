@@ -1,0 +1,82 @@
+
+.top-bar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2em;
+    margin-bottom: 5em;
+}
+
+.circle {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: #00bfff;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+}
+
+.item-title{
+}
+.search-form{
+}
+
+.add-new-link{
+    display: inline-block;
+}
+
+/*blue curved button with on hover color change effect*/
+.item-button{
+    background-color: #00bfff;
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.item-button:hover{
+    background-color: #00b7ff;
+}
+
+/* material theme  search bar */
+.search-form{
+    border-color: #00bfff;
+    color: #00bff3;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+/* clean table */
+.table {
+    border-collapse: collapse;
+    width: auto;
+    margin: auto;
+}
+
+.item-create-form{
+    border-color: #00bfff;
+    color: #00bff3;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.create-form{
+    margin: auto;
+    width: 50%;
+}

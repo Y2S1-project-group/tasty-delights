@@ -193,4 +193,6 @@
 <a href="<%= request.getContextPath() %>/employee.jsp">Employee</a>
 <a href="<%= request.getContextPath() %>/cart.jsp">cart</a>
 <a href="employee.jsp">Employee Login</a>
+<a href="ItemsGet">Admin Items</a>
 </body>
+</html>
