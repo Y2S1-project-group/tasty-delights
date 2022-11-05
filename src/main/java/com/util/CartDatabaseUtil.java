@@ -104,5 +104,8 @@ public class CartDatabaseUtil implements Cart {
         return res;
     }
 
+    public void addToCart(int cartid, String iname , String price){
 
+        String query = String.format("INSERT INTO cart_item ( cartid , iname , quantity , price) VALUES ( %d , '%s' , 1 ,'%f');",cartid ,iname ,price );
+    }
 }

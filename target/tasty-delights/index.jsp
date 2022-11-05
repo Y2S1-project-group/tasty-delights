@@ -78,6 +78,7 @@
             ArrayList<Item> homepageitems  = homepage.getHomeItems();
 
             for(int i = 0; i < homepageitems.size(); i++) {
+
             out.println("<div class='col-sm-6 col-md-4 portfolio-item' ><a class='portfolio-link' href = '#portfolioModal1'" +
                     "data-bs-toggle = 'modal' >" +
                     "<div class='portfolio-hover' >" +
