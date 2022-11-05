@@ -22,16 +22,16 @@
     response.setHeader("Pragma", "no-cache");
     // Proxies
     response.setHeader("Expires", "0");
-    if (session.getAttribute("username") == null) {
-        response.sendRedirect("./employee.jsp");
-    }
-    System.out.println("I am in update item");
+    //if (session.getAttribute("username") == null) {
+    //    response.sendRedirect("./employee.jsp");
+    //}
+
 %>
 <div class="top-bar">
     <h6 class="item-title">Food Items</h6>
 
     <form action="ItemsSearch" method="get">
-        <input type="text" name="searchQuery" placeholder="Taco..." class="search-form">
+        <input type="text" name="searchQuery" placeholder="Search..." class="search-form">
         <input type="submit" value="Search" class="item-button">
     </form>
 

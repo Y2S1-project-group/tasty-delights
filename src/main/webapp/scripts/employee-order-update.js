@@ -1,5 +1,5 @@
 function validateForm(){
-    let itemName = document.forms["update-name"]["item-name"].value;
+    let itemName = document.forms["update-name"]["it em-name"].value;
     let quantity = document.forms["update-name"]["quantity"].value;
     let price = document.forms["update-name"]["price"].value;
 

@@ -21,9 +21,9 @@
     response.setHeader("Pragma", "no-cache");
     // Proxies
     response.setHeader("Expires", "0");
-    if (session.getAttribute("username") == null) {
-        response.sendRedirect("./employee.jsp");
-    }
+    //if (session.getAttribute("username") == null) {
+    //    response.sendRedirect("./employee.jsp");
+    //}
 %>
 <div class="container-sm">
     <form name="update-name" action="ItemsUpdateRedirect" method="get">

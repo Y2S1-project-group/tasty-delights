@@ -11,6 +11,7 @@
 <html>
 <head>
     <title>Create Item</title>
+    <link rel="stylesheet" href="styles/item.css">
 </head>
 <body>
 <%
@@ -20,29 +21,33 @@
     response.setHeader("Pragma", "no-cache");
     // Proxies
     response.setHeader("Expires", "0");
-    if (session.getAttribute("username") == null) {
-        response.sendRedirect("./employee.jsp");
-    }
+    //if (session.getAttribute("username") == null) {
+    //    response.sendRedirect("./employee.jsp");
+    //}
 %>
-<div class="container-sm">
-    <form name="create-item" action="ItemsCreate" method="get" onsubmit="return validateForm();">
+<div class="create-form">
+    <form name="create-item"  action="ItemsCreate" method="get" onsubmit="return validateForm();">
 <%
     out.print(
-            "<div class='form-group'>" +
-                    "Name <input id='update-name' class='form-control' name='item-name' type='text' value=''>" +
+            "<div>" +
+                    "<label>Name:</label></br>" +
+                    "<input id='update-name' class='item-create-form' name='item-name' type='text' value=''>" +
                     "</div>" +
-                    "<div class='form-group'>" +
+                    "<div>" +
                         "<p id='error-quantity'></p>" +
-                        "Quantity <input id='update-quantity' class='form-control' name='quantity' type='text' value=''>" +
+                        "<label>Quantity:</label></br>" +
+                        "<input id='update-quantity' class='item-create-form' name='quantity' type='text' value=''>" +
                     "</div>" +
-                    "<div class='form-group'>" +
+                    "<div>" +
                         "<p id='error-price'></p>" +
-                        "Price <input id='update-price' class='form-control' name='price' type='text' value=''>" +
+                        "<label>Price:</label></br>" +
+                        "<input id='update-price' class='item-create-form' name='price' type='text' value=''>" +
                     "</div>" +
-                    "<div class='form-group'>" +
-                    "Image Path <input id='update-ne' class='form-control' name='image' type='text' value=''>" +
+                    "<div>" +
+                    "<label>Image Name:</label></br>" +
+                    "<input id='update-ne' class='item-create-form' name='image' type='text' value=''>" +
                     "</div>" +
-                        "<input type='submit' class='btn btn-primary' value='Update'></form> " +
+                        "<input type='submit' class='item-button' value='Update'></form> " +
             "</div>"
     );
 %>
