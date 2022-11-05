@@ -30,8 +30,8 @@ public class ItemDatabaseUtil{
                 String description = rs.getString("description");
                 String category = rs.getString("category");
 
-                Item temp = new Item(id, name, qty, description, category, price,image);
-                items.add(temp);
+                //Item temp = new Item(id, name, qty, description, category, price,image); //dina
+                //items.add(temp);
             }
             rs.close();
         }catch (Exception e){
@@ -58,7 +58,7 @@ public class ItemDatabaseUtil{
                 String description = rs.getString("description");
                 String category = rs.getString("category");
 
-                temp = new Item(id, name, quantity, description, category, price, image);
+                //temp = new Item(id, name, quantity, description, category, price, image); //dina
             }
             rs.close();
         } catch (Exception e) {
@@ -71,7 +71,7 @@ public class ItemDatabaseUtil{
     public ArrayList<Item> getHomeItems()  {
         ArrayList<Item> homePageItems = new ArrayList<Item>();
 
-try{
+        try{
             DatabaseConnection object = DatabaseConnection.getInstance();
             Connection conn = object.getConnection();
             Statement st = conn.createStatement();
@@ -88,14 +88,18 @@ try{
                 String image = rs.getString("image");
                 Item temp = new Item(id , name , des , price, category ,image);
                 homePageItems.add(temp);
-        }
+            }
         }catch (Exception e){
             e.printStackTrace();
         }
         return homePageItems;
     }
-}
-public boolean updateAnItem (int id, String name, int quantity, String description, String category, double price , String image) {
+
+    public boolean updateAnItem (int id, String name, int quantity, String description, String category, double price , String image) {
+        try{
+            DatabaseConnection object = DatabaseConnection.getInstance();
+            Connection conn = object.getConnection();
+            Statement st = conn.createStatement();
             String query = String.format("update item set name = '%s', qty = '%d', description = '%s', category = '%s', price = '%f', image = '%s' where id = '%d'", name, quantity, description, category, price, image, id);
             int count = st.executeUpdate(query);
             if(count == 1){
@@ -162,8 +166,8 @@ public boolean updateAnItem (int id, String name, int quantity, String descripti
                 String category = rs.getString("category");
 
 
-                Item temp = new Item(id, name, qty, description, category, price,image);
-                items.add(temp);
+                //Item temp = new Item(id, name, qty, description, category, price,image);//dina
+                //items.add(temp);
             }
             rs.close();
         }catch (Exception e){
