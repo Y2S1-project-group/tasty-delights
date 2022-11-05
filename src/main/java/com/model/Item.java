@@ -3,37 +3,29 @@ package com.model;
 public class Item {
     private int id;
     private String name;
+    private String des;
+    private float price;
     private String category;
-    private String description;
-    private int qty;
-    private double price;
     private String image;
 
-    public String getCategory() {
-        return category;
+    public String getImage() {
+        return image;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setImage(String image) {
+        this.image = image;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Item(int id, String name, int qty, String description, String category, double price, String image) {
+    public Item(int id, String name, String des, float price, String category , String image) {
         this.id = id;
         this.name = name;
-        this.qty = qty;
+        this.des = des;
         this.price = price;
-        this.image = image;
-        this.description = description;
         this.category = category;
+        this.image = image;
     }
+
+    private String password;
 
     public int getId() {
         return id;
@@ -51,27 +43,36 @@ public class Item {
         this.name = name;
     }
 
-    public int getQty() {
-        return qty;
+    public String getDes() {
+        return des;
     }
 
-    public void setQty(int qty) {
-        this.qty = qty;
+    public void setDes(String des) {
+        this.des = des;
     }
 
-    public double getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 
-    public String getImage() {
-        return image;
+    public String getCategory() {
+        return category;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setCategory(String category) {
+        this.category = category;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 }

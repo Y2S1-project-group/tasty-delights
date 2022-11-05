@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+
 public class ItemDatabaseUtil{
     public ArrayList<Item> getItems() {
         ArrayList<Item> items = new ArrayList<Item>();
@@ -66,11 +67,35 @@ public class ItemDatabaseUtil{
         return temp;
     }
 
-    public boolean updateAnItem (int id, String name, int quantity, String description, String category, double price , String image) {
-        try{
+
+    public ArrayList<Item> getHomeItems()  {
+        ArrayList<Item> homePageItems = new ArrayList<Item>();
+
+try{
             DatabaseConnection object = DatabaseConnection.getInstance();
             Connection conn = object.getConnection();
             Statement st = conn.createStatement();
+
+
+            String query =  String.format("SELECT * FROM item");
+            ResultSet rs = st.executeQuery(query);
+            while(rs.next()){
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String des = rs.getString("des");
+                float price = rs.getFloat("price");
+                String category = rs.getString("category");
+                String image = rs.getString("image");
+                Item temp = new Item(id , name , des , price, category ,image);
+                homePageItems.add(temp);
+        }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return homePageItems;
+    }
+}
+public boolean updateAnItem (int id, String name, int quantity, String description, String category, double price , String image) {
             String query = String.format("update item set name = '%s', qty = '%d', description = '%s', category = '%s', price = '%f', image = '%s' where id = '%d'", name, quantity, description, category, price, image, id);
             int count = st.executeUpdate(query);
             if(count == 1){
