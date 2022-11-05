@@ -34,11 +34,6 @@
                     "<input id='update-name' class='item-create-form' name='item-name' type='text' value=''>" +
                     "</div>" +
                     "<div>" +
-                        "<p id='error-quantity'></p>" +
-                        "<label>Quantity:</label></br>" +
-                        "<input id='update-quantity' class='item-create-form' name='quantity' type='text' value=''>" +
-                    "</div>" +
-                    "<div>" +
                         "<p id='error-price'></p>" +
                         "<label>Price:</label></br>" +
                         "<input id='update-price' class='item-create-form' name='price' type='text' value=''>" +

@@ -55,7 +55,6 @@
         <tr>
             <th scope="col">📷</th>
             <th scope="col">Name</th>
-            <th scope="col">Quantity</th>
             <th scope="col">Price</th>
             <th scope="col">📝</th>
         </tr>
@@ -66,7 +65,6 @@
                     out.print("<tr>" +
                             "<td>" + "<img src = 'assets/"+ items.get(i).getImage()+"'width='50' height='50'>" + "</td>" +
                             "<td>" + items.get(i).getName() + "</td>" +
-                            "<td>" + items.get(i).getQty() + "</td>" +
                             "<td>" + items.get(i).getPrice() + "</td>" +
                             "<td>" +
                                 "<a class='mBtn btn btn-warning' href='ItemsUpdate?id=" + items.get(i).getId() + "'>Update</a>" +
