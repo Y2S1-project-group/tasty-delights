@@ -4,8 +4,7 @@ public class Item {
     private int id;
     private String name;
     private String category;
-    private String description;
-    private int qty;
+    private String des;
     private double price;
     private String image;
 
@@ -18,20 +17,19 @@ public class Item {
     }
 
     public String getDescription() {
-        return description;
+        return des;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.des = description;
     }
 
-    public Item(int id, String name, int qty, String description, String category, double price, String image) {
+    public Item(int id, String name, String des, double price, String category,String image) {
         this.id = id;
         this.name = name;
-        this.qty = qty;
         this.price = price;
         this.image = image;
-        this.description = description;
+        this.des = des;
         this.category = category;
     }
 
@@ -50,15 +48,6 @@ public class Item {
     public void setName(String name) {
         this.name = name;
     }
-
-    public int getQty() {
-        return qty;
-    }
-
-    public void setQty(int qty) {
-        this.qty = qty;
-    }
-
     public double getPrice() {
         return price;
     }
