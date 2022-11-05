@@ -104,8 +104,24 @@ public class CartDatabaseUtil implements Cart {
         return res;
     }
 
-    public void addToCart(int cartid, String iname , String price){
+    public int addToCart(int cartid, String iname , double price){
 
         String query = String.format("INSERT INTO cart_item ( cartid , iname , quantity , price) VALUES ( %d , '%s' , 1 ,'%f');",cartid ,iname ,price );
+        int res = 0;
+        try {
+            DatabaseConnection object = DatabaseConnection.getInstance();
+            Connection conn = object.getConnection();
+            Statement st = conn.createStatement();
+
+            res = st.executeUpdate(query);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return res;
+    }
+
+    public void addOrder(){
+        String query = String.format("");
     }
 }

@@ -200,13 +200,13 @@
                         + "<a href='"+request.getContextPath()+"/MinusCartItemQuantity?id="+disCart.get(i).getId() + "&cartid="+ disCart.get(i).getCartid()+"'>-</a><a href='#' class='border'>"+disCart.get(i).getQuantity()+"</a><a href='"+request.getContextPath()+"/PlusCartItemQuantity?id="+disCart.get(i).getId() + "&cartid="+ disCart.get(i).getCartid()+"'>+</a>"
                         + "</div>"
                         + "<div class='col'>"+ disCart.get(i).getPrice()*disCart.get(i).getQuantity() +"</div>"
-                        + "<a href='"+ request.getContextPath() +"/deleteCartItem?id=" +disCart.get(i).getId() + "&cartid="+ disCart.get(i).getCartid()+"'>"+"<input style=\"width: 100px;\" type='submit' class='btn btn-dark btn-xs' value='delete'/></a>"
+                        + "<a href='"+ request.getContextPath() +"/DeleteCartItem?id=" +disCart.get(i).getId() + "&cartid="+ disCart.get(i).getCartid()+"'>"+"<input style=\"width: 100px;\" type='submit' class='btn btn-dark btn-xs' value='delete'/></a>"
                         + "</div>"
                         + "</div>");
                 tprice += disCart.get(i).getPrice()*disCart.get(i).getQuantity();
             }
         %>
-            <div class='back-to-shop'><a href='#'>&leftarrow;<span class="text-muted">Back to shop</span></a></div>
+            <div class='back-to-shop'><a href='index.jsp'>&leftarrow;<span class="text-muted">Back to shop</span></a></div>
         </div>
         <div class="col-md-4 summary">
             <div><h5><b>Summary</b></h5></div>
@@ -215,18 +215,18 @@
                 <% out.println("<div class='col' style='padding-left:0;'>ITEMS " + disCart.size() + "</div>");
                     out.println("<div class='col text-right'>"+ tprice + "</div>"); %>
             </div>
-            <form>
+            <form action='AddOrder' method='post'>
                 <p>SHIPPING</p>
                 <select>
-                    <option class="text-muted">Standard-Delivery  5.00</option>
-                    <option class="text-muted">Standard-Delivery  10.00</option>
+                    <option class='text-muted'>Standard-Delivery  5.00</option>
+                    <option class='text-muted'>Standard-Delivery  10.00</option>
                 </select>
 
-            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-                <div class="col">TOTAL PRICE</div>
-                <div class="col text-right">  137.00</div>
+            <div class='row' style='border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;'>
+                <div class='col'>TOTAL PRICE</div>
+                <div class='col text-right'>  137.00</div>
             </div>
-            <button class="btn">CHECKOUT</button>
+                <input type='submit' class='btn' value='CheckOut'>
             </form>
         </div>
     </div>

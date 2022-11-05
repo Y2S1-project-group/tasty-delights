@@ -1,14 +1,12 @@
 package com.controller.Cart;
 
 import com.util.CartDatabaseUtil;
-import com.model.CartItem;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 @WebServlet(name = "MinusCartItemQuantity", value = "/MinusCartItemQuantity")
 public class MinusCartItemQuantity extends HttpServlet {

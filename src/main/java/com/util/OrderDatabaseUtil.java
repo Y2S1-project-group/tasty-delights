@@ -28,8 +28,8 @@ public class OrderDatabaseUtil implements OrderDatabase {
                 String orderedtime = rs.getString("orderedtime");
 
                 Order temp;
-                temp = new Order(id, cusid, name, quantity, status, tprice, orderedtime);
-                orders.add(temp);
+                //temp = new Order(id, cusid, name, quantity, status, tprice, orderedtime);
+                //orders.add(temp);
             }
             rs.close();
         }catch (Exception e){
@@ -56,8 +56,8 @@ public class OrderDatabaseUtil implements OrderDatabase {
                 String orderedtime = rs.getString("orderedtime");
 
                 Order temp;
-                temp = new Order(id, cusid, name, quantity, status, tprice, orderedtime);
-                orders.add(temp);
+                //temp = new Order(id, cusid, name, quantity, status, tprice, orderedtime);
+                //orders.add(temp);
             }
             rs.close();
         }catch (Exception e){
@@ -84,8 +84,8 @@ public class OrderDatabaseUtil implements OrderDatabase {
                 String orderedtime = rs.getString("orderedtime");
 
                 Order temp;
-                temp = new Order(id, cusid, name, quantity, status, tprice, orderedtime);
-                orders.add(temp);
+                //temp = new Order(id, cusid, name, quantity, status, tprice, orderedtime);
+                //orders.add(temp);
             }
             rs.close();
         }catch (Exception e){
@@ -112,8 +112,8 @@ public class OrderDatabaseUtil implements OrderDatabase {
                 String orderedtime = rs.getString("orderedtime");
 
                 Order temp;
-                temp = new Order(id, cusid, name, quantity, status, tprice, orderedtime);
-                orders.add(temp);
+                //temp = new Order(id, cusid, name, quantity, status, tprice, orderedtime);
+                //orders.add(temp);
             }
             rs.close();
         }catch (Exception e){
@@ -140,8 +140,8 @@ public class OrderDatabaseUtil implements OrderDatabase {
                 String orderedtime = rs.getString("orderedtime");
 
                 Order temp;
-                temp = new Order(id, cusid, name, quantity, status, tprice, orderedtime);
-                orders.add(temp);
+                //temp = new Order(id, cusid, name, quantity, status, tprice, orderedtime);
+                //orders.add(temp);
             }
             rs.close();
         }catch (Exception e){
@@ -168,8 +168,8 @@ public class OrderDatabaseUtil implements OrderDatabase {
                 String orderedtime = rs.getString("orderedtime");
 
                 Order temp;
-                temp = new Order(id, cusid, name, quantity, status, tprice, orderedtime);
-                order.add(temp);
+                //temp = new Order(id, cusid, name, quantity, status, tprice, orderedtime);
+                //order.add(temp);
             }
             rs.close();
         }catch (Exception e){

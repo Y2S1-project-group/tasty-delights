@@ -5,10 +5,8 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import com.util.CartDatabaseUtil;
-import com.model.CartItem;
 
 @WebServlet(name = "PlusCartItemQuantity", value = "/PlusCartItemQuantity")
 public class PlusCartItemQuantity extends HttpServlet {
