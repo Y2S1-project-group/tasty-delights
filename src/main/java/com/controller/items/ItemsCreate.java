@@ -20,13 +20,12 @@ public class ItemsCreate extends HttpServlet {
             ItemDatabaseUtil itemCreate = new ItemDatabaseUtil();
 
             String name = request.getParameter("item-name");
-            int quantity = Integer.parseInt(request.getParameter("quantity"));
             double price = Integer.parseInt(request.getParameter("price"));
             String image = request.getParameter("image");
             String description = request.getParameter("description");
             String category = request.getParameter("category");
 
-            if (itemCreate.createItems(name, quantity, description, category, price,image)){
+            if (itemCreate.createItems(name, description, category, price,image)){
                 request.setAttribute("createStatus", "success");
             }else{
                 request.setAttribute("createStatus", "fail");
