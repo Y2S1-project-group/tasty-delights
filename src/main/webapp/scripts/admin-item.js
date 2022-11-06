@@ -1,7 +1,7 @@
 function validateForm(){
     let itemName = document.forms["create-item"]["name"].value;
-    let image    = document.forms["create-item"]["image"].value;
     let price = document.forms["create-item"]["price"].value;
+    let image = document.forms["create-item"]["item-image"].value;
 
     let messageName = document.getElementById("error-name");
     let messageImage = document.getElementById("error-quantity");

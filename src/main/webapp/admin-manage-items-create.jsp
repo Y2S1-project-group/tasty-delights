@@ -29,7 +29,7 @@
     //}
 %>
 <div class="create-form">
-    <form name="create-item"  action="ItemsCreate" method="get" onsubmit="return validateForm();">
+    <form name="create-item"  action="ItemsCreate" method="get" onsubmit="return(validateForm());">
 <%
     out.print(
             "<div>" +
@@ -45,9 +45,9 @@
             "<div>" +
                 "<p id='error-image'></p>" +
                 "<label>Image Name:</label></br>" +
-                "<input id='create-image' class='item-create-form' name='image' type='text' value=''>" +
+                "<input id='create-image' class='item-create-form' name='item-image' type='text' value=''>" +
             "</div>" +
-                "<input type='submit' class='item-button create-item-button' value='Update'></form> " +
+                "<input type='submit' class='item-button create-item-button' value='Create Item'></form> " +
             "</div>"
     );
 %>
