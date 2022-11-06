@@ -110,23 +110,21 @@ create table admin(
 
 insert into Admin(username, password) values('admin', 'admin123');
 
+
 CREATE TABLE `tasty_delights`.`item` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NULL,
-  `qty` INT NULL,
-  `category` VARCHAR(45) NULL,
-  `description` VARCHAR(100) NULL,
+  `des` VARCHAR(100) NULL,
   `price` DECIMAL(10,2) NULL,
+  `category` VARCHAR(45) NULL,
   `image` VARCHAR(45) NULL,
   PRIMARY KEY (`id`));
   
-INSERT INTO item (name, qty, price, category, `description` , image) VALUES ('Taco', 25 , 100.00, 'Mexican', 'Spicy and Tasty', 'taco.png');
-INSERT INTO item (name, qty, price, category, `description` , image) VALUES ('Pizza', 25 , 200.99, 'Main', '', 'pizza.png');
-INSERT INTO item (name, qty, price, category, `description` , image) VALUES ('Burger', 25 , 300.88, 'Fast Food', 'Tallest Ever', 'burger.jpg');
-INSERT INTO item (name, qty, price, category, `description` , image) VALUES ('Hotdog', 25 , 400.77, 'Fast Food', 'Hot and Dog', 'hotdog.jpg');
-INSERT INTO item (name, qty, price, category, `description` , image) VALUES ('Fries', 25 , 500.12, 'Fast Food', 'Crispy and Flling', 'fries.jpg');
-
-
+INSERT INTO item (name, price, category, des , image) VALUES ('Taco', 100.00, 'Mexican', 'Spicy and Tasty', 'taco.png');
+INSERT INTO item (name, price, category, des , image) VALUES ('Pizza', 200.99, 'Main', '', 'pizza.png');
+INSERT INTO item (name, price, category, des , image) VALUES ('Burger', 300.88, 'Fast Food', 'Tallest Ever', 'burger.jpg');
+INSERT INTO item (name, price, category, des , image) VALUES ('Hotdog', 400.77, 'Fast Food', 'Hot and Dog', 'hotdog.jpg');
+INSERT INTO item (name, price, category, des , image) VALUES ('Fries', 500.12, 'Fast Food', 'Crispy and Flling', 'fries.jpg');
 
   
   
