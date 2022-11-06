@@ -37,8 +37,6 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Customer ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">Quantity</th>
                 <th scope="col">Status</th>
                 <th scope="col">Total Price</th>
                 <th scope="col">Ordered Time</th>
@@ -50,8 +48,6 @@
                 out.print("<tr>" +
                     "<td>" + pendingOrders.get(i).getId() + "</td>" +
                     "<td>" + pendingOrders.get(i).getCusid() + "</td>" +
-                    "<td>" + pendingOrders.get(i).getName() + "</td>" +
-                    "<td>" + pendingOrders.get(i).getQuality() + "</td>" +
                     "<td>" + pendingOrders.get(i).getStatus() + "</td>" +
                     "<td>" + pendingOrders.get(i).getTprice() + "</td>" +
                     "<td>" + pendingOrders.get(i).getOrderedtime() + "</td>" +
@@ -76,8 +72,6 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Customer ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">Quantity</th>
                 <th scope="col">Status</th>
                 <th scope="col">Total Price</th>
                 <th scope="col">Ordered Time</th>
@@ -89,8 +83,6 @@
                 out.print("<tr>" +
                     "<td>" + preparingOrders.get(i).getId() + "</td>" +
                     "<td>" + preparingOrders.get(i).getCusid() + "</td>" +
-                    "<td>" + preparingOrders.get(i).getName() + "</td>" +
-                    "<td>" + preparingOrders.get(i).getQuality() + "</td>" +
                     "<td>" + preparingOrders.get(i).getStatus() + "</td>" +
                     "<td>" + preparingOrders.get(i).getTprice() + "</td>" +
                     "<td>" + preparingOrders.get(i).getOrderedtime() + "</td>" +
@@ -115,8 +107,6 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Customer ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">Quantity</th>
                 <th scope="col">Status</th>
                 <th scope="col">Total Price</th>
                 <th scope="col">Ordered Time</th>
@@ -128,8 +118,6 @@
                 out.print("<tr>" +
                     "<td>" + deliveringOrders.get(i).getId() + "</td>" +
                     "<td>" + deliveringOrders.get(i).getCusid() + "</td>" +
-                    "<td>" + deliveringOrders.get(i).getName() + "</td>" +
-                    "<td>" + deliveringOrders.get(i).getQuality() + "</td>" +
                     "<td>" + deliveringOrders.get(i).getStatus() + "</td>" +
                     "<td>" + deliveringOrders.get(i).getTprice() + "</td>" +
                     "<td>" + deliveringOrders.get(i).getOrderedtime() + "</td>" +
@@ -154,8 +142,6 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Customer ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">Quantity</th>
                 <th scope="col">Status</th>
                 <th scope="col">Total Price</th>
                 <th scope="col">Ordered Time</th>
@@ -167,8 +153,6 @@
                 out.print("<tr>" +
                     "<td>" + completedOrders.get(i).getId() + "</td>" +
                     "<td>" + completedOrders.get(i).getCusid() + "</td>" +
-                    "<td>" + completedOrders.get(i).getName() + "</td>" +
-                    "<td>" + completedOrders.get(i).getQuality() + "</td>" +
                     "<td>" + completedOrders.get(i).getStatus() + "</td>" +
                     "<td>" + completedOrders.get(i).getTprice() + "</td>" +
                     "<td>" + completedOrders.get(i).getOrderedtime() + "</td>" +

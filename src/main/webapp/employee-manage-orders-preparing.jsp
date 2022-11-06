@@ -36,8 +36,6 @@
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Customer ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Quantity</th>
             <th scope="col">Status</th>
             <th scope="col">Total Price</th>
             <th scope="col">Ordered Time</th>
@@ -50,8 +48,6 @@
                 out.print("<tr>" +
                         "<td>" + orders.get(i).getId() + "</td>" +
                         "<td>" + orders.get(i).getCusid() + "</td>" +
-                        "<td>" + orders.get(i).getName() + "</td>" +
-                        "<td>" + orders.get(i).getQuality() + "</td>" +
                         "<td>" + orders.get(i).getStatus() + "</td>" +
                         "<td>" + orders.get(i).getTprice() + "</td>" +
                         "<td>" + orders.get(i).getOrderedtime() + "</td>" +
