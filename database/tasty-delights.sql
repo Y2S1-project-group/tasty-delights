@@ -56,12 +56,13 @@ insert into cart (id, cusid) values(4, 2);
 insert into cart (id, cusid) values(5, 3);
 
 CREATE TABLE cart_item (
-                           id INT NOT NULL AUTO_INCREMENT,
-                           cartid int NOT NULL,
-                           iname VARCHAR(50) NOT NULL,
-                           quantity INT NOT NULL,
-                           PRIMARY KEY (id),
-                           FOREIGN KEY (cartid) REFERENCES cart(id)
+    id INT NOT NULL AUTO_INCREMENT,
+    cartid int NOT NULL,
+    iname VARCHAR(50) NOT NULL,
+    quantity INT NOT NULL,
+    price double NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (cartid) REFERENCES cart(id)
 );
 
 insert into cart_item (cartid, iname, quantity) values(1, 'burger', 2);
