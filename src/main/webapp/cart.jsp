@@ -221,7 +221,9 @@
                     <option class='text-muted'>Standard-Delivery  5.00</option>
                     <option class='text-muted'>Standard-Delivery  10.00</option>
                 </select>
-
+                <input type ='hidden' name='cusid' value='1'/> <!--session-->
+                <input type ='hidden' name='tprice' value='<% out.println(tprice); %>'/>
+                <input type ='hidden' name='orderItemAmount' value='<% out.println(disCart.size()); %>'/>
             <div class='row' style='border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;'>
                 <div class='col'>TOTAL PRICE</div>
                 <div class='col text-right'>  137.00</div>
