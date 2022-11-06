@@ -16,30 +16,30 @@ INSERT INTO customer (fname, lname, age, email, contact, address, password) VALU
 INSERT INTO customer (fname, lname, age, email, contact, address, password) VALUES('Michael', 'Daniel', 25, 'sddsd@gmail.com' , '0719999369' ,  'colombo', 'daniel123');
 INSERT INTO customer (fname, lname, age, email, contact, address, password) VALUES('John', 'Thomas', 25, 'sddsd@gmail.com' , '0719944369' ,  'galle', 'john123');
 
-create table orders(
-    id INT NOT NULL AUTO_INCREMENT primary key,
-    cusid INT NOT NULL,
-    name varchar(20),
-    quantity int,
-    status varchar(20) default pending,
-    price double, 
-    orderedtime datetime default current_timestamp,
-    FOREIGN KEY (cusid) REFERENCES customer(id)
-);
+-- create table orders(
+--     id INT NOT NULL AUTO_INCREMENT primary key,
+--     cusid INT NOT NULL,
+--     name varchar(20),
+--     quantity int,
+--     status varchar(20) default pending,
+--     price double, 
+--     orderedtime datetime default current_timestamp,
+--     FOREIGN KEY (cusid) REFERENCES customer(id)
+-- );
 
-insert into orders (cusid, name, quantity, status, price) values(1, 'burger', 2, 'pending', 200);
-insert into orders(cusid, name, quantity, status, price) values(1, 'pizza', 2, 'preparing', 200);
-insert into orders (cusid, name, quantity, status, price) values(2, 'burger', 2, 'delivering', 200);
-insert into orders (cusid, name, quantity, status, price) values(2, 'pizza', 2, 'completed', 200);
-insert into orders (cusid, name, quantity, status, price) values(3, 'burger', 2, 'pending', 200);
-insert into orders (cusid, name, quantity, status, price) values(3, 'pizza', 2, 'preparing', 200);
-insert into orders (cusid, name, quantity, status, price) values(4, 'burger', 2, 'completed', 200);
-insert into orders (cusid, name, quantity, status, price) values(4, 'pizza', 2, 'pending', 200);
-insert into orders (cusid, name, quantity, status, price) values(5, 'burger', 2, 'preparing', 200);
-insert into orders (cusid, name, quantity, status, price) values(5, 'pizza', 2, 'delivering', 200);
-insert into orders (cusid, name, quantity, status, price) values(5, 'burger', 2, 'completed', 200);
-insert into orders (cusid, name, quantity, status, price) values(5, 'pizza', 2, 'pending', 200);
-insert into orders (cusid, name, quantity, status, price) values(5, 'burger', 2, 'pending', 200);
+-- insert into orders (cusid, name, quantity, status, price) values(1, 'burger', 2, 'pending', 200);
+-- insert into orders(cusid, name, quantity, status, price) values(1, 'pizza', 2, 'preparing', 200);
+-- insert into orders (cusid, name, quantity, status, price) values(2, 'burger', 2, 'delivering', 200);
+-- insert into orders (cusid, name, quantity, status, price) values(2, 'pizza', 2, 'completed', 200);
+-- insert into orders (cusid, name, quantity, status, price) values(3, 'burger', 2, 'pending', 200);
+-- insert into orders (cusid, name, quantity, status, price) values(3, 'pizza', 2, 'preparing', 200);
+-- insert into orders (cusid, name, quantity, status, price) values(4, 'burger', 2, 'completed', 200);
+-- insert into orders (cusid, name, quantity, status, price) values(4, 'pizza', 2, 'pending', 200);
+-- insert into orders (cusid, name, quantity, status, price) values(5, 'burger', 2, 'preparing', 200);
+-- insert into orders (cusid, name, quantity, status, price) values(5, 'pizza', 2, 'delivering', 200);
+-- insert into orders (cusid, name, quantity, status, price) values(5, 'burger', 2, 'completed', 200);
+-- insert into orders (cusid, name, quantity, status, price) values(5, 'pizza', 2, 'pending', 200);
+-- insert into orders (cusid, name, quantity, status, price) values(5, 'burger', 2, 'pending', 200);
 
 CREATE TABLE cart (
                       id INT NOT NULL,
@@ -56,12 +56,13 @@ insert into cart (id, cusid) values(4, 2);
 insert into cart (id, cusid) values(5, 3);
 
 CREATE TABLE cart_item (
-                           id INT NOT NULL AUTO_INCREMENT,
-                           cartid int NOT NULL,
-                           iname VARCHAR(50) NOT NULL,
-                           quantity INT NOT NULL,
-                           PRIMARY KEY (id),
-                           FOREIGN KEY (cartid) REFERENCES cart(id)
+    id INT NOT NULL AUTO_INCREMENT,
+    cartid int NOT NULL,
+    iname VARCHAR(50) NOT NULL,
+    quantity INT NOT NULL,
+    price double NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (cartid) REFERENCES cart(id)
 );
 
 insert into cart_item (cartid, iname, quantity) values(1, 'burger', 2);

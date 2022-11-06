@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class OrderDatabaseUtil implements OrderDatabase {
 
-    public boolean insertOrderItem(int name , int quantity , double price){
+    public boolean insertOrderItem(String name , int quantity , double price){
         try{
             DatabaseConnection object = DatabaseConnection.getInstance();
             Connection conn = object.getConnection();
