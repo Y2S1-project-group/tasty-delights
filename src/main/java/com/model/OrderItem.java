@@ -4,7 +4,14 @@ public class OrderItem {
     private int id;
     private String name;
     private int quantity;
-    private float price;
+    private double price;
+
+    public OrderItem(int id, String name, int quantity, double price){
+        this.id = id;
+        this.name = name;
+        this.quantity = quantity;
+        this.price = price;
+    }
 
     public int getId() {
         return id;
@@ -30,11 +37,11 @@ public class OrderItem {
         this.quantity = quantity;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 }

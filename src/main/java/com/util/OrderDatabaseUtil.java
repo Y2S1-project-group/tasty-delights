@@ -3,6 +3,7 @@ package com.util;
 import com.controller.DatabaseConnection;
 import com.interfaces.OrderDatabase;
 import com.model.Order;
+import com.model.OrderItem;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -55,15 +56,12 @@ public class OrderDatabaseUtil implements OrderDatabase {
             while(rs.next()) {
                 int id = rs.getInt("id");
                 int cusid = rs.getInt("cusid");
-                String name = rs.getString("name");
-                int quantity = rs.getInt("quantity");
                 String status = rs.getString("status");
-                double tprice = rs.getDouble("price");
+                double tprice = rs.getDouble("tprice");
                 String orderedtime = rs.getString("orderedtime");
-
                 Order temp;
-                //temp = new Order(id, cusid, name, quantity, status, tprice, orderedtime);
-                //orders.add(temp);
+                temp = new Order(id, cusid, status, tprice, orderedtime);
+                orders.add(temp);
             }
             rs.close();
         }catch (Exception e){
@@ -83,15 +81,12 @@ public class OrderDatabaseUtil implements OrderDatabase {
             while(rs.next()) {
                 int id = rs.getInt("id");
                 int cusid = rs.getInt("cusid");
-                String name = rs.getString("name");
-                int quantity = rs.getInt("quantity");
                 String status = rs.getString("status");
-                double tprice = rs.getDouble("price");
+                double tprice = rs.getDouble("tprice");
                 String orderedtime = rs.getString("orderedtime");
-
                 Order temp;
-                //temp = new Order(id, cusid, name, quantity, status, tprice, orderedtime);
-                //orders.add(temp);
+                temp = new Order(id, cusid, status, tprice, orderedtime);
+                orders.add(temp);
             }
             rs.close();
         }catch (Exception e){
@@ -111,15 +106,12 @@ public class OrderDatabaseUtil implements OrderDatabase {
             while(rs.next()) {
                 int id = rs.getInt("id");
                 int cusid = rs.getInt("cusid");
-                String name = rs.getString("name");
-                int quantity = rs.getInt("quantity");
                 String status = rs.getString("status");
-                double tprice = rs.getDouble("price");
+                double tprice = rs.getDouble("tprice");
                 String orderedtime = rs.getString("orderedtime");
-
                 Order temp;
-                //temp = new Order(id, cusid, name, quantity, status, tprice, orderedtime);
-                //orders.add(temp);
+                temp = new Order(id, cusid, status, tprice, orderedtime);
+                orders.add(temp);
             }
             rs.close();
         }catch (Exception e){
@@ -139,15 +131,12 @@ public class OrderDatabaseUtil implements OrderDatabase {
             while(rs.next()) {
                 int id = rs.getInt("id");
                 int cusid = rs.getInt("cusid");
-                String name = rs.getString("name");
-                int quantity = rs.getInt("quantity");
                 String status = rs.getString("status");
-                double tprice = rs.getDouble("price");
+                double tprice = rs.getDouble("tprice");
                 String orderedtime = rs.getString("orderedtime");
-
                 Order temp;
-                //temp = new Order(id, cusid, name, quantity, status, tprice, orderedtime);
-                //orders.add(temp);
+                temp = new Order(id, cusid, status, tprice, orderedtime);
+                orders.add(temp);
             }
             rs.close();
         }catch (Exception e){
@@ -167,15 +156,12 @@ public class OrderDatabaseUtil implements OrderDatabase {
             while(rs.next()) {
                 int id = rs.getInt("id");
                 int cusid = rs.getInt("cusid");
-                String name = rs.getString("name");
-                int quantity = rs.getInt("quantity");
                 String status = rs.getString("status");
-                double tprice = rs.getDouble("price");
+                double tprice = rs.getDouble("tprice");
                 String orderedtime = rs.getString("orderedtime");
-
                 Order temp;
-                //temp = new Order(id, cusid, name, quantity, status, tprice, orderedtime);
-                //orders.add(temp);
+                temp = new Order(id, cusid, status, tprice, orderedtime);
+                orders.add(temp);
             }
             rs.close();
         }catch (Exception e){
@@ -195,15 +181,12 @@ public class OrderDatabaseUtil implements OrderDatabase {
             while(rs.next()) {
                 int id = rs.getInt("id");
                 int cusid = rs.getInt("cusid");
-                String name = rs.getString("name");
-                int quantity = rs.getInt("quantity");
                 String status = rs.getString("status");
-                double tprice = rs.getDouble("price");
+                double tprice = rs.getDouble("tprice");
                 String orderedtime = rs.getString("orderedtime");
-
                 Order temp;
-                //temp = new Order(id, cusid, name, quantity, status, tprice, orderedtime);
-                //order.add(temp);
+                temp = new Order(id, cusid, status, tprice, orderedtime);
+                order.add(temp);
             }
             rs.close();
         }catch (Exception e){
@@ -234,9 +217,12 @@ public class OrderDatabaseUtil implements OrderDatabase {
 
     public boolean deleteAnOrder(int id) {
         try{
+            // delete order items
             DatabaseConnection object = DatabaseConnection.getInstance();
             Connection conn = object.getConnection();
             Statement st = conn.createStatement();
+            String orderItemQuery = String.format("delete from order_item where orderid = " + id + ";");
+            int orderItemCount = st.executeUpdate(orderItemQuery);
             String query = String.format("delete from orders where id='"+ id + "'");
             int count = st.executeUpdate(query);
             if(count == 1){
@@ -262,5 +248,30 @@ public class OrderDatabaseUtil implements OrderDatabase {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public ArrayList<OrderItem> getAnOrderItems(int orderId){
+        ArrayList<OrderItem> items = new ArrayList<OrderItem>();
+        try {
+            DatabaseConnection object = DatabaseConnection.getInstance();
+            Connection conn = object.getConnection();
+            Statement st = conn.createStatement();
+            String query = String.format("select * from order_item where orderid = '" + orderId + "'");
+            ResultSet rs = st.executeQuery(query);
+            while(rs.next()) {
+                int id = rs.getInt("id");
+
+                String name = rs.getString("name");
+                int quantity= rs.getInt("quantity");
+                double price = rs.getDouble("price");
+                OrderItem temp;
+                temp = new OrderItem(id, name, quantity, price);
+                items.add(temp);
+            }
+            rs.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return items;
     }
 }
