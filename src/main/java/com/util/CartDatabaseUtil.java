@@ -58,7 +58,7 @@ public class CartDatabaseUtil implements Cart {
     public int deleteCartItem(int id , int cartId) {
 
         String query = String.format("DELETE FROM cart_item where cartid = %d AND id = %d", cartId, id);
-        System.out.println(query);
+
         int res = 0;
         try {
             DatabaseConnection object = DatabaseConnection.getInstance();

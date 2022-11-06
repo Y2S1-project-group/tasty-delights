@@ -4,10 +4,10 @@ public class Order {
     private int id;
     private int cusid;
     private String status;
-    private float tprice;
+    private double tprice;
     private String orderedtime;
 
-    public Order(int id, int cusid, String status, float tprice, String orderedtime) {
+    public Order(int id, int cusid, String status, double tprice, String orderedtime) {
         this.id = id;
         this.cusid = cusid;
         this.status = status;
@@ -39,11 +39,11 @@ public class Order {
         this.status = status;
     }
 
-    public float getTprice() {
+    public double getTprice() {
         return tprice;
     }
 
-    public void setTprice(float tprice) {
+    public void setTprice(double tprice) {
         this.tprice = tprice;
     }
 

@@ -26,6 +26,7 @@
                 <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 <li class="nav-item"><a class="nav-link" href="cart.jsp">Cart</a></li>
+                <li class="nav-item"><a class="nav-link" href="customer-manage-orders.jsp">My Orders</a></li>
                 <li class="nav-item"><a class="nav-link" href="customer-login.jsp">login</a></li>
             <%--session login / register / logout--%>
             </ul>
@@ -102,8 +103,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="text-uppercase section-heading">Chefs</h2>
-                <h3 class="text-muted section-subheading">Lorem ipsum dolor sit amet consectetur.</h3>
+                <h2 class="text-uppercase section-heading">Reviews</h2>
+                <h3 class="text-muted section-subheading">see what our customers say about us.</h3>
             </div>
         </div>
         <div class="row">
@@ -111,33 +112,18 @@
                 <div class="team-member"><img class="rounded-circle mx-auto" src="assets/img/temp.webp">
                     <h4>Kay Garland</h4>
                     <p class="text-muted">chef</p>
-                    <ul class="list-inline social-buttons">
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                    </ul>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="team-member"><img class="rounded-circle mx-auto" src="assets/img/temp.webp">
                     <h4>Larry Parker</h4>
                     <p class="text-muted">chef</p>
-                    <ul class="list-inline social-buttons">
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                    </ul>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="team-member"><img class="rounded-circle mx-auto" src="assets/img/temp.webp">
                     <h4>Diana Pertersen</h4>
                     <p class="text-muted">chef</p>
-                    <ul class="list-inline social-buttons">
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -178,11 +164,6 @@
         <div class="row">
             <div class="col-md-4"><span class="copyright">Copyright&nbsp;© Brand 2022</span></div>
             <div class="col-md-4">
-                <ul class="list-inline social-buttons">
-                    <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                </ul>
             </div>
             <div class="col-md-4">
                 <ul class="list-inline quicklinks">

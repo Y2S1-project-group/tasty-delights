@@ -1,5 +1,6 @@
 package com.controller.Cart;
 
+import com.model.Order;
 import com.util.CartDatabaseUtil;
 
 import javax.servlet.*;
@@ -13,5 +14,6 @@ public class AddOrder extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
 
+        //Order neworder = new Order();
     }
 }

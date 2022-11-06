@@ -10,6 +10,40 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class OrderDatabaseUtil implements OrderDatabase {
+
+    public boolean insertOrderItem(int name , int quantity , double price){
+        try{
+            DatabaseConnection object = DatabaseConnection.getInstance();
+            Connection conn = object.getConnection();
+            Statement st = conn.createStatement();
+            String query = String.format("INSERT INTO orderItem ( name , quantity , price ) values('%s' , %d , %f)", name ,quantity ,price  );
+            int count = st.executeUpdate(query);
+            if(count == 1){
+                return true;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean insertOrder(int cusid , double tprice){
+
+        try{
+            DatabaseConnection object = DatabaseConnection.getInstance();
+            Connection conn = object.getConnection();
+            Statement st = conn.createStatement();
+            String query = String.format("INSERT INTO order ( cusid , status , tprice , orderedtime ) values('%d' , 'pending' , %f , getDate())", cusid ,tprice );
+            int count = st.executeUpdate(query);
+            if(count == 1){
+                return true;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     public ArrayList<Order> getOrders() {
         ArrayList<Order> orders = new ArrayList<Order>();
         try {
