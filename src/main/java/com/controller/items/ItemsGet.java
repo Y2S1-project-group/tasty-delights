@@ -27,6 +27,7 @@ public class ItemsGet extends HttpServlet {
 
             RequestDispatcher dis = request.getRequestDispatcher("./admin-manage-items.jsp");
             dis.forward(request, response);
+
         }catch (Exception e){
             e.printStackTrace();
         }
