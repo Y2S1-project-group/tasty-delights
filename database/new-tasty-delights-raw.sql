@@ -93,20 +93,20 @@ INSERT INTO customer (fname, lname, age, email, contact, address, password) VALU
 INSERT INTO customer (fname, lname, age, email, contact, address, password) VALUES('Michael', 'Daniel', 25, 'sddsd@gmail.com' , '0719999369' ,  'colombo', 'daniel123');
 INSERT INTO customer (fname, lname, age, email, contact, address, password) VALUES('John', 'Thomas', 25, 'sddsd@gmail.com' , '0719944369' ,  'galle', 'john123');
 
-INSERT INTO orders ( cusid , status , tprice , orderedtime ) VALUES ( 1 , 'Burger' , 2 , now() );
-INSERT INTO orders ( cusid , status , tprice , orderedtime ) VALUES ( 1 , 'Burger' , 2 , now() );
-INSERT INTO orders ( cusid , status , tprice , orderedtime ) VALUES ( 1 , 'Burger' , 2 , now() );
-INSERT INTO orders ( cusid , status , tprice , orderedtime ) VALUES ( 1 , 'Burger' , 2 , now() );
-INSERT INTO orders ( cusid , status , tprice , orderedtime ) VALUES ( 1 , 'fries' , 2 , now() );
-INSERT INTO orders ( cusid , status , tprice , orderedtime ) VALUES ( 1 , 'Burger' , 2 , now() );
-INSERT INTO orders ( cusid , status , tprice , orderedtime ) VALUES ( 2 , 'Burger' , 2 , now() );
-INSERT INTO orders ( cusid , status , tprice , orderedtime ) VALUES ( 2 , 'Burger' , 2 , now() );
-INSERT INTO orders ( cusid , status , tprice , orderedtime ) VALUES ( 2 , 'Burger' , 2 , now() );
-INSERT INTO orders ( cusid , status , tprice , orderedtime ) VALUES ( 2 , 'Burger' , 2 , now() );
-INSERT INTO orders ( cusid , status , tprice , orderedtime ) VALUES ( 3 , 'Burger' , 2 , now() );
-INSERT INTO orders ( cusid , status , tprice , orderedtime ) VALUES ( 4 , 'Burger' , 2 , now() );
-INSERT INTO orders ( cusid , status , tprice , orderedtime ) VALUES ( 1 , 'Burger' , 2 , now() );
-INSERT INTO orders ( cusid , status , tprice , orderedtime ) VALUES ( 1 , 'Burger' , 2 , now() );
+INSERT INTO orders ( cusid , status , tprice , orderedtime ) VALUES ( 1 , 'pending' , 2 , now() );
+INSERT INTO orders ( cusid , status , tprice , orderedtime ) VALUES ( 1 , 'pending' , 2 , now() );
+INSERT INTO orders ( cusid , status , tprice , orderedtime ) VALUES ( 1 , 'pending' , 2 , now() );
+INSERT INTO orders ( cusid , status , tprice , orderedtime ) VALUES ( 1 , 'pending' , 2 , now() );
+INSERT INTO orders ( cusid , status , tprice , orderedtime ) VALUES ( 1 , 'pending' , 2 , now() );
+INSERT INTO orders ( cusid , status , tprice , orderedtime ) VALUES ( 1 , 'pending' , 2 , now() );
+INSERT INTO orders ( cusid , status , tprice , orderedtime ) VALUES ( 2 , 'preparing' , 2 , now() );
+INSERT INTO orders ( cusid , status , tprice , orderedtime ) VALUES ( 2 , 'preparing' , 2 , now() );
+INSERT INTO orders ( cusid , status , tprice , orderedtime ) VALUES ( 2 , 'preparing' , 2 , now() );
+INSERT INTO orders ( cusid , status , tprice , orderedtime ) VALUES ( 2 , 'preparing' , 2 , now() );
+INSERT INTO orders ( cusid , status , tprice , orderedtime ) VALUES ( 3 , 'delivering' , 2 , now() );
+INSERT INTO orders ( cusid , status , tprice , orderedtime ) VALUES ( 4 , 'delivering' , 2 , now() );
+INSERT INTO orders ( cusid , status , tprice , orderedtime ) VALUES ( 1 , 'completed' , 2 , now() );
+INSERT INTO orders ( cusid , status , tprice , orderedtime ) VALUES ( 1 , 'completed' , 2 , now() );
 
 insert into cart (id, cusid) values(1, 1);
 insert into cart (id, cusid) values(2, 1);
