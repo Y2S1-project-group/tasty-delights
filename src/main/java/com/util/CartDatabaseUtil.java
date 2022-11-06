@@ -13,7 +13,7 @@ public class CartDatabaseUtil implements Cart {
 
     }
 
-    public int getCartId(int id) throws Exception {
+    public int getCartId(int cusid) throws Exception {
         //sessions
         String getCartId = "SELECT * FROM cart where cusid = ?";
         int result;

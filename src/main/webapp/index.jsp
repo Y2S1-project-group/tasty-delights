@@ -1,6 +1,8 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.model.Item" %>
+<%@ page import="com.model.Cart" %>
 <%@ page import="com.util.ItemDatabaseUtil" %>
+<%@ page import="com.util.CartDatabaseUtil" %>
 <!DOCTYPE html>
 <html>
 
@@ -73,13 +75,14 @@
         <div class="row">
 
         <%
-            ItemDatabaseUtil homepage = new ItemDatabaseUtil();
+            ItemDatabaseUtil itemDoa = new ItemDatabaseUtil();
+            ArrayList<Item> homepageitems  = itemDoa.getHomeItems();
+            CartDatabaseUtil cartDao = new CartDatabaseUtil();
 
-            ArrayList<Item> homepageitems  = homepage.getHomeItems();
 
             for(int i = 0; i < homepageitems.size(); i++) {
 
-            out.println("<div class='col-sm-6 col-md-4 portfolio-item' ><a class='portfolio-link' href = '#portfolioModal1'" +
+            out.println("<div class='col-sm-6 col-md-4 portfolio-item' ><a class='portfolio-link' href = '" + request.getContextPath() + "/AddToCart?cartid=" + cartDao.getCartId(1) /*session*/ + "&iname="+ homepageitems.get(i).getName() + "&price=" +homepageitems.get(i).getPrice()+ "#portfolio" +"'" +
                     "data-bs-toggle = 'modal' >" +
                     "<div class='portfolio-hover' >" +
                         "<div class='portfolio-hover-content' ><i class='fa fa-plus fa-3x' ></i ></div >" +

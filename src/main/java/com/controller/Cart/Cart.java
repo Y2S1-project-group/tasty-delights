@@ -23,9 +23,6 @@ public class Cart extends HttpServlet {
             throw new RuntimeException(e);
         }
 
-        ArrayList<CartItem> disCart =  cart.displayCart(cartid);
-        request.setAttribute("cart", disCart);
-
         RequestDispatcher dis = request.getRequestDispatcher("./cart.jsp");
         dis.forward(request, response);
 
