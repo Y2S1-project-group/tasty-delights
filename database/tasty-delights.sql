@@ -127,6 +127,7 @@ INSERT INTO item (name, price, category, des , image) VALUES ('Burger', 300.88, 
 INSERT INTO item (name, price, category, des , image) VALUES ('Hotdog', 400.77, 'Fast Food', 'Hot and Dog', 'hotdog.jpg');
 INSERT INTO item (name, price, category, des , image) VALUES ('Fries', 500.12, 'Fast Food', 'Crispy and Flling', 'fries.jpg');
 
+
   
   
   
