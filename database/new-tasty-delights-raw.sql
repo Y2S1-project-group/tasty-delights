@@ -58,12 +58,18 @@ CREATE TABLE cart_item (
 
 create table delivery_person(
                                 id int auto_increment primary key,
-                                name varchar(20),
+                                nic varchar(12) not null,
+                                name varchar(20) not null,
+                                dob date,
                                 age int,
+                                gender varchar(10),
                                 email varchar(30),
                                 contact varchar(20),
-                                password varchar(300)
+                                job_position varchar(20),
+                                user_name varchar(30) not null,
+                                password varchar(300) not null
 );
+
 
 create table delivery_order(
                                id int primary key auto_increment,
@@ -124,12 +130,6 @@ INSERT INTO cart_item ( cartid , iname , quantity , price) VALUES ( 3 , 'Coke' ,
 INSERT INTO cart_item ( cartid , iname , quantity , price) VALUES ( 4 , 'Burger' , 6 , 725.00);
 INSERT INTO cart_item ( cartid , iname , quantity , price) VALUES ( 5 , 'Fries' , 7 ,600.00);
 
-insert into delivery_person(name, age, email, contact, password) values('John', 25, 'john@gmail.com', '0776545321', 'john123');
-insert into delivery_person(name, age, email, contact, password) values('Smith', 30, 'smith@gmail.com', '0776545321', 'smith123');
-insert into delivery_person(name, age, email, contact, password) values('Peter', 28, 'peter@gmail.com', '0776545321', 'peter123');
-insert into delivery_person(name, age, email, contact, password) values('Rahul', 35, 'rahul@gmail.com', '0776545321', 'rahul123');
-insert into delivery_person(name, age, email, contact, password) values('Raj', 40, 'raj@gmail.com', '0776545321', 'raj123');
-
 
 insert into delivery_order(did, order_id, status) values(1,1,'delivering');
 insert into delivery_order(did, order_id, status) values(2,1, 'completed');
@@ -137,11 +137,13 @@ insert into delivery_order(did, order_id, status) values(3,1, 'delivering');
 insert into delivery_order(did, order_id, status) values(4,1, 'completed');
 insert into delivery_order(did, order_id, status) values(4,1, 'completed');
 
-insert into delivery_person(name, age, email, contact, password) values('John', 25, 'john@gmail.com', '0776545321', 'john123');
-insert into delivery_person(name, age, email, contact, password) values('Smith', 30, 'smith@gmail.com', '0776545321', 'smith123');
-insert into delivery_person(name, age, email, contact, password) values('Peter', 28, 'peter@gmail.com', '0776545321', 'peter123');
-insert into delivery_person(name, age, email, contact, password) values('Rahul', 35, 'rahul@gmail.com', '0776545321', 'rahul123');
-insert into delivery_person(name, age, email, contact, password) values('Raj', 40, 'raj@gmail.com', '0776545321', 'raj123');
+
+
+insert into delivery_person(nic,name,dob,age,gender,email, contact,job_position, user_name, password) values('974567890V','John','1997.03.21', 25,'male', 'john@gmail.com', '0776545321','delivery person','john972','JoHn97');
+insert into delivery_person(nic,name,dob,age,gender,email, contact,job_position, user_name, password) values('923123456V','Smith','1992.04.05', 30,'male', 'smith@gmail.com', '0776545321','delivery person' ,'smith920','SmiTh92');
+insert into delivery_person(nic,name,dob,age,gender,email, contact,job_position, user_name, password)  values('943098765V','Peter','1994.09.12', 28,'male', 'peter@gmail.com', '0776545321','delivery person', 'peter942','PeTer94');
+insert into delivery_person(nic,name,dob,age,gender,email, contact,job_position, user_name, password)  values('870145623V','Rahul','1987.12.20', 35,'male', 'rahul@gmail.com', '0776545321','delivery person', 'rahul870','raHul87');
+insert into delivery_person(nic,name,dob,age,gender,email, contact,job_position, user_name, password)  values('822134560V','Raj','1982.09.19',40,'male', 'raj@gmail.com', '0776545321','delivery person', 'raj823','rAj823');
 
 insert into delivery_order(did, order_id, status) values(1,1,'delivering');
 insert into delivery_order(did, order_id, status) values(2,1, 'completed');
