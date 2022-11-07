@@ -27,8 +27,15 @@
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 <li class="nav-item"><a class="nav-link" href="cart.jsp">Cart</a></li>
                 <li class="nav-item"><a class="nav-link" href="customer-manage-orders.jsp">My Orders</a></li>
-                <li class="nav-item"><a class="nav-link" href="customer-login.jsp">login</a></li>
-            <%--session login / register / logout--%>
+                <%
+                    if(session.getAttribute("firstname") == null)
+                        out.println("<li class='nav-item'><a class='nav-link' href='customer-login.jsp'>log in</a></li>");
+
+                    else
+                        out.println("<li class='nav-item'><a class='nav-link' href='customer-login.jsp'>log out</a></li>");
+
+                %>
+                <li class='nav-item'><a class='nav-link' href='customer-register.jsp'>Register</a></li>
             </ul>
         </div>
     </div>
@@ -36,6 +43,12 @@
 <header class="masthead" style="background-image:url('assets/img/header-bg.jpg');">
     <div class="container">
         <div class="intro-text">
+             <%
+                 if( session.getAttribute("firstname") != null){
+                        out.println("<div class='intro-lead-in'><span>Hello,");
+                        out.println(session.getAttribute("firstname") );
+                        out.println(" !</span></div>");}
+             %>
             <div class="intro-lead-in"><span>Welcome To Our Restaurants!</span></div>
             <div class="intro-heading text-uppercase"><span>Tasty Delights</span></div><a class="btn btn-primary btn-xl text-uppercase" role="button" href="#portfolio">order now</a>
         </div>
@@ -46,21 +59,22 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="text-uppercase section-heading">Services</h2>
-                <h3 class="text-muted section-subheading">Lorem ipsum dolor sit amet consectetur</h3>
+                <h3 class="text-muted section-subheading"></h3>
             </div>
         </div>
         <div class="row text-center">
             <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-thumbs-o-up fa-stack-1x fa-inverse"></i></span>
-                <h4 class="section-heading">Service</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                <h4 class="section-heading">Customer feedback</h4>
+                <p class="text-muted">see what our customers say about us</p>
             </div>
             <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-truck fa-stack-1x fa-inverse"></i></span>
-                <h4 class="section-heading">Service</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                <h4 class="section-heading">Fast delivery</h4>
+                <p class="text-muted">We provide the delivery service immediately to your destination
+                    on time with safety and much care.</p>
             </div>
             <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-user fa-stack-1x fa-inverse"></i></span>
-                <h4 class="section-heading">Service</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                <h4 class="section-heading">Best customer service</h4>
+                <p class="text-muted">Freshly prepared which perfectly matches your taste and 100% healthy</p>
             </div>
         </div>
     </div>
@@ -79,11 +93,13 @@
             ItemDatabaseUtil itemDoa = new ItemDatabaseUtil();
             ArrayList<Item> homepageitems  = itemDoa.getHomeItems();
             CartDatabaseUtil cartDao = new CartDatabaseUtil();
-
+            int cusid = 0;
+            if(session.getAttribute("cid") != null)
+               cusid = Integer.parseInt(session.getAttribute("cid").toString());
 
             for(int i = 0; i < homepageitems.size(); i++) {
 
-            out.println("<div class='col-sm-6 col-md-4 portfolio-item' ><a class='portfolio-link' href = '" + request.getContextPath() + "/AddToCart?cartid=" + cartDao.getCartId(1) /*session*/ + "&iname="+ homepageitems.get(i).getName() + "&price=" +homepageitems.get(i).getPrice()+ "#portfolio" +"'" +
+            out.println("<div class='col-sm-6 col-md-4 portfolio-item' ><a class='portfolio-link' href = '" + request.getContextPath() + "/AddToCart?cartid=" + cusid + "&iname="+ homepageitems.get(i).getName() + "&price=" +homepageitems.get(i).getPrice()+ "#portfolio" +"'" +
                     "data-bs-toggle = 'modal' >" +
                     "<div class='portfolio-hover' >" +
                         "<div class='portfolio-hover-content' ><i class='fa fa-plus fa-3x' ></i ></div >" +
