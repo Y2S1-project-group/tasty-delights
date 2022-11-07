@@ -130,12 +130,6 @@ INSERT INTO cart_item ( cartid , iname , quantity , price) VALUES ( 3 , 'Coke' ,
 INSERT INTO cart_item ( cartid , iname , quantity , price) VALUES ( 4 , 'Burger' , 6 , 725.00);
 INSERT INTO cart_item ( cartid , iname , quantity , price) VALUES ( 5 , 'Fries' , 7 ,600.00);
 
-insert into delivery_person(name, age, email, contact, password) values('John', 25, 'john@gmail.com', '0776545321', 'john123');
-insert into delivery_person(name, age, email, contact, password) values('Smith', 30, 'smith@gmail.com', '0776545321', 'smith123');
-insert into delivery_person(name, age, email, contact, password) values('Peter', 28, 'peter@gmail.com', '0776545321', 'peter123');
-insert into delivery_person(name, age, email, contact, password) values('Rahul', 35, 'rahul@gmail.com', '0776545321', 'rahul123');
-insert into delivery_person(name, age, email, contact, password) values('Raj', 40, 'raj@gmail.com', '0776545321', 'raj123');
-
 
 insert into delivery_order(did, order_id, status) values(1,1,'delivering');
 insert into delivery_order(did, order_id, status) values(2,1, 'completed');
