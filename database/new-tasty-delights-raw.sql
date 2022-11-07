@@ -39,7 +39,7 @@ create table admin(
 );
 
 CREATE TABLE cart (
-                      id INT NOT NULL,
+                      id INT auto_increment NOT NULL,
                       cusid int NOT NULL,
                       PRIMARY KEY (id, cusid),
                       FOREIGN KEY (cusid) REFERENCES customer(id),
