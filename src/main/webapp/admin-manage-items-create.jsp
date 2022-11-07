@@ -33,6 +33,7 @@
 <%
     out.print(
             "<div>" +
+
                 "<label>Name:</label></br>" +
                 "<input id='create-name' class='item-create-form' name='name' type='text' value=''required>" +
                 "<p id='error-name'></p>" +
@@ -48,6 +49,7 @@
                 "<input id='create-image' class='item-create-form' name='item-image' type='text' value=''required>" +
             "</div>" +
                 "<input type='submit' class='item-button create-item-button' value='Create Item'></form> " +
+
             "</div>"
     );
 %>
@@ -59,5 +61,4 @@
 
 </body>
 </html>
-
 

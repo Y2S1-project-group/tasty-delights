@@ -36,6 +36,7 @@
                         "<label for='item-name'>Name:</label> </br>"+
                         "<input id='update-name' class='item-create-form' name='item-name' type='text' value='" + item.getName() + "' required>" +
                         "<p id='error-name'></p>" +
+
                     "</div>" +
                     "<div class='form-group'>" +
                         "<label for='price'>Price:</label> </br>"+

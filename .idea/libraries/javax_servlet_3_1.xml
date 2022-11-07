@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="javax.servlet-3.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../BusTicketReservationSystem/BusTicketReservationSystem/src/main/webapp/WEB-INF/lib/javax.servlet-3.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
