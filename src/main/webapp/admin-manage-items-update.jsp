@@ -26,36 +26,36 @@
     //    response.sendRedirect("./employee.jsp");
     //}
 %>
-<div class="container-sm create-form">
-    <form name="update-name" action="ItemsUpdateRedirect" method="get">
+<div class="create-form">
+    <form name="update-item" action="ItemsUpdateRedirect" method="get" onsubmit="validateForm()">
 <%
     Item item =  (Item) request.getAttribute("items");
     out.print(
             "<div class='form-group'>" +
                     "<input class='create-form' name='id' type='text' value='" + item.getId() + "' hidden>" +
-                        "<label for='name'>Name:</label> </br>"+
-                        "<input id='update-name' class='item-create-form' name='item-name' type='text' value='" + item.getName() + "'>" +
+                        "<label for='item-name'>Name:</label> </br>"+
+                        "<input id='update-name' class='item-create-form' name='item-name' type='text' value='" + item.getName() + "' required>" +
                         "<p id='error-name'></p>" +
 
                     "</div>" +
                     "<div class='form-group'>" +
-                        "<label for='name'>Price:</label> </br>"+
-                        "<input id='update-price' class='item-create-form' name='price' type='text' value='" + item.getPrice() + "'>" +
+                        "<label for='price'>Price:</label> </br>"+
+                        "<input id='update-price' class='item-create-form' name='price' type='text' value='" + item.getPrice() + "'required>" +
                         "<p id='error-price'></p>" +
                     "</div>" +
                     "<div class='form-group'>" +
-                        "<label for='name'>Description:</label> </br>"+
-                        "<input id='update-description' class='item-create-form' name='description' type='text' value='" + item.getDescription() + "'>" +
-                        "<p id='error-price'></p>" +
+                        "<label for='description'>Description:</label> </br>"+
+                        "<input id='update-description' class='item-create-form' name='description' type='text' value='" + item.getDescription() + "'required>" +
+                        "<p id='error-description'></p>" +
                     "</div>" +
                     "<div class='form-group'>" +
-                        "<label for='name'>Category:</label> </br>"+
-                        "<input id='update-category' class='item-create-form' name='category' type='text' value='" + item.getCategory() + "'>" +
-                        "<p id='error-price'></p>" +
+                        "<label for='category'>Category:</label> </br>"+
+                        "<input id='update-category' class='item-create-form' name='category' type='text' value='" + item.getCategory() + "'required>" +
+                        "<p id='error-category'></p>" +
                     "</div>" +
                     "<div class='form-group'>" +
-                        "<label for='name'>Image:</label> </br>"+
-                        "<input id='update-image' class='item-create-form' name='image' type='text' value='" + item.getImage() + "'>" +
+                        "<label for='image'>Image:</label> </br>"+
+                        "<input id='update-image' class='item-create-form' name='image' type='text' value='" + item.getImage() + "'required>" +
                         "<p id='error-image'></p>" +
                     "</div>" +
                         "<input type='submit' class='btn btn-primary create-item-button' value='Update'></form> " +
@@ -67,7 +67,7 @@
         <a class="text-center" href="ItemsGet">Cancel</a>
     </div>
 </div>
-<script src="scripts/employee-order-update.js"></script>
+<script src="scripts/admin-item-update.js"></script>
 </body>
 </html>
 

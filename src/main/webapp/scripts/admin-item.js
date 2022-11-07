@@ -27,7 +27,7 @@ function validateForm(){
         error = true;
     }
 
-    if(price <= 0){
+    if(parseFloat(price) <= 0){
         messagePrice.innerHTML = "Price should be more than zero!";
         messagePrice.style.color = "red";
         error = true;
