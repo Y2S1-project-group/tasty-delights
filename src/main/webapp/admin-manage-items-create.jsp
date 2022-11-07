@@ -29,23 +29,23 @@
     //}
 %>
 <div class="create-form">
-    <form name="create-item"  action="ItemsCreate" method="get" onsubmit="return(validateForm());">
+    <form name="create-item"  action="ItemsCreate" method="get" onsubmit="validateForm()">
 <%
     out.print(
             "<div>" +
                 "<label>Name:</label></br>" +
-                "<input id='create-name' class='item-create-form' name='name' type='text' value=''>" +
+                "<input id='create-name' class='item-create-form' name='name' type='text' value=''required>" +
                 "<p id='error-name'></p>" +
             "</div>" +
             "<div>" +
                 "<label>Price:</label></br>" +
-                "<input id='create-price' class='item-create-form' name='price' type='text' value=''>" +
+                "<input id='create-price' class='item-create-form' name='price' type='text' value=''required>" +
                 "<p id='error-price'></p>" +
             "</div>" +
             "<div>" +
                 "<p id='error-image'></p>" +
                 "<label>Image Name:</label></br>" +
-                "<input id='create-image' class='item-create-form' name='item-image' type='text' value=''>" +
+                "<input id='create-image' class='item-create-form' name='item-image' type='text' value=''required>" +
             "</div>" +
                 "<input type='submit' class='item-button create-item-button' value='Create Item'></form> " +
             "</div>"

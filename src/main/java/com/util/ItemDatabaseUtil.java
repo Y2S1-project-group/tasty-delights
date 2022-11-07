@@ -64,7 +64,7 @@ public class ItemDatabaseUtil{
         return temp;
     }
 
-    public boolean updateAnItem (int id, String name, int quantity, String description, String category, double price , String image) {
+    public boolean updateAnItem (int id, String name, String description, String category, double price , String image) {
         try{
             DatabaseConnection object = DatabaseConnection.getInstance();
             Connection conn = object.getConnection();
