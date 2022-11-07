@@ -37,8 +37,6 @@
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Customer ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Quantity</th>
             <th scope="col">Status</th>
             <th scope="col">Total Price</th>
             <th scope="col">Ordered Time</th>
@@ -52,14 +50,12 @@
                     out.print("<tr>" +
                             "<td>" + orders.get(i).getId() + "</td>" +
                             "<td>" + orders.get(i).getCusid() + "</td>" +
-                            "<td>" + orders.get(i).getName() + "</td>" +
-                            "<td>" + orders.get(i).getQuality() + "</td>" +
                             "<td>" + orders.get(i).getStatus() + "</td>" +
                             "<td>" + orders.get(i).getTprice() + "</td>" +
                             "<td>" + orders.get(i).getOrderedtime() + "</td>" +
                             "<td>" +
+                                "<a class='mBtn btn btn-info' href='ManageOrderViewItems?id=" + orders.get(i).getId() + "'>View Order</a>" +
                                 "<a class='mBtn btn btn-success' href='ManageOrderPrepare?id=" + orders.get(i).getId() + "'>Prepare</a>" +
-                                "<a class='mBtn btn btn-warning' href='ManageOrderUpdate?id=" + orders.get(i).getId() + "'>Update</a>" +
                                 "<a class='mBtn btn btn-danger'href='ManageOrderDelete?id=" + orders.get(i).getId() + "'>Delete</a>" +
                             "</td>" +
                             "</tr>");
@@ -74,9 +70,9 @@
     </div>
     <%
         try {
-            String status = (String) request.getAttribute("prepareStatus");
-            if(!status.equals(null)){
-                if(status.equalsIgnoreCase("success")){
+            String prepareStatus = (String) request.getAttribute("prepareStatus");
+            if(!prepareStatus.equals(null)){
+                if(prepareStatus.equalsIgnoreCase("success")){
     %>
                         <script>
                             swal({
@@ -105,40 +101,9 @@
     %>
     <%
         try {
-            String status = (String) request.getAttribute("updateStatus");
-            if(!status.equals(null)){
-                if(status.equalsIgnoreCase("success")){
-    %>
-    <script>
-        swal({
-            title: "Order is updated!",
-            icon: "success",
-            button: "Ok",
-        });
-    </script>
-    <%
-    }else{
-    %>
-    <script>
-        swal({
-            title: "Order is not updated!",
-            icon: "error",
-            button: "Ok",
-        });
-    </script>
-    <%
-                }
-            }
-            request.removeAttribute("updateStatus");
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    %>
-    <%
-        try {
-            String status = (String) request.getAttribute("deleteStatus");
-            if(!status.equals(null)){
-                if(status.equalsIgnoreCase("success")){
+            String deleteStatus = (String) request.getAttribute("deleteStatus");
+            if(!deleteStatus.equals(null)){
+                if(deleteStatus.equalsIgnoreCase("success")){
     %>
     <script>
         swal({
