@@ -35,6 +35,9 @@
       <li class="nav-item">
         <a class="nav-link" href="">Manage Delivery Persons</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="employee-change-password.jsp">Change Password</a>
+      </li>
     </ul>
     <ul class="navbar-nav mr-right">
       <li class="nav-item">
