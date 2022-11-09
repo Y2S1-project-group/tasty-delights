@@ -225,6 +225,7 @@
                     <option class='text-muted'>Standard-Delivery  5.00</option>
                     <option class='text-muted'>Standard-Delivery  10.00</option>
                 </select>
+                <input type ='hidden' name='orderid' value='<% out.println(cusid); %>'/>
                 <input type ='hidden' name='cusid' value='<% out.println(cusid); %>'/>
                 <input type ='hidden' name='tprice' value='<%out.println(tprice); %>'/>
                 <input type ='hidden' name='orderItemAmount' value='<%out.println(disCart.size()); %>'/>

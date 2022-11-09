@@ -2,7 +2,9 @@ package com.controller.Cart;
 
 import com.model.Order;
 import com.model.OrderItem;
+import com.model.CartItem;
 import com.util.OrderDatabaseUtil;
+import com.util.CartDatabaseUtil;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -15,23 +17,21 @@ import java.util.ArrayList;
 public class AddOrder extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println(request.getParameter("cusid"));
-        System.out.println(request.getParameter("tprice").replaceAll("\\s+",""));
-        String temp = request.getParameter("orderItemAmount");
-        System.out.println("rr");
-        System.out.println(temp.substring(0));
-        int cusid = Integer.parseInt(request.getParameter("cusid"));
+
+        int cusid = Integer.parseInt(request.getParameter("cusid").trim());
         double tprice = Double.parseDouble(request.getParameter("tprice"));
-        int orderItemAmount = Integer.parseInt(request.getParameter("orderItemAmount"));;
+        int orderItemAmount = Integer.parseInt(request.getParameter("orderItemAmount").trim());
 
 
+        CartDatabaseUtil newCart = new CartDatabaseUtil();
+        ArrayList<CartItem> cartItems = newCart.displayCart(cusid);
 
-        ArrayList<OrderItem> orderItems = new ArrayList<OrderItem>();
         OrderDatabaseUtil newOrder = new OrderDatabaseUtil();
 
         newOrder.insertOrder(cusid ,tprice );
+        System.out.println("rrrrrr" + newOrder.getLastOrderId() );
         for( int i = 0; i < orderItemAmount; i++){
-            newOrder.insertOrderItem(orderItems.get(i).getName(), orderItems.get(i).getQuantity() , orderItems.get(i).getPrice());
+            newOrder.insertOrderItem( newOrder.getLastOrderId(), cartItems.get(i).getIname(), cartItems.get(i).getQuantity() , cartItems.get(i).getPrice());
         }
     }
 }
