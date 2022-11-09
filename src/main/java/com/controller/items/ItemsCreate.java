@@ -30,7 +30,7 @@ public class ItemsCreate extends HttpServlet {
             String description = request.getParameter("item-description");
             String category = request.getParameter("item-category");
 
-            if (itemCreate.createItems(name, description, category, price,image)){
+            if (itemCreate.createItems(name, price, image)){
                 request.setAttribute("createStatus", "success");
 
                 LOGGER.warning("Logger Name: "+LOGGER.getName());
