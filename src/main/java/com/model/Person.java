@@ -4,6 +4,10 @@ public class Person {
     protected int id;
     protected String password;
 
+    Person(){
+        this.id = 0;
+        this.password = null;
+    }
     Person(int id){
         this.id = id;
     }

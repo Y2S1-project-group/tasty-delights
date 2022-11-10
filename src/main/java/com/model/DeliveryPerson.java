@@ -18,25 +18,13 @@ public class DeliveryPerson extends Person{
         this.username = username;
         this.password = password;
     }
-
-    public DeliveryPerson(String password, String name, int age, String contact, String email, String username, String password1) {
-        super(password);
-        this.name = name;
-        this.age = age;
-        this.contact = contact;
-        this.email = email;
-        this.username = username;
-        this.password = password1;
-    }
-
+    
     public DeliveryPerson(int id, String password, String name, int age, String contact, String email, String username, String password1) {
-        super(id, password);
+        super(id);
         this.name = name;
         this.age = age;
         this.contact = contact;
         this.email = email;
-        this.username = username;
-        this.password = password1;
     }
 
     public String getName() {
