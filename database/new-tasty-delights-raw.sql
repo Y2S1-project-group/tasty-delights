@@ -178,3 +178,5 @@ select * from delivery_person;
 select * from item;
 select * from orders;
 select * from order_item;
+
+insert into Admin values ("admin" , "192023a7bbd73250516f069df18b500");
