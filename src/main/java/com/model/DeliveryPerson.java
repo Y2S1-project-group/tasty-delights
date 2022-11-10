@@ -5,22 +5,38 @@ public class DeliveryPerson extends Person{
     private int age;
     private String contact;
     private String email;
+    private String username;
+    private String password;
 
-    public DeliveryPerson(int id, String name, int age, String contact, String email) {
+
+    public DeliveryPerson(int id, String name, int age, String contact, String email, String username, String password) {
         super(id);
-        this.id = id;
         this.name = name;
         this.age = age;
         this.contact = contact;
         this.email = email;
+        this.username = username;
+        this.password = password;
     }
 
-    public DeliveryPerson(int id, String name, int age, String contact, String email, String password) {
+    public DeliveryPerson(String password, String name, int age, String contact, String email, String username, String password1) {
+        super(password);
+        this.name = name;
+        this.age = age;
+        this.contact = contact;
+        this.email = email;
+        this.username = username;
+        this.password = password1;
+    }
+
+    public DeliveryPerson(int id, String password, String name, int age, String contact, String email, String username, String password1) {
         super(id, password);
         this.name = name;
         this.age = age;
         this.contact = contact;
         this.email = email;
+        this.username = username;
+        this.password = password1;
     }
 
     public String getName() {
@@ -54,4 +70,23 @@ public class DeliveryPerson extends Person{
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
+
