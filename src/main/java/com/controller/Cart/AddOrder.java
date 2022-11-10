@@ -29,7 +29,7 @@ public class AddOrder extends HttpServlet {
         OrderDatabaseUtil newOrder = new OrderDatabaseUtil();
 
         newOrder.insertOrder(cusid ,tprice );
-        System.out.println("rrrrrr" + newOrder.getLastOrderId() );
+
         for( int i = 0; i < orderItemAmount; i++){
             newOrder.insertOrderItem( newOrder.getLastOrderId(), cartItems.get(i).getIname(), cartItems.get(i).getQuantity() , cartItems.get(i).getPrice());
         }

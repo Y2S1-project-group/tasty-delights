@@ -11,6 +11,25 @@ import java.util.ArrayList;
 
 public class DeliveryPersonDatabaseUtil implements DeliveryPersonDatabase {
 
+    public boolean checkLogin(String email, String password) {
+        try{
+            PasswordUtil passwordUtil = new PasswordUtil();
+            DatabaseConnection object = DatabaseConnection.getInstance();
+            Connection conn = object.getConnection();
+            Statement st = conn.createStatement();
+            String query = String.format("select * from delivery_person where email = '%s' and password = '%s'", email, password);
+            ResultSet rs = st.executeQuery(query);
+            rs.next();
+            int count = rs.getRow();
+
+            if(count == 1){
+                return true;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
     public ArrayList<DeliveryPerson> getDeliveryPersons() {
         ArrayList<DeliveryPerson> deliveryPersons = new ArrayList<DeliveryPerson>();
         try {
