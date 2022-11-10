@@ -2,6 +2,7 @@ package com.controller.employee;
 
 import com.util.EmployeeDatabaseUtil;
 import com.interfaces.EmployeeDatabase;
+import com.util.StatsDatabaseUtil;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,7 +26,18 @@ public class EmployeeLogin extends HttpServlet {
             if(flag == true){
                 HttpSession session = request.getSession();
                 session.setAttribute("username", username);
-                response.sendRedirect("./employee-dashboard.jsp");
+
+                StatsDatabaseUtil statsDatabaseUtil = new StatsDatabaseUtil();
+                request.setAttribute("totalCustomers", statsDatabaseUtil.totalCustomers());
+                request.setAttribute("totalListedItems", statsDatabaseUtil.totalListedItems());
+                request.setAttribute("totalSales", statsDatabaseUtil.totalSales());
+                request.setAttribute("pendingOrdersCount", statsDatabaseUtil.pendingOrdersCount());
+                request.setAttribute("preparingOrderCount", statsDatabaseUtil.preparingOrderCount());
+                request.setAttribute("deliveringOrderCount", statsDatabaseUtil.deliveringOrderCount());
+                request.setAttribute("currentTime", statsDatabaseUtil.getCurrentTime());
+
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("./employee-dashboard.jsp");
+                requestDispatcher.forward(request, response);
             }else{
                 request.setAttribute("loginError", "loginError");
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("./employee.jsp");
