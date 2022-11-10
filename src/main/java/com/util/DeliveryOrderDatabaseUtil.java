@@ -1,7 +1,8 @@
 package com.util;
 
 import com.controller.DatabaseConnection;
-import com.interfaces.DeliveryOrder;
+import com.model.DeliveryOrder;
+
 import com.model.Order;
 
 import java.sql.Connection;
