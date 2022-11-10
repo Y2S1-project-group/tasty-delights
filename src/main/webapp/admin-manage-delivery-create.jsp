@@ -38,23 +38,37 @@
                 "<p id='error-name'></p>" +
             "</div>" +
             "<div>" +
-                "<label>Price:</label></br>" +
-                "<input id='create-price' class='item-create-form' name='item-price' type='text' value=''>" +
+                "<label>Age:</label></br>" +
+                "<input id='create-price' class='item-create-form' name='item-age' type='text' value=''>" +
                 "<p id='error-price'></p>" +
             "</div>" +
             "<div>" +
-                "<label>Image Name:</label></br>" +
-                "<input id='create-image' class='item-create-form' name='item-image' type='text' value=''>" +
+                "<label>Contact:</label></br>" +
+                "<input id='create-image' class='item-create-form' name='item-contact' type='text' value=''>" +
+                "<p id='error-image'></p>" +
+            "</div>" +
+            "<div>" +
+                "<label>Email:</label></br>" +
+                "<input id='create-image' class='item-create-form' name='item-email' type='text' value=''>" +
+                "<p id='error-image'></p>" +
+            "</div>" +
+            "<div>" +
+                "<label>Username:</label></br>" +
+                "<input id='create-image' class='item-create-form' name='item-username' type='text' value=''>" +
+                "<p id='error-image'></p>" +
+            "</div>" +
+            "<div>" +
+                "<label>Password:</label></br>" +
+                "<input id='create-image' class='item-create-form' name='item-password' type='text' value=''>" +
                 "<p id='error-image'></p>" +
             "</div>" +
                 "<input type='submit' class='item-button create-item-button' value='Create Item'></form> " +
-
             "</div>"
     );
 %>
     </form>
     <div class="cancel-create-form">
-        <a class="text-center" href="ItemsGet">Cancel</a>
+        <a class="text-center" href="DeliveryGet">Cancel</a>
     </div>
 </div>
 
