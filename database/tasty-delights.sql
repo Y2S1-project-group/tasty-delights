@@ -123,9 +123,9 @@ CREATE TABLE `tasty_delights`.`item` (
   
 INSERT INTO item (name, price, category, des , image) VALUES ('Taco', 100.00, 'Mexican', 'Spicy and Tasty', 'taco.png');
 INSERT INTO item (name, price, category, des , image) VALUES ('Pizza', 200.99, 'Main', '', 'pizza.png');
-INSERT INTO item (name, price, category, des , image) VALUES ('Burger', 300.88, 'Fast Food', 'Tallest Ever', 'burger.jpg');
-INSERT INTO item (name, price, category, des , image) VALUES ('Hotdog', 400.77, 'Fast Food', 'Hot and Dog', 'hotdog.jpg');
-INSERT INTO item (name, price, category, des , image) VALUES ('Fries', 500.12, 'Fast Food', 'Crispy and Flling', 'fries.jpg');
+INSERT INTO item (name, price, category, des , image) VALUES ('Burger', 300.88, 'Fast Food', 'Tallest Ever', 'burger.png');
+INSERT INTO item (name, price, category, des , image) VALUES ('Hotdog', 400.77, 'Fast Food', 'Hot and Dog', 'hotdog.png');
+INSERT INTO item (name, price, category, des , image) VALUES ('Fries', 500.12, 'Fast Food', 'Crispy and Flling', 'fries.png');
 
 
   
