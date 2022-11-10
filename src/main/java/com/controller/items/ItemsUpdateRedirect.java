@@ -17,10 +17,10 @@ public class ItemsUpdateRedirect extends HttpServlet {
         try{
             int id = Integer.parseInt(request.getParameter("id"));
             String name = request.getParameter("item-name");
-            double price = Double.parseDouble(request.getParameter("price"));
-            String description = request.getParameter("description");
-            String category = request.getParameter("category");
-            String image = request.getParameter("image");
+            double price = Double.parseDouble(request.getParameter("item-price"));
+            String description = request.getParameter("item-description");
+            String category = request.getParameter("item-category");
+            String image = request.getParameter("item-image");
 
             //print the values
             System.out.println("id"+id);

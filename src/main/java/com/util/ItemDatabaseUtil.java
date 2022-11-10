@@ -111,6 +111,23 @@ public class ItemDatabaseUtil{
         return false;
     }
 
+    // Overloaded functions for creating an item
+    public boolean createItems(String name, double price , String image) {
+        try{
+            DatabaseConnection object = DatabaseConnection.getInstance();
+            Connection conn = object.getConnection();
+            Statement st = conn.createStatement();
+            String query = String.format("insert into item (name, price, image) values ('" + name + "','" + price + "', '" + image + "')");
+            int count = st.executeUpdate(query);
+            if(count == 1){
+                return true;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     public ArrayList<Item> searchItems(String search) {
         ArrayList<Item> items = new ArrayList<Item>();
         //create database connection
