@@ -56,12 +56,12 @@ public class DeliveryPersonDatabaseUtil implements DeliveryPersonDatabase {
         return deliveryPersons;
     }
 
-    public boolean createItems(String name, String description, String category, double price, String image) {
+    public boolean addDeliveryPerson() {
         try{
             DatabaseConnection object = DatabaseConnection.getInstance();
             Connection conn = object.getConnection();
             Statement st = conn.createStatement();
-            String query = String.format("insert into item (name, category, des, price, image) values ('" + name + "', '" + category + "','" + description + "', '" + price + "', '" + image + "')");
+            String query = String.format("insert into item (name, category, des, price, image) values (%s , %s , %s , %s, )");
             int count = st.executeUpdate(query);
             if(count == 1){
                 return true;
