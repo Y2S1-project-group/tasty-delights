@@ -10,7 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class ItemDatabaseUtil{
-    public ArrayList<Item> getItems() {
+    public ArrayList<Item>  getItems() {
         ArrayList<Item> items = new ArrayList<Item>();
         //create database connection
         try {
