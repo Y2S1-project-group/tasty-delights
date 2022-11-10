@@ -46,7 +46,7 @@ public class DeliveryPersonDatabaseUtil implements DeliveryPersonDatabase {
                 String contact = rs.getString("contact");
 
                 DeliveryPerson temp;
-                temp = new DeliveryPerson(id, name, age, contact, email);
+                temp = new DeliveryPerson(id, name, age, contact, email, password);
                 deliveryPersons.add(temp);
             }
             rs.close();
