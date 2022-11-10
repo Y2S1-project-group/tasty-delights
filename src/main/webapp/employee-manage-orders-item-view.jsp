@@ -41,11 +41,13 @@
             }
             out.print("</tbody></table>");
     }else{ %>
-          <div class="container alert alert-primary" role="alert">
-              <p class="text-center">No items in the order!</p>
+          <div class="container">
+              <div class="alert alert-primary" role="alert">
+                  <p class="text-center">No items in the order!</p>
+              </div>
+              <a href="ManageOrdersPending">Go back</a>
           </div>
               <% } %>
-      <a href="ManageOrdersPending">Go back</a>
   </div>
 </body>
 </html>

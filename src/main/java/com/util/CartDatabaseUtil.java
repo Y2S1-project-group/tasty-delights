@@ -89,7 +89,7 @@ public class CartDatabaseUtil implements Cart {
         return res;
     }
     public int minItem(int id , int cartId){
-        String query = String.format("UPDATE cart_item SET quantity = quantity - 1 where id = %d AND cartId = %d",id,cartId );
+        String query = String.format("UPDATE cart_item SET quantity = quantity - 1 where id = %d AND cartId = %d AND quantity != 0",id,cartId );
         int res = 0;
         try {
             DatabaseConnection object = DatabaseConnection.getInstance();

@@ -33,5 +33,8 @@ public class AddOrder extends HttpServlet {
         for( int i = 0; i < orderItemAmount; i++){
             newOrder.insertOrderItem( newOrder.getLastOrderId(), cartItems.get(i).getIname(), cartItems.get(i).getQuantity() , cartItems.get(i).getPrice());
         }
+
+        RequestDispatcher dis = request.getRequestDispatcher("./index.jsp");
+        dis.forward(request, response);
     }
 }

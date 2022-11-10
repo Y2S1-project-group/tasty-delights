@@ -14,6 +14,26 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script&amp;display=swap">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <sript>
+        function validateForm() {
+        let x = document.forms["myForm"]["fname"].value;
+        if (x == "") {
+        alert("Name must be filled out");
+        return false;
+        }
+        }
+
+        function ValidateEmail(mail)
+        {
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.emailAddr.value))
+        {
+        return (true)
+        }
+        alert("You have entered an invalid email address!")
+        return (false)
+        }
+
+    </sript>
 </head>
 
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="54">
@@ -23,10 +43,9 @@
             <ul class="navbar-nav ms-auto text-uppercase">
                 <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                 <li class="nav-item"><a class="nav-link" href="#portfolio">Product</a></li>
-                <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                <li class="nav-item"><a class="nav-link" href="#team">Reviews</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 <li class="nav-item"><a class="nav-link" href="cart.jsp">Cart</a></li>
-                <li class="nav-item"><a class="nav-link" href="customer-manage-orders.jsp">My Orders</a></li>
                 <%
                     if(session.getAttribute("firstname") == null)
                         out.println("<li class='nav-item'><a class='nav-link' href='customer-login.jsp'>log in</a></li>");
@@ -102,7 +121,7 @@
             out.println("<div class='col-sm-6 col-md-4 portfolio-item' ><a class='portfolio-link' href = '" + request.getContextPath() + "/AddToCart?cartid=" + cusid + "&iname="+ homepageitems.get(i).getName() + "&price=" +homepageitems.get(i).getPrice()+ "#portfolio" +"'" +
                     "data-bs-toggle = 'modal' >" +
                     "<div class='portfolio-hover' >" +
-                        "<div class='portfolio-hover-content' ><i class='fa fa-plus fa-3x' ></i ></div >" +
+                        "<div class='portfolio-hover-content' ><i class='fa fa-plus fa-3x' ></i ><div>"+ homepageitems.get(i).getDescription()+"</div></div >" +
                     "</div ><img class='img-fluid' src ='assets/"+ homepageitems.get(i).getImage()+"' >" +
                     "</a >" +
                         "<div class='portfolio-caption' >" +
@@ -110,7 +129,6 @@
                          "<p class='text-muted' >" + Math.round(homepageitems.get(i).getPrice())+ "</p >" +
                         "</div > " +
                     "</div>");
-                System.out.println(homepageitems.get(i).getImage());
             }
         %>
         </div>
@@ -157,7 +175,7 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <form id="contactForm" action="ContactForm" name="contactForm" method="POST" >
+                <form id="contactForm" action="ContactForm" name="contactForm" method="POST" onsubmit="return validateForm()">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group mb-3"><input name="name" class="form-control" type="text" id="name" placeholder="Your Name *" required><small class="form-text text-danger flex-grow-1 help-block lead"></small></div>
@@ -194,5 +212,10 @@
         </div>
     </div>
 </footer>
+<a href="<%= request.getContextPath() %>/employee.jsp">Employee</a>
+<a href="<%= request.getContextPath() %>/cart.jsp">cart</a>
+<a href="employee.jsp">Employee Login</a>
+<a href="ItemsGet">Admin Items</a>
+
 </body>
 </html>

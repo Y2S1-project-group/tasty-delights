@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>System-Info</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
 
@@ -50,45 +51,41 @@
     String userHome = System.getProperty("user.home");
     String userDir = System.getProperty("user.dir");
     %>
-<h2>System Information</h2>
 
-<%  out.println("Tasty Delights Version: " + version); %>
-
-    <p>Creators:
-        <br>
-
-    <% out.println(user1); %>
-        <br>
-
-    <% out.println(user2); %>
-        <br>
-
-    <% out.println(user3); %>
-        <br>
-
-    <% out.println(user4); %>
+<div class="container">
+    <h2>System Information</h2>
+    <%  out.println("Tasty Delights Version: " + version); %>
+    <p>Creators:<br>
+        <% out.println(user1); %><br>
+        <% out.println(user2); %><br>
+        <% out.println(user3); %><br>
+        <% out.println(user4); %>
     </p>
-    <br> <br>
-<h2>Server Information</h2>
-<%
-    out.println("OS Name: " + osName + "<br>");
-    out.println("OS Version: " + osVersion + "<br>");
-    out.println("OS Architecture: " + osArch + "<br>");
-    out.println("Java Version: " + javaVersion + "<br>");
-    out.println("Java Vendor: " + javaVendor + "<br>");
-    out.println("Java Home: " + javaHome + "<br>");
-    out.println("Java Class Path: " + javaClassPath + "<br>");
-    out.println("Java Library Path: " + javaLibraryPath + "<br>");
-    out.println("Java I/O Temp Dir: " + javaIoTmpdir + "<br>");
-    out.println("Java Compiler: " + javaCompiler + "<br>");
-    out.println("Java Ext. Dirs: " + javaExtDirs + "<br>");
-    out.println("File Separator: " + fileSeparator + "<br>");
-    out.println("Path Separator: " + pathSeparator + "<br>");
-    out.println("Line Separator: " + lineSeparator + "<br>");
-    out.println("User Name: " + userName + "<br>");
-    out.println("User Home: " + userHome + "<br>");
-    out.println("User Dir: " + userDir + "<br>");
+    <br><br>
 
-%>
+    <h2>Server Information</h2>
+    <%
+        out.println("OS Name: " + osName + "<br>");
+        out.println("OS Version: " + osVersion + "<br>");
+        out.println("OS Architecture: " + osArch + "<br>");
+        out.println("Java Version: " + javaVersion + "<br>");
+        out.println("Java Vendor: " + javaVendor + "<br>");
+        out.println("Java Home: " + javaHome + "<br>");
+        out.println("Java Class Path: " + javaClassPath + "<br>");
+        out.println("Java Library Path: " + javaLibraryPath + "<br>");
+        out.println("Java I/O Temp Dir: " + javaIoTmpdir + "<br>");
+        out.println("Java Compiler: " + javaCompiler + "<br>");
+        out.println("Java Ext. Dirs: " + javaExtDirs + "<br>");
+        out.println("File Separator: " + fileSeparator + "<br>");
+        out.println("Path Separator: " + pathSeparator + "<br>");
+        out.println("Line Separator: " + lineSeparator + "<br>");
+        out.println("User Name: " + userName + "<br>");
+        out.println("User Home: " + userHome + "<br>");
+        out.println("User Dir: " + userDir + "<br>");
+    %>
+    <a href="./employee-dashboard.jsp">Go back</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
 </html>

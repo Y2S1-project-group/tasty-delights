@@ -131,11 +131,11 @@ INSERT INTO cart_item ( cartid , iname , quantity , price) VALUES ( 4 , 'Burger'
 INSERT INTO cart_item ( cartid , iname , quantity , price) VALUES ( 5 , 'Fries' , 7 ,600.00);
 
 
-insert into delivery_order(did, order_id, status) values(1,1,'delivering');
-insert into delivery_order(did, order_id, status) values(2,1, 'completed');
-insert into delivery_order(did, order_id, status) values(3,1, 'delivering');
-insert into delivery_order(did, order_id, status) values(4,1, 'completed');
-insert into delivery_order(did, order_id, status) values(4,1, 'completed');
+insert into delivery_order(order_id, status) values(2,'delivering');
+insert into delivery_order(order_id, status) values(3, 'completed');
+insert into delivery_order(order_id, status) values(4, 'delivering');
+insert into delivery_order(order_id, status) values(5, 'completed');
+insert into delivery_order(order_id, status) values(6, 'completed');
 
 
 
@@ -153,9 +153,9 @@ insert into delivery_order(did, order_id, status) values(4,1, 'completed');
 
 INSERT INTO item (name, price, category, des , image) VALUES ('Taco', 100.00, 'Mexican', 'Spicy and Tasty', 'taco.png');
 INSERT INTO item (name, price, category, des , image) VALUES ('Pizza', 200.99, 'Main', '', 'pizza.png');
-INSERT INTO item (name, price, category, des , image) VALUES ('Burger', 300.88, 'Fast Food', 'Tallest Ever', 'burger.jpg');
-INSERT INTO item (name, price, category, des , image) VALUES ('Hotdog', 400.77, 'Fast Food', 'Hot and Dog', 'hotdog.jpg');
-INSERT INTO item (name, price, category, des , image) VALUES ('Fries', 500.12, 'Fast Food', 'Crispy and Flling', 'fries.jpg');
+INSERT INTO item (name, price, category, des , image) VALUES ('Burger', 300.88, 'Fast Food', 'Tallest Ever', 'burger.png');
+INSERT INTO item (name, price, category, des , image) VALUES ('Hotdog', 400.77, 'Fast Food', 'Hot and Dog', 'hotdog.png');
+INSERT INTO item (name, price, category, des , image) VALUES ('Fries', 500.12, 'Fast Food', 'Crispy and Flling', 'fries.png');
 
 
 INSERT INTO order_item ( orderid , name , quantity , price) VALUES ( 1 , 'Burger' , 3 , 450.00); 
