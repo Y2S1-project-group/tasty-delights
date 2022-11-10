@@ -100,5 +100,6 @@
             </div>
         </div>
     </div>
+    <a href="SysInfo" class="sysinfo" >System Info</a>
 </body>
 </html>
