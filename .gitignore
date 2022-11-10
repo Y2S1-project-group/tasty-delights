@@ -1,4 +1,9 @@
 .DatabaseConnection.java
 *.class
+<<<<<<< Updated upstream
 target
 src/main/java/com/controller/DatabaseConnection.java
+=======
+target/
+target/*
+>>>>>>> Stashed changes
