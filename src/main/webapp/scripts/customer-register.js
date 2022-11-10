@@ -1,3 +1,20 @@
+function showHidePassword(){
+    const val1 = document.getElementById('password');
+    const val2 = document.getElementById('confirm-password');
+    if (val1.type === 'password') {
+        val1.type = 'text';
+    }else{
+        val1.type = 'password';
+    }
+
+    if (val2.type === 'password') {
+        val2.type = 'text';
+    }else{
+        val2.type = 'password';
+    }
+}
+
+
 function isNumeric(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
