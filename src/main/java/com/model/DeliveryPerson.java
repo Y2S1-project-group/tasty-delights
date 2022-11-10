@@ -18,8 +18,8 @@ public class DeliveryPerson extends Person{
         this.username = username;
         this.password = password;
     }
-    
-    public DeliveryPerson(int id, String password, String name, int age, String contact, String email, String username, String password1) {
+
+    public DeliveryPerson(int id, String name, int age, String contact, String email) {
         super(id);
         this.name = name;
         this.age = age;
