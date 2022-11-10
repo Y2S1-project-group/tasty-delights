@@ -1,8 +1,6 @@
 package com.util;
 
 import com.controller.DatabaseConnection;
-import com.model.DeliveryPerson;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
