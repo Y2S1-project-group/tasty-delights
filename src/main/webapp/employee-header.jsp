@@ -24,7 +24,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="ManageCustomerGet">Manage User</a>
+        <a class="nav-link" href="ManageCustomerGet">Manage Customer</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="ItemsGet">Manage Foods</a>
@@ -34,6 +34,9 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="">Manage Delivery Persons</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="employee-change-password.jsp">Change Password</a>
       </li>
     </ul>
     <ul class="navbar-nav mr-right">

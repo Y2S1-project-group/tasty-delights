@@ -1,6 +1,7 @@
 package com.controller.customer;
 
 import com.util.CustomerDatabaseUtil;
+import com.util.CartDatabaseUtil;
 import com.util.PasswordUtil;
 
 import javax.servlet.*;
@@ -15,6 +16,7 @@ public class CustomerCreateAccount extends HttpServlet {
         try{
             PasswordUtil passwordUtil = new PasswordUtil();
             CustomerDatabaseUtil cusUtil = new CustomerDatabaseUtil();
+            CartDatabaseUtil newcart = new CartDatabaseUtil();
 
             String firstName = request.getParameter("fname");
             String lastName = request.getParameter("lname");
@@ -23,6 +25,8 @@ public class CustomerCreateAccount extends HttpServlet {
             String contact = request.getParameter("contact");
             String address = request.getParameter("address");
             String hashPassword = passwordUtil.encryptString(request.getParameter("password"));
+
+            newcart.addNewCart(firstName,lastName,email);
 
             if(cusUtil.createCustomer(firstName, lastName, age, email, contact, address, hashPassword)){
                 response.sendRedirect("./customer-login.jsp");
