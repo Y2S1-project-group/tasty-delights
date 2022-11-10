@@ -39,6 +39,7 @@
       <th scope="col">Email</th>
       <th scope="col">Contact</th>
       <th scope="col">Address</th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
@@ -47,10 +48,11 @@
                     out.print("<tr>" +
                         "<td>" + customers.get(i).getId() + "</td>" +
                         "<td>" + customers.get(i).getFname() + "</td>" +
-                        "<td>" + customers.get(i).getEmail() + "</td>" +
                         "<td>" + customers.get(i).getLname() + "</td>" +
+                        "<td>" + customers.get(i).getEmail() + "</td>" +
                         "<td>" + customers.get(i).getContact() + "</td>" +
                         "<td>" + customers.get(i).getAddress() + "</td>" +
+                        "<td><a class='btn btn-success' href='CustomerProfileAdmin?id=" + customers.get(i).getId() + "'>View Profile</a></td>" +
                         "</tr>");
                 }
         out.print("</tbody></table>");
@@ -59,6 +61,37 @@
       <p class="text-center">No customers!</p>
     </div>
       <%}%>
+        <%
+        try {
+            String prepareStatus = (String) request.getAttribute("empCusUpdateStatus");
+            if(!prepareStatus.equals(null)){
+                if(prepareStatus.equalsIgnoreCase("success")){
+    %>
+      <script>
+        swal({
+          title: "Customer details updated!",
+          icon: "success",
+          button: "Ok",
+        });
+      </script>
+        <%
+                }else{
+    %>
+      <script>
+        swal({
+          title: "Customer details not updated!!",
+          icon: "error",
+          button: "Ok",
+        });
+      </script>
+        <%
+                }
+            }
+            request.removeAttribute("empCusUpdateStatus");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    %>
 </div>
 </body>
 </html>

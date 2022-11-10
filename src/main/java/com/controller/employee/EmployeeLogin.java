@@ -3,6 +3,7 @@ package com.controller.employee;
 import com.util.EmployeeDatabaseUtil;
 import com.interfaces.EmployeeDatabase;
 import com.util.StatsDatabaseUtil;
+import javax.servlet.http.Cookie;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -26,18 +27,26 @@ public class EmployeeLogin extends HttpServlet {
             if(flag == true){
                 HttpSession session = request.getSession();
                 session.setAttribute("username", username);
+                response.setContentType("text/html");
 
                 StatsDatabaseUtil statsDatabaseUtil = new StatsDatabaseUtil();
-                request.setAttribute("totalCustomers", statsDatabaseUtil.totalCustomers());
-                request.setAttribute("totalListedItems", statsDatabaseUtil.totalListedItems());
-                request.setAttribute("totalSales", statsDatabaseUtil.totalSales());
-                request.setAttribute("pendingOrdersCount", statsDatabaseUtil.pendingOrdersCount());
-                request.setAttribute("preparingOrderCount", statsDatabaseUtil.preparingOrderCount());
-                request.setAttribute("deliveringOrderCount", statsDatabaseUtil.deliveringOrderCount());
-                request.setAttribute("currentTime", statsDatabaseUtil.getCurrentTime());
+                Cookie totalCustomers = new Cookie("totalCustomers", String.valueOf(statsDatabaseUtil.totalCustomers()));
+                Cookie totalListedItems = new Cookie("totalListedItems", String.valueOf(statsDatabaseUtil.totalListedItems()));
+                Cookie totalSales = new Cookie("totalSales", String.valueOf(statsDatabaseUtil.totalSales()));
+                Cookie pendingOrdersCount = new Cookie("pendingOrdersCount", String.valueOf(statsDatabaseUtil.pendingOrdersCount()));
+                Cookie preparingOrderCount = new Cookie("preparingOrderCount", String.valueOf(statsDatabaseUtil.preparingOrderCount()));
+                Cookie deliveringOrderCount = new Cookie("deliveringOrderCount", String.valueOf(statsDatabaseUtil.deliveringOrderCount()));
+                Cookie currentTime = new Cookie("currentTime", statsDatabaseUtil.getCurrentTime());
 
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("./employee-dashboard.jsp");
-                requestDispatcher.forward(request, response);
+                response.addCookie(totalCustomers);
+                response.addCookie(totalListedItems);
+                response.addCookie(totalSales);
+                response.addCookie(pendingOrdersCount);
+                response.addCookie(preparingOrderCount);
+                response.addCookie(deliveringOrderCount);
+                response.addCookie(currentTime);
+
+                response.sendRedirect("./employee-dashboard.jsp");
             }else{
                 request.setAttribute("loginError", "loginError");
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("./employee.jsp");

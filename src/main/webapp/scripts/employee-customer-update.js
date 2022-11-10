@@ -1,20 +1,3 @@
-function showHidePassword(){
-    const val1 = document.getElementById('password');
-    const val2 = document.getElementById('confirm-password');
-    if (val1.type === 'password') {
-        val1.type = 'text';
-    }else{
-        val1.type = 'password';
-    }
-
-    if (val2.type === 'password') {
-        val2.type = 'text';
-    }else{
-        val2.type = 'password';
-    }
-}
-
-
 function isNumeric(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
@@ -27,8 +10,6 @@ function validateForm(){
     let email = document.forms["create-account-form"]["email"].value;
     let phoneNumber = document.forms["create-account-form"]["contact"].value;
     let address = document.forms["create-account-form"]["address"].value;
-    let password = document.forms["create-account-form"]["password"].value;
-    let confirmPassword = document.forms["create-account-form"]["confirm-password"].value;
 
     // input fields
     let userFName = document.getElementById("fname");
@@ -37,8 +18,6 @@ function validateForm(){
     let userEmail = document.getElementById("email");
     let userPhone = document.getElementById("contact");
     let userAddress = document.getElementById("address");
-    let userPass = document.getElementById("password");
-    let userConfirmPass = document.getElementById("confirm-password");
 
     // error paragraphs
     let errorFName = document.getElementById("error-fname");
@@ -47,9 +26,6 @@ function validateForm(){
     let errorEmail = document.getElementById("error-email");
     let errorPhone = document.getElementById("error-contact");
     let errorAddress = document.getElementById("error-address");
-    let errorPass = document.getElementById("error-password");
-    let errorConfirmPass = document.getElementById("error-confirm-password");
-    let passwordMismatch = document.getElementById("error-pass-mismatch");
 
     // regex for email validation
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -156,52 +132,6 @@ function validateForm(){
         errorAddress.innerHTML = "";
         userAddress.style.border = "1px solid green";
         errorAddress.style.color = "";
-    }
-
-    // password validation
-    if(password.length == 0){
-        errorPass.innerHTML = "Enter Password!";
-        userPass.style.border = "1px solid red";
-        errorPass.style.color = "red";
-        error = true;
-    }else if(password.length > 0 && password.length < 8){
-        errorPass.innerHTML = "Password Should Be Minimum 8 Characters!";
-        userPass.style.border = "1px solid red";
-        errorPass.style.color = "red";
-        error = true;
-    } else{
-        errorPass.innerHTML = "";
-        userPass.style.border = "1px solid green";
-        errorPass.style.color = "";
-    }
-
-    // confirm password validation
-    if(confirmPassword.length == 0){
-        errorConfirmPass.innerHTML = "Enter Password!";
-        userConfirmPass.style.border = "1px solid red";
-        errorConfirmPass.style.color = "red";
-        error = true;
-    }else if(confirmPassword.length > 0 && confirmPassword.length < 8){
-        errorConfirmPass.innerHTML = "Password Should Be Minimum 8 Characters!";
-        userConfirmPass.style.border = "1px solid red";
-        errorConfirmPass.style.color = "red";
-        error = true;
-    } else{
-        errorConfirmPass.innerHTML = "";
-        userConfirmPass.style.border = "1px solid green";
-        errorConfirmPass.style.color = "";
-    }
-
-    // check equality of password and confirm password
-    if(password !== confirmPassword){
-        passwordMismatch.innerHTML = "Password and Confirm Password Should Be Same!";
-        passwordMismatch.style.color = "red";
-        userPass.style.border = "1px solid red";
-        userConfirmPass.style.border = "1px solid red";
-        errorConfirmPass.style.color = "red";
-        error = true;
-    }else{
-        passwordMismatch.innerHTML = "";
     }
 
     if(error){

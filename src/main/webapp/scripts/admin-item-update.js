@@ -1,16 +1,16 @@
 function validateForm(){
-    let itemName = document.forms["update-item"]["name"].value;
-    let price = document.forms["update-item"]["price"].value;
-    let image = document.forms["update-item"]["item-image"].value;
-    let description = document.forms["update-item"]["description"].value;
-    let category = document.forms["update-item"]["category"].value;
+    let itemName    = document.forms["update-item"]["item-name"].value;
+    let price       = document.forms["update-item"]["item-price"].value;
+    let image       = document.forms["update-item"]["item-image"].value;
+    let description = document.forms["update-item"]["item-description"].value;
+    let category    = document.forms["update-item"]["item-category"].value;
 
 
-    let messageName = document.getElementById("error-name");
-    let messageImage = document.getElementById("error-image");
-    let messagePrice = document.getElementById("error-price");
-    let messageDescription = document.getElementById("error-description");
-    let messageCategory = document.getElementById("error-category");
+    let messageName         = document.getElementById("error-name");
+    let messageImage        = document.getElementById("error-image");
+    let messagePrice        = document.getElementById("error-price");
+    let messageDescription  = document.getElementById("error-description");
+    let messageCategory     = document.getElementById("error-category");
 
     let error = false;
 

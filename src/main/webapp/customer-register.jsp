@@ -65,7 +65,11 @@
                                     <p class = "error-message" id="error-confirm-password"></p>
                                     <p class = "error-message" id="error-pass-mismatch"></p>
                                 </div>
-
+                                <div class="row">
+                                    <div class="col-12 text-left">
+                                        <input type="checkbox" onclick="showHidePassword()"> Show Password
+                                    </div>
+                                </div>
                                 <div>
                                     <input class="btn btn-primary btn-lg px-5" type="submit" value="Register">
                                 </div>

@@ -29,11 +29,11 @@
 <div class="container">
   <form name="reset-form" onsubmit="return validateForm();" action="EmployeeChangePassword" method="POST">
     <div class="form-group">
-      <input class="form-control" type="password" name="password" id="password" placeholder="Enter password">
+      <input class="form-control" type="password" name="password" id="password" placeholder="Enter new password">
       <p class = "error-message" id="error-password"></p>
     </div>
     <div class="form-group">
-      <input class="form-control" type="password" name="re-password" id="re-password" placeholder="Enter password again">
+      <input class="form-control" type="password" name="re-password" id="re-password" placeholder="Enter new password again">
       <p class = "error-message" id="error-re-password"></p>
       <p class = "error-message" id="error-mismatch"></p>
     </div>

@@ -205,6 +205,7 @@
                 <ul class="list-inline quicklinks">
                     <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
                     <li class="list-inline-item"><a href="#">Terms of Use</a></li>
+                    <li class="list-inline-item"><a href="employee.jsp">Admin Login</a></li>
                 </ul>
             </div>
         </div>
@@ -214,29 +215,6 @@
 <a href="<%= request.getContextPath() %>/cart.jsp">cart</a>
 <a href="employee.jsp">Employee Login</a>
 <a href="ItemsGet">Admin Items</a>
-
-<div class="modal fade text-center portfolio-modal" role="dialog" tabindex="-1" id="portfolioModal1">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="text-muted item-intro">Lorem ipsum dolor sit amet consectetur.</p><img class="img-fluid d-block mx-auto" src="assets/img/portfolio/1-full.jpg">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-unstyled">
-                                <li>Date: January 2017</li>
-                                <li>Client: Threads</li>
-                                <li>Category: Illustration</li>
-                            </ul><button class="btn btn-primary" type="button" data-bs-dismiss="modal"><i class="fa fa-times"></i><span>&nbsp;Close Project</span></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 </body>
 </html>

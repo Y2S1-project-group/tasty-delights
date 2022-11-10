@@ -4,10 +4,7 @@ import com.controller.DatabaseConnection;
 import com.interfaces.CustomerDatabase;
 import com.model.Customer;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class CustomerDatabaseUtil implements CustomerDatabase {
@@ -139,6 +136,59 @@ public class CustomerDatabaseUtil implements CustomerDatabase {
             int count = stmt.executeUpdate();
 
             if(count == 1){
+                return true;
+            }
+            return false;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public Customer getCustomer(String cid) {
+        try {
+            DatabaseConnection object = DatabaseConnection.getInstance();
+            Connection conn = object.getConnection();
+            Statement st = conn.createStatement();
+            String query = String.format("select * from customer where id = " + cid + ";");
+            ResultSet rs = st.executeQuery(query);
+
+            int id = 0;
+            String fname = null;
+            String lname = null;
+            String email = null;
+            String contact = null;
+            String address = null;
+            int age = 0;
+            while (rs.next()) {
+                id = rs.getInt("id");
+                fname = rs.getString("fname");
+                lname = rs.getString("lname");
+                email = rs.getString("email");
+                contact = rs.getString("contact");
+                address = rs.getString("address");
+                age = rs.getInt("age");
+            }
+
+            Customer customer = new Customer(id, fname, lname, email, contact, address, age);
+            rs.close();
+            return customer;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public boolean updateCustomer(String cid, String firstName, String lastName, String age, String email, String contact, String address){
+        try{
+            DatabaseConnection object = DatabaseConnection.getInstance();
+            Connection conn = object.getConnection();
+
+            String sql = "update customer set fname = '%s', lname = '%s', age = '%s', email = '%s', contact = '%s', address = '%s' where id = '%s';";
+            Statement st = conn.createStatement();
+            String query = String.format(sql, firstName, lastName, age, email, contact, address, cid);
+            int status = st.executeUpdate(query);
+            if(status == 1){
                 return true;
             }
             return false;

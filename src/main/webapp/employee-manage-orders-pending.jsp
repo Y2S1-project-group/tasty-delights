@@ -46,7 +46,6 @@
         <tbody>
         <%
             for(int i = 0; i < orders.size(); i++) {
-                if(orders.get(i).getStatus().equals("pending")){
                     out.print("<tr>" +
                             "<td>" + orders.get(i).getId() + "</td>" +
                             "<td>" + orders.get(i).getCusid() + "</td>" +
@@ -59,7 +58,6 @@
                                 "<a class='mBtn btn btn-danger'href='ManageOrderDelete?id=" + orders.get(i).getId() + "'>Delete</a>" +
                             "</td>" +
                             "</tr>");
-                }
             }
             out.print("</tbody></table>");
     }else{ %>
