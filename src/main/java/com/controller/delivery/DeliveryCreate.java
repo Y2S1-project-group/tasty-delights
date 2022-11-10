@@ -1,5 +1,6 @@
 package com.controller.delivery;
 
+import com.util.DeliveryPersonDatabaseUtil;
 import com.util.ItemDatabaseUtil;
 
 import javax.servlet.RequestDispatcher;
@@ -18,22 +19,23 @@ public class DeliveryCreate extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
-            ItemDatabaseUtil itemCreate = new ItemDatabaseUtil();
+            DeliveryPersonDatabaseUtil deliveryCreate = new DeliveryPersonDatabaseUtil();
 
             String name = request.getParameter("item-name");
-            double price = Double.parseDouble(request.getParameter("item-price"));
-            String image = request.getParameter("item-image");
-            String description = request.getParameter("item-description");
-            String category = request.getParameter("item-category");
+            double age = Double.parseDouble(request.getParameter("item-age"));
+            String contact = request.getParameter("item-contact");
+            String email = request.getParameter("item-email");
+            String username = request.getParameter("item-username");
+            String password = request.getParameter("item-password");
 
-            if (itemCreate.createItems(name, price, image)){
+            if (deliveryCreate.addDeliveryPerson(name, age,contact, email, username, password)){
                 request.setAttribute("createStatus", "success");
             }else{
                 request.setAttribute("createStatus", "fail");
 
             }
 
-            RequestDispatcher dis = request.getRequestDispatcher("ItemsGet");
+            RequestDispatcher dis = request.getRequestDispatcher("DeliveryGet");
             dis.forward(request, response);
         }catch (Exception e){
             e.printStackTrace();

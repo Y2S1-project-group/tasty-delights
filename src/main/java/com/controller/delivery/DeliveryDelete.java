@@ -1,5 +1,6 @@
 package com.controller.delivery;
 
+import com.util.DeliveryPersonDatabaseUtil;
 import com.util.ItemDatabaseUtil;
 
 import javax.servlet.RequestDispatcher;
@@ -17,8 +18,8 @@ public class DeliveryDelete extends HttpServlet {
         try{
             int id = Integer.parseInt(request.getParameter("id"));
 
-            ItemDatabaseUtil itemUpdate = new ItemDatabaseUtil();
-            if(itemUpdate.deleteAnItem(id)){
+            DeliveryPersonDatabaseUtil deliveryUpdate = new DeliveryPersonDatabaseUtil();
+            if(deliveryUpdate.deleteADelivery(id)){
                 request.setAttribute("deleteStatus", "success");
             }else{
                 request.setAttribute("deleteStatus", "fail");
