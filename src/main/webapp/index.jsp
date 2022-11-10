@@ -188,6 +188,7 @@
                     <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
                     <li class="list-inline-item"><a href="#">Terms of Use</a></li>
                     <li class="list-inline-item"><a href="employee.jsp">Admin Login</a></li>
+                    <li class="list-inline-item"><a href="delivery-person.jsp">DP Login</a></li>
                 </ul>
             </div>
         </div>
