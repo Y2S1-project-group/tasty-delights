@@ -36,7 +36,7 @@ public class DeliveryPersonDatabaseUtil implements DeliveryPersonDatabase {
             DatabaseConnection object = DatabaseConnection.getInstance();
             Connection conn = object.getConnection();
             Statement st = conn.createStatement();
-            String query = String.format("select * from delivery_person");
+            String query = "select * from delivery_person";
             ResultSet rs = st.executeQuery(query);
             while(rs.next()) {
                 int id = rs.getInt("id");
@@ -44,7 +44,7 @@ public class DeliveryPersonDatabaseUtil implements DeliveryPersonDatabase {
                 int age = rs.getInt("age");
                 String email = rs.getString("email");
                 String contact = rs.getString("contact");
-                String username = rs.getString("username");
+                String username = rs.getString("user_name");
                 String password = rs.getString("password");
 
                 DeliveryPerson temp;
@@ -57,13 +57,13 @@ public class DeliveryPersonDatabaseUtil implements DeliveryPersonDatabase {
         }
         return deliveryPersons;
     }
-    
+
     public boolean addDeliveryPerson(String name , int age, String contact , String email ,String username,  String password ) {
         try{
             DatabaseConnection object = DatabaseConnection.getInstance();
             Connection conn = object.getConnection();
             Statement st = conn.createStatement();
-            String query = String.format("insert into delivery_person (name, age, contact, email, username , password) values ('%s' , %d , '%s' ,'%s', '%s' )", name , age , contact , email , username,  password );
+            String query = String.format("insert into delivery_person (name, age, email, contact, user_name , password) values ('%s' , %d , '%s' ,'%s', '%s', '%s' )", name , age ,  email ,contact, username,  password );
             int count = st.executeUpdate(query);
             if(count == 1){
                 return true;
@@ -74,4 +74,19 @@ public class DeliveryPersonDatabaseUtil implements DeliveryPersonDatabase {
         return false;
     }
 
+    public boolean deleteADelivery(int id) {
+        try{
+            DatabaseConnection object = DatabaseConnection.getInstance();
+            Connection conn = object.getConnection();
+            Statement st = conn.createStatement();
+            String query = String.format("delete from delivery_person where id = %d", id);
+            int count = st.executeUpdate(query);
+            if(count == 1){
+                return true;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

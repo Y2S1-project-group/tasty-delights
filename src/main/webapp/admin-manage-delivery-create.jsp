@@ -29,7 +29,7 @@
     //}
 %>
 <div class="create-form">
-    <form name="create-item" onsubmit="return validateForm();" action="ItemsCreate" method="get">
+    <form name="create-item" onsubmit="return validateForm();" action="DeliveryCreate" method="get">
 <%
     out.print(
             "<div>" +

@@ -22,15 +22,17 @@ public class DeliveryCreate extends HttpServlet {
             DeliveryPersonDatabaseUtil deliveryCreate = new DeliveryPersonDatabaseUtil();
 
             String name = request.getParameter("item-name");
-            double age = Double.parseDouble(request.getParameter("item-age"));
+            int age = Integer.parseInt(request.getParameter("item-age"));
             String contact = request.getParameter("item-contact");
             String email = request.getParameter("item-email");
             String username = request.getParameter("item-username");
             String password = request.getParameter("item-password");
 
             if (deliveryCreate.addDeliveryPerson(name, age,contact, email, username, password)){
+                System.out.println("Delivery Person Added");
                 request.setAttribute("createStatus", "success");
             }else{
+                System.out.println("Delivery Person Not Added");
                 request.setAttribute("createStatus", "fail");
 
             }

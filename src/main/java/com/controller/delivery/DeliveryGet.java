@@ -22,6 +22,7 @@ public class DeliveryGet extends HttpServlet {
         try{
             DeliveryPersonDatabaseUtil deliveryProcess = new DeliveryPersonDatabaseUtil();
             Dperson = deliveryProcess.getDeliveryPersons();
+
             request.setAttribute("Dperson", Dperson);
 
             RequestDispatcher dis = request.getRequestDispatcher("./admin-manage-delivery.jsp");

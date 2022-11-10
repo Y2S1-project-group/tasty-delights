@@ -71,7 +71,7 @@
             out.print("</tbody></table>");
     }else{ %>
         <div class="container alert alert-primary" role="alert">
-            <p class="text-center">No Items!</p>
+            <p class="text-center">No Delivery Persons!</p>
         </div>
             <% } %>
 </div>
