@@ -1,8 +1,9 @@
 package com.util;
 
 import com.controller.DatabaseConnection;
-import com.interfaces.DeliveryOrder;
-import com.model.Order;
+import com.interfaces.DeliveryOrderDatabase;
+import com.model.DeliveryOrder;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,9 +11,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class DeliveryOrderDatabaseUtil implements DeliveryOrder {
+public class DeliveryOrderDatabaseUtil implements DeliveryOrderDatabase {
 
-    @Override
     public boolean addOrderToDelivery(int did, int orderId) {
         try{
             DatabaseConnection object = DatabaseConnection.getInstance();
@@ -31,8 +31,7 @@ public class DeliveryOrderDatabaseUtil implements DeliveryOrder {
         return false;
     }
 
-    @Override
-    public ArrayList <DeliveryOrder> getDeliveryOrders(){
+    public ArrayList<DeliveryOrder> getDeliveryOrders(){
         ArrayList<DeliveryOrder> deliveryOrders = new ArrayList<DeliveryOrder>();
         try {
             DatabaseConnection object = DatabaseConnection.getInstance();
@@ -44,7 +43,8 @@ public class DeliveryOrderDatabaseUtil implements DeliveryOrder {
                 int orderId = rs.getInt("order_id");
                 int deliveryPersonId = rs.getInt("did");
                 String status = rs.getString("status");
-                DeliveryOrder order = new DeliveryOrder(orderId, deliveryOrders, status);
+                DeliveryOrder order = new DeliveryOrder(orderId, deliveryPersonId, status);
+                deliveryOrders.add(order);
             }
             rs.close();
         }catch (Exception e){
