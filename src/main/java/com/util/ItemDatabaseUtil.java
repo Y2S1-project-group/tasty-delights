@@ -64,7 +64,7 @@ public class ItemDatabaseUtil{
         return temp;
     }
 
-    public boolean updateAnItem (int id, String name, int quantity, String description, String category, double price , String image) {
+    public boolean updateAnItem (int id, String name, String description, String category, double price , String image) {
         try{
             DatabaseConnection object = DatabaseConnection.getInstance();
             Connection conn = object.getConnection();
@@ -101,6 +101,23 @@ public class ItemDatabaseUtil{
             Connection conn = object.getConnection();
             Statement st = conn.createStatement();
             String query = String.format("insert into item (name, category, des, price, image) values ('" + name + "', '" + category + "','" + description + "', '" + price + "', '" + image + "')");
+            int count = st.executeUpdate(query);
+            if(count == 1){
+                return true;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    // Overloaded functions for creating an item
+    public boolean createItems(String name, double price , String image) {
+        try{
+            DatabaseConnection object = DatabaseConnection.getInstance();
+            Connection conn = object.getConnection();
+            Statement st = conn.createStatement();
+            String query = String.format("insert into item (name, price, image) values ('" + name + "','" + price + "', '" + image + "')");
             int count = st.executeUpdate(query);
             if(count == 1){
                 return true;

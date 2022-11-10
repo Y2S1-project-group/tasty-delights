@@ -34,6 +34,26 @@
         if (session.getAttribute("username") == null) {
             response.sendRedirect("./employee.jsp");
         }
+
+        int totalCustomers = 0;
+        int totalListedItems = 0;
+        double totalSales = 0;
+        int pendingOrdersCount = 0;
+        int preparingOrderCount = 0;
+        int deliveringOrderCount = 0;
+        String currentTime = "";
+        try {
+            totalCustomers = (int) request.getAttribute("totalCustomers");
+            totalListedItems = (int) request.getAttribute("totalListedItems");
+            totalSales = (double) request.getAttribute("totalSales");
+            pendingOrdersCount = (int) request.getAttribute("pendingOrdersCount");
+            preparingOrderCount = (int) request.getAttribute("preparingOrderCount");
+            deliveringOrderCount = (int) request.getAttribute("deliveringOrderCount");
+            currentTime = request.getAttribute("currentTime").toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     %>
     <div class="container main-container">
         <div class="alert-container alert alert-primary" role="alert">
@@ -43,29 +63,29 @@
         <div class="card-deck">
             <div class="card">
                 <div class="card-body">
-                    <h2 class="card-title text-center">Card title</h2>
-                    <h4 class="text-danger text-center">Card title</h4>
+                    <h2 class="card-title text-center">Total Customers</h2>
+                    <h4 class="text-danger text-center"><% out.print(totalCustomers); %></h4>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
+                    <small class="text-muted">Last updated: <% out.print(currentTime); %></small>
                 </div>
             </div>
             <div class="card">
                 <div class="card-body">
-                    <h2 class="card-title text-center">Card title</h2>
-                    <h4 class="text-danger text-center">Card title</h4>
+                    <h2 class="card-title text-center">Total Listed Items</h2>
+                    <h4 class="text-danger text-center"><% out.print(totalListedItems); %></h4>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
+                    <small class="text-muted">Last updated: <% out.print(currentTime); %></small>
                 </div>
             </div>
             <div class="card">
                 <div class="card-body">
-                    <h2 class="card-title text-center">Card title</h2>
-                    <h4 class="text-danger text-center">Card title</h4>
+                    <h2 class="card-title text-center">Total Sales</h2>
+                    <h4 class="text-danger text-center">Rs: <% out.print(totalSales); %></h4>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
+                    <small class="text-muted">Last updated: <% out.print(currentTime); %></small>
                 </div>
             </div>
         </div>
@@ -73,32 +93,33 @@
         <div class="card-deck">
             <div class="card">
                 <div class="card-body">
-                    <h2 class="card-title text-center">Card title</h2>
-                    <h4 class="text-danger text-center">Card title</h4>
+                    <h2 class="card-title text-center">Pending Orders Count</h2>
+                    <h4 class="text-danger text-center"><% out.print(pendingOrdersCount); %></h4>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
+                    <small class="text-muted">Last updated: <% out.print(currentTime); %></small>
                 </div>
             </div>
             <div class="card">
                 <div class="card-body">
-                    <h2 class="card-title text-center">Card title</h2>
-                    <h4 class="text-danger text-center">Card title</h4>
+                    <h2 class="card-title text-center">Preparing Order Count</h2>
+                    <h4 class="text-danger text-center"><% out.print(preparingOrderCount); %></h4>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
+                    <small class="text-muted">Last updated: <% out.print(currentTime); %></small>
                 </div>
             </div>
             <div class="card">
                 <div class="card-body">
-                    <h2 class="card-title text-center">Card title</h2>
-                    <h4 class="text-danger text-center">Card title</h4>
+                    <h2 class="card-title text-center">Delivering Order Count</h2>
+                    <h4 class="text-danger text-center"><% out.print(deliveringOrderCount); %></h4>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
+                    <small class="text-muted">Last updated: <% out.print(currentTime); %></small>
                 </div>
             </div>
         </div>
     </div>
+    <a href="SysInfo" class="sysinfo" >System Info</a>
 </body>
 </html>

@@ -5,9 +5,11 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.ArrayList;
+import javax.servlet.http.HttpSession;
 
 import com.util.CartDatabaseUtil;
 import com.model.CartItem;
+import com.mysql.cj.Session;
 
 @WebServlet(name = "cart", value = "/carttemp")
 public class Cart extends HttpServlet {
@@ -18,13 +20,12 @@ public class Cart extends HttpServlet {
         CartDatabaseUtil cart = new CartDatabaseUtil();
         int cartid = 0;
         try {
-            cartid = cart.getCartId(1); // sessions
+            HttpSession session = request.getSession();
+            cartid = cart.getCartId((Integer) session.getAttribute("cid"));
+            System.out.println((Integer) session.getAttribute("cid"));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
-        ArrayList<CartItem> disCart =  cart.displayCart(cartid);
-        request.setAttribute("cart", disCart);
 
         RequestDispatcher dis = request.getRequestDispatcher("./cart.jsp");
         dis.forward(request, response);

@@ -25,7 +25,7 @@ public class CustomerLogin extends HttpServlet {
                 session.setAttribute("firstname", cusDB.getCustomerFirstName(email));
                 session.setAttribute("lastname", cusDB.getCustomerLastName(email));
                 session.setAttribute("cid", cusDB.getCustomerID(email));
-                response.sendRedirect("./home.jsp");
+                response.sendRedirect("./index.jsp");
             }else{
                 response.sendRedirect("./customer-login.jsp");
             }

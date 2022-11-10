@@ -9,6 +9,14 @@ public class Customer {
     private String contact;
     private String address;
 
+    public Customer(int id, String fname, String lname, String email, String contact, String address) {
+        this.id = id;
+        this.fname = fname;
+        this.lname = lname;
+        this.email = email;
+        this.contact = contact;
+        this.address = address;
+    }
     public Customer(int id, String fname, String lname, String password, String email, String contact, String address) {
         this.id = id;
         this.fname = fname;
