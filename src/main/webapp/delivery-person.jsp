@@ -32,7 +32,7 @@
 
                             <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
 
-                            <form name="login-form" action="deliveryPersonLogin" method="post" onsubmit="return validateForm();">
+                            <form name="login-form" action="deliveryPersonLogin" method="post" onsubmit="">
                                 <p class="mb-2 error-message login-invalid" id="error-login">Invalid login credentials!</p>
 
                                 <div class="form-outline mb-4">

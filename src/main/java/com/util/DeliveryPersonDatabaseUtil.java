@@ -17,7 +17,7 @@ public class DeliveryPersonDatabaseUtil implements DeliveryPersonDatabase {
             DatabaseConnection object = DatabaseConnection.getInstance();
             Connection conn = object.getConnection();
             Statement st = conn.createStatement();
-            String query = String.format("select * from delivery_person where email = '%s' and password = '%s'", email, passwordUtil.encryptString(password));
+            String query = String.format("select * from delivery_person where email = '%s' and password = '%s'", email, password);
             ResultSet rs = st.executeQuery(query);
             rs.next();
             int count = rs.getRow();
