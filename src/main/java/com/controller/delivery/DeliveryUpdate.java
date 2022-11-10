@@ -1,6 +1,9 @@
 package com.controller.delivery;
 
+import com.model.DeliveryPerson;
 import com.model.Item;
+import com.util.DeliveryOrderDatabaseUtil;
+import com.util.DeliveryPersonDatabaseUtil;
 import com.util.ItemDatabaseUtil;
 
 import javax.servlet.RequestDispatcher;
@@ -17,11 +20,11 @@ public class DeliveryUpdate extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
             int itemId = Integer.parseInt(request.getParameter("id"));
-            ItemDatabaseUtil itemProcess = new ItemDatabaseUtil();
-            Item items = itemProcess.getAnItem(itemId);
-            request.setAttribute("items", items);
+            DeliveryPersonDatabaseUtil deliveryProcess = new DeliveryPersonDatabaseUtil();
+            DeliveryPerson Dperson = deliveryProcess.getAnDelivery(itemId);
+            request.setAttribute("Dperson", Dperson);
 
-            RequestDispatcher dis = request.getRequestDispatcher("./admin-manage-items-update.jsp");
+            RequestDispatcher dis = request.getRequestDispatcher("./admin-manage-delivery-update.jsp");
             dis.forward(request, response);
         }catch (Exception e){
             e.printStackTrace();

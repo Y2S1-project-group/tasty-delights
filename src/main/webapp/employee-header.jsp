@@ -30,7 +30,7 @@
         <a class="nav-link" href="ManageOrdersGet">Manage Orders</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="">Manage Delivery Persons</a>
+        <a class="nav-link" href="DeliveryGet">Manage Delivery Persons</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="ManageCustomerGet">Manage Customer</a>

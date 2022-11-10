@@ -1,5 +1,6 @@
 <%@ page import="com.model.Item" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.model.DeliveryPerson" %><%--
   Created by IntelliJ IDEA.
   User: Pasindu Dinal
   Date: 11/01/2022
@@ -27,35 +28,40 @@
     //}
 %>
 <div class="create-form">
-    <form name="update-item" onsubmit="return validateForm();" action="ItemsUpdateRedirect" method="get" >
+    <form name="update-item" onsubmit="return validateForm();" action="DeliveryUpdateRedirect" method="get" >
 <%
-    Item item =  (Item) request.getAttribute("items");
+    DeliveryPerson Dperson =  (DeliveryPerson) request.getAttribute("Dperson");
     out.print(
             "<div class='form-group'>" +
-                        "<input class='create-form' name='id' type='text' value='" + item.getId() + "' hidden>" +
+                        "<input class='create-form' name='id' type='text' value='" + Dperson.getId() + "' hidden>" +
                         "<label for='item-name'>Name:</label> </br>"+
-                        "<input id='update-name' class='item-create-form' name='item-name' type='text' value='" + item.getName() + "' >" +
+                        "<input id='update-name' class='item-create-form' name='item-name' type='text' value='" + Dperson.getName() + "' >" +
                         "<p id='error-name'></p>" +
 
                     "</div>" +
                     "<div class='form-group'>" +
                         "<label for='price'>Price:</label> </br>"+
-                        "<input id='update-price' class='item-create-form' name='item-price' type='text' value='" + item.getPrice() + "'>" +
+                        "<input id='update-price' class='item-create-form' name='item-age' type='text' value='" + Dperson.getAge() + "'>" +
                         "<p id='error-price'></p>" +
                     "</div>" +
                     "<div class='form-group'>" +
                         "<label for='description'>Description:</label> </br>"+
-                        "<input id='update-description' class='item-create-form' name='item-description' type='text' value='" + item.getDescription() + "'>" +
+                        "<input id='update-description' class='item-create-form' name='item-email' type='text' value='" + Dperson.getEmail() + "'>" +
                         "<p id='error-description'></p>" +
                     "</div>" +
                     "<div class='form-group'>" +
                         "<label for='category'>Category:</label> </br>"+
-                        "<input id='update-category' class='item-create-form' name='item-category' type='text' value='" + item.getCategory() + "'>" +
+                        "<input id='update-category' class='item-create-form' name='item-contact' type='text' value='" + Dperson.getContact() + "'>" +
                         "<p id='error-category'></p>" +
                     "</div>" +
                     "<div class='form-group'>" +
                         "<label for='image'>Image:</label> </br>"+
-                        "<input id='update-image' class='item-create-form' name='item-image' type='text' value='" + item.getImage() + "'>" +
+                        "<input id='update-image' class='item-create-form' name='item-username' type='text' value='" + Dperson.getUsername() + "'>" +
+                        "<p id='error-image'></p>" +
+                    "</div>" +
+                    "<div class='form-group'>" +
+                        "<label for='image'>Image:</label> </br>"+
+                        "<input id='update-image' class='item-create-form' name='item-passwrod' type='text' value='" + Dperson.getPassword() + "'>" +
                         "<p id='error-image'></p>" +
                     "</div>" +
                         "<input type='submit' class='btn btn-primary create-item-button' value='Update'></form> " +

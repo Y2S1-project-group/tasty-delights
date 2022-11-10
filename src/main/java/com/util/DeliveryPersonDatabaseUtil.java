@@ -89,4 +89,29 @@ public class DeliveryPersonDatabaseUtil implements DeliveryPersonDatabase {
         }
         return false;
     }
+
+    public DeliveryPerson getAnDelivery(int itemId) {
+        DeliveryPerson deliveryPerson = null;
+        try {
+            DatabaseConnection object = DatabaseConnection.getInstance();
+            Connection conn = object.getConnection();
+            Statement st = conn.createStatement();
+            String query = String.format("select * from delivery_person where id = %d", itemId);
+            ResultSet rs = st.executeQuery(query);
+            rs.next();
+            int id = rs.getInt("id");
+            String name = rs.getString("name");
+            int age = rs.getInt("age");
+            String email = rs.getString("email");
+            String contact = rs.getString("contact");
+            String username = rs.getString("user_name");
+            String password = rs.getString("password");
+
+            deliveryPerson = new DeliveryPerson(id, name, age, contact, email);
+
+        }catch (Exception e){
+            e.printStackTrace();
+    }
+        return deliveryPerson;
+    }
 }
