@@ -99,8 +99,8 @@
                 </div>
             </div>
         </div>
+        <a href="SysInfo" class="sysinfo text-justify" >System Info</a>
     </div>
     <script src="scripts/employee-dashboard.js"></script>
-    <a href="SysInfo" class="sysinfo" >System Info</a>
 </body>
 </html>

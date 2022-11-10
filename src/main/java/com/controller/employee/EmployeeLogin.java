@@ -27,9 +27,9 @@ public class EmployeeLogin extends HttpServlet {
             if(flag == true){
                 HttpSession session = request.getSession();
                 session.setAttribute("username", username);
+                response.setContentType("text/html");
 
                 StatsDatabaseUtil statsDatabaseUtil = new StatsDatabaseUtil();
-
                 Cookie totalCustomers = new Cookie("totalCustomers", String.valueOf(statsDatabaseUtil.totalCustomers()));
                 Cookie totalListedItems = new Cookie("totalListedItems", String.valueOf(statsDatabaseUtil.totalListedItems()));
                 Cookie totalSales = new Cookie("totalSales", String.valueOf(statsDatabaseUtil.totalSales()));
@@ -38,7 +38,6 @@ public class EmployeeLogin extends HttpServlet {
                 Cookie deliveringOrderCount = new Cookie("deliveringOrderCount", String.valueOf(statsDatabaseUtil.deliveringOrderCount()));
                 Cookie currentTime = new Cookie("currentTime", statsDatabaseUtil.getCurrentTime());
 
-                response.setContentType("text/html");
                 response.addCookie(totalCustomers);
                 response.addCookie(totalListedItems);
                 response.addCookie(totalSales);
@@ -47,8 +46,7 @@ public class EmployeeLogin extends HttpServlet {
                 response.addCookie(deliveringOrderCount);
                 response.addCookie(currentTime);
 
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("./employee-dashboard.jsp");
-                requestDispatcher.forward(request, response);
+                response.sendRedirect("./employee-dashboard.jsp");
             }else{
                 request.setAttribute("loginError", "loginError");
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("./employee.jsp");

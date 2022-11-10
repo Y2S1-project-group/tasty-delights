@@ -12,7 +12,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
-
+<script>
+    function showHidePassword(){
+        const val = document.getElementById('login-password');
+        if (val.type === 'password') {
+            val.type = 'text';
+        }else{
+            val.type = 'password';
+        }
+    }
+</script>
 <section class="vh-100 gradient-custom">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -35,7 +44,11 @@
                                     <input name = "password" id = "login-password" type="password" class="form-control form-control-lg" placeholder="Enter password"/>
                                     <p class="mb-2 error-message" id="error-pass"></p>
                                 </div>
-
+                                <div class="form-outline mb-4">
+                                    <div class="col-12 text-left">
+                                        <input type="checkbox" onclick="showHidePassword()"> Show Password
+                                    </div>
+                                </div>
                                 <div>
                                     <input class="btn btn-primary btn-lg px-5" type="submit" value="Login">
                                 </div>
