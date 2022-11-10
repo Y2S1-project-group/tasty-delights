@@ -32,7 +32,7 @@
 
                             <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
 
-                            <form name="login-form" action="DeliveryordersSet" method="post" onsubmit="">
+                            <form name="login-form" action="DeliveryPersonLogin" method="post" onsubmit="">
                                 <p class="mb-2 error-message login-invalid" id="error-login">Invalid login credentials!</p>
 
                                 <div class="form-outline mb-4">
@@ -53,12 +53,7 @@
                                     <input class="btn btn-primary btn-lg px-5" type="submit" value="Login">
                                 </div>
                             </form>
-
-
                         </div>
-
-
-
                         <div>
                             <a href="./index.jsp" class="fw-bold">Go back</a>
                         </div>

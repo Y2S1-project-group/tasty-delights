@@ -1,4 +1,4 @@
-package com.controller;
+package com.controller.deliveryperson;
 
 import com.util.DeliveryPersonDatabaseUtil;
 import javax.servlet.*;
@@ -7,7 +7,7 @@ import javax.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "deliveryPersonLogin", value = "/deliveryPersonLogin")
+@WebServlet(name = "DeliveryPersonLogin", value = "/DeliveryPersonLogin")
 public class DeliveryPersonLogin extends HttpServlet {
 
     @Override
@@ -22,7 +22,7 @@ public class DeliveryPersonLogin extends HttpServlet {
             if(flag == true){
                 javax.servlet.http.HttpSession session = request.getSession();
                 session.setAttribute("email", email);
-                response.sendRedirect("./delivery-person-dashboard.jsp");
+                response.sendRedirect("DeliveryOrdersGet");
             }else{
                 response.sendRedirect("./delivery-person.jsp");
             }

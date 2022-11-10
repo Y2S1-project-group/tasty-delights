@@ -16,10 +16,12 @@ public class EmployeeChangePassword extends HttpServlet {
         EmployeeDatabaseUtil employeeDatabaseUtil = new EmployeeDatabaseUtil();
         boolean status = employeeDatabaseUtil.updatePassword(password);
         if(status == true){
+            System.out.println("success");
             request.setAttribute("resetPasswordStatus", "success");
             RequestDispatcher dis = request.getRequestDispatcher("./employee-change-password.jsp");
             dis.forward(request, response);
         }else{
+            System.out.println("fail");
             request.setAttribute("resetPasswordStatus", "fail");
             RequestDispatcher dis = request.getRequestDispatcher("./employee-change-password.jsp");
             dis.forward(request, response);

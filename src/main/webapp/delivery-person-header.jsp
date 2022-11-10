@@ -20,12 +20,12 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="DeliverOrdersGet">Deliver Orders</a>
+        <a class="nav-link" href="DeliveryOrdersGet">Deliver Orders</a>
       </li>
     </ul>
     <ul class="navbar-nav mr-right">
       <li class="nav-item">
-        <a class="nav-link"><form action="" method="post"><input type="submit" value="Logout" class="remove-button text-danger"></form></a>
+        <a class="nav-link"><form action="DeliveryPersonLogOut" method="get"><input type="submit" value="Logout" class="remove-button text-danger"></form></a>
       </li>
     </ul>
   </div>

@@ -82,8 +82,6 @@
     e.printStackTrace();
   }
 %>
-
-
 <script src="scripts/employee-change-password.js"></script>
 </body>
 </html>

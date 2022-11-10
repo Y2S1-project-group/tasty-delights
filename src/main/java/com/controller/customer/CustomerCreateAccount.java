@@ -26,10 +26,8 @@ public class CustomerCreateAccount extends HttpServlet {
             String address = request.getParameter("address");
             String hashPassword = passwordUtil.encryptString(request.getParameter("password"));
 
-
-
             if(cusUtil.createCustomer(firstName, lastName, age, email, contact, address, hashPassword)){
-                newcart.addNewCart(firstName,lastName,email);
+//                newcart.addNewCart(firstName,lastName,email);
                 response.sendRedirect("./customer-login.jsp");
             }
         }catch (Exception e){

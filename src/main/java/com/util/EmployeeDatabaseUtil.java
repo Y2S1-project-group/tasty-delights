@@ -14,7 +14,7 @@ public class EmployeeDatabaseUtil implements EmployeeDatabase {
             DatabaseConnection object = DatabaseConnection.getInstance();
             Connection conn = object.getConnection();
             Statement st = conn.createStatement();
-            String query = String.format("select * from Admin where username = '%s' and password = '%s'", username, passwordUtil.encryptString(password));
+            String query = String.format("select * from Admin where username = '%s' and password = '%s'", username,  passwordUtil.encryptString(password));
             ResultSet rs = st.executeQuery(query);
             rs.next();
             int count = rs.getRow();
@@ -35,7 +35,7 @@ public class EmployeeDatabaseUtil implements EmployeeDatabase {
             Connection conn = object.getConnection();
             Statement st = conn.createStatement();
             String hashPassword = passwordUtil.encryptString(password);
-            String query = String.format("update Admin set password='%s' where username = 'Admin'", hashPassword);
+            String query = String.format("update Admin set password='" + hashPassword + "' where username = 'Admin'");
             int status = st.executeUpdate(query);
             if(status == 1){
                 return true;
