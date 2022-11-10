@@ -12,12 +12,30 @@ import java.util.ArrayList;
 
 public class OrderDatabaseUtil implements OrderDatabase {
 
-    public boolean insertOrderItem(String name , int quantity , double price){
+
+    public int getLastOrderId(){
+        int id = 0;
+        try {
+            DatabaseConnection object = DatabaseConnection.getInstance();
+            Connection conn = object.getConnection();
+            Statement st = conn.createStatement();
+            String query = String.format("SELECT id FROM orders ORDER BY ID DESC LIMIT 1");
+            ResultSet rs = st.executeQuery(query);
+            if(rs.next()) {
+                id = rs.getInt("id");
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return id;
+    }
+    public boolean insertOrderItem( int id , String name , int quantity , double price){
         try{
             DatabaseConnection object = DatabaseConnection.getInstance();
             Connection conn = object.getConnection();
             Statement st = conn.createStatement();
-            String query = String.format("INSERT INTO orderItem ( name , quantity , price ) values('%s' , %d , %f)", name ,quantity ,price  );
+            String query = String.format("INSERT INTO order_item ( orderid ,name , quantity , price ) values( %d , '%s' , %d , %f)", id ,name , quantity , price );
             int count = st.executeUpdate(query);
             if(count == 1){
                 return true;
@@ -34,7 +52,7 @@ public class OrderDatabaseUtil implements OrderDatabase {
             DatabaseConnection object = DatabaseConnection.getInstance();
             Connection conn = object.getConnection();
             Statement st = conn.createStatement();
-            String query = String.format("INSERT INTO order ( cusid , status , tprice , orderedtime ) values('%d' , 'pending' , %f , getDate())", cusid ,tprice );
+            String query = String.format("INSERT INTO orders ( cusid , status , tprice , orderedtime ) values(%d , 'pending' , %f , now())", cusid ,tprice );
             int count = st.executeUpdate(query);
             if(count == 1){
                 return true;

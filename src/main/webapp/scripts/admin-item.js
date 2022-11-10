@@ -1,15 +1,15 @@
 function validateForm(){
-    let itemName = document.forms["create-item"]["name"].value;
-    let price = document.forms["create-item"]["price"].value;
+    let name  = document.forms["create-item"]["item-name"].value;
+    let price = document.forms["create-item"]["item-price"].value;
     let image = document.forms["create-item"]["item-image"].value;
 
     let messageName = document.getElementById("error-name");
-    let messageImage = document.getElementById("error-quantity");
+    let messageImage = document.getElementById("error-image");
     let messagePrice = document.getElementById("error-price");
 
     let error = false;
 
-    if(itemName.length === 0){
+    if(name.length === 0){
         messageName.innerHTML = "Enter item name!";
         messageName.style.color = "red";
         error = true;

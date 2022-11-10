@@ -103,16 +103,18 @@
                     "data-bs-toggle = 'modal' >" +
                     "<div class='portfolio-hover' >" +
                         "<div class='portfolio-hover-content' ><i class='fa fa-plus fa-3x' ></i ></div >" +
-                    "</div ><img class='img-fluid' src = '"+ homepageitems.get(i).getImage()+"' >" +
+                    "</div ><img class='img-fluid' src ='assets/"+ homepageitems.get(i).getImage()+"' >" +
                     "</a >" +
                         "<div class='portfolio-caption' >" +
                             "<h4 >" + homepageitems.get(i).getName() + "</h4 >" +
-                         "<p class='text-muted' >" + homepageitems.get(i).getPrice()+ "</p >" +
+                         "<p class='text-muted' >" + Math.round(homepageitems.get(i).getPrice())+ "</p >" +
                         "</div > " +
                     "</div>");
+                System.out.println(homepageitems.get(i).getImage());
             }
         %>
         </div>
+
     </div>
 </section>
 <section class="bg-light" id="team">
@@ -125,21 +127,21 @@
         </div>
         <div class="row">
             <div class="col-sm-4">
-                <div class="team-member"><img class="rounded-circle mx-auto" src="assets/img/temp.webp">
+                <div class="team-member"><img class="rounded-circle mx-auto" src="assets/img/team/1.jpg">
                     <h4>Kay Garland</h4>
-                    <p class="text-muted">chef</p>
+                    <p class="text-muted">First time in Tasty Delights and YOU have to go! It's the cutest little spot with amazing food. The Tasty Delights is to die for. IT WAS FIRE!! The service we received was so amazing and we will definitely be back again. They made us feel welcomed and gave us an amazing experience.</p>
                 </div>
             </div>
             <div class="col-sm-4">
-                <div class="team-member"><img class="rounded-circle mx-auto" src="assets/img/temp.webp">
+                <div class="team-member"><img class="rounded-circle mx-auto" src="assets/img/team/2.jpg">
                     <h4>Larry Parker</h4>
-                    <p class="text-muted">chef</p>
+                    <p class="text-muted">It’s a great experience. The ambiance is very welcoming and charming. Amazing wines, food and service. Staff are extremely knowledgeable and make great recommendations.</p>
                 </div>
             </div>
             <div class="col-sm-4">
-                <div class="team-member"><img class="rounded-circle mx-auto" src="assets/img/temp.webp">
+                <div class="team-member"><img class="rounded-circle mx-auto" src="assets/img/team/3.jpg">
                     <h4>Diana Pertersen</h4>
-                    <p class="text-muted">chef</p>
+                    <p class="text-muted">This cozy restaurant has left the best impressions! Hospitable hosts, delicious dishes, beautiful presentation, wide wine list and wonderful dessert. I recommend to everyone! I would like to come back here again and again.</p>
                 </div>
             </div>
         </div>
@@ -155,12 +157,12 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <form id="contactForm" name="contactForm" novalidate="novalidate">
+                <form id="contactForm" action="ContactForm" name="contactForm" method="POST" >
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="form-group mb-3"><input class="form-control" type="text" id="name" placeholder="Your Name *" required=""><small class="form-text text-danger flex-grow-1 help-block lead"></small></div>
-                            <div class="form-group mb-3"><input class="form-control" type="email" id="email" placeholder="Your Email *" required=""><small class="form-text text-danger help-block lead"></small></div>
-                            <div class="form-group mb-3"><input class="form-control" type="tel" placeholder="Your Phone *" required=""><small class="form-text text-danger help-block lead"></small></div>
+                            <div class="form-group mb-3"><input name="name" class="form-control" type="text" id="name" placeholder="Your Name *" required><small class="form-text text-danger flex-grow-1 help-block lead"></small></div>
+                            <div class="form-group mb-3"><input name="email" class="form-control" type="email" id="email" placeholder="Your Email *" required><small class="form-text text-danger help-block lead"></small></div>
+                            <div class="form-group mb-3"><input name="" class="form-control" type="tel" id="phone"  placeholder="Your Phone *" required><small class="form-text text-danger help-block lead"></small></div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group mb-3"><textarea class="form-control" id="message" placeholder="Your Message *" required=""></textarea><small class="form-text text-danger help-block lead"></small></div>

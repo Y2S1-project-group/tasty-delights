@@ -101,5 +101,6 @@
         </div>
     </div>
     <script src="scripts/employee-dashboard.js"></script>
+    <a href="SysInfo" class="sysinfo" >System Info</a>
 </body>
 </html>
